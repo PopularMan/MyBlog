@@ -5,11 +5,104 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/layui/css/layui.css" media="all">
-<title>Insert title here</title>
+
+<title>个人博客系统</title>
+<style>
+.fixed{
+    position: fixed;
+	top: 0px;
+	left:0px;
+	right:0px;
+	border-bottom: solid 1px #ccc;
+    box-shadow:1px 1px 2px #ccc;
+    border-radius: 2px;
+	z-index: 999;
+	background:#393D49;
+	
+}
+#mobile4 a{color:white;!improtant}
+.layui-layout-left{left:300px;}
+.blog-block-sm{margin-left:10px;}
+.blog-block{opacity: 0.8;border-left:1px solid #009E94;background-color:#fff;height:200px;margin-top: 8px;;}
+.layui-row:hover{cursor: pointer;height:200px;border-left:5px solid #009E94;transition: all .2s}
+</style>
 </head>
-<body>
-<div class="layui-layout layui-layout-admin">
-  <div class="layui-header">
+<body style="background: url('resource/img/demo-1-bg.jpg');">
+  
+    
+			   <!-- 页面导航栏开始 -->
+			  <div class="fixed">
+					    <div class="layui-col-md9">
+					       <img src="${pageContext.request.contextPath}/resource/layui/images/logo.png">
+					       <ul class="layui-nav layui-layout-left" >
+						      <li class="layui-nav-item"><a href="">个人博客</a></li>
+						      <li class="layui-nav-item"><a href="">技术文章</a></li>
+						      <li class="layui-nav-item"><a href="">代码片段</a></li>
+						      <li class="layui-nav-item">
+						        <a href="javascript:;">暂未开放</a>
+						        <dl class="layui-nav-child">
+						          <dd><a href="">暂未开放</a></dd>
+						          <dd><a href="">暂未开放</a></dd>
+						          <dd><a href="">暂未开放</a></dd>
+						        </dl>
+						      </li>
+					    </div>
+					    <div class="layui-col-md3">
+					       <iframe allowtransparency="true" style="float:right" frameborder="0" width="410" height="64" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=2&bd=0&k=000000&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=410&h=64&align=center"></iframe>
+			            </div>
+			   </div>
+			  <!-- 页面导航栏结束 -->
+           
+            <!-- 一般是页面主题部分 -->
+            <div class="layui-container" style="padding:10px;margin-top:70px;">  
+            
+                   
+                      <!-- 第一行 -->
+		             <div clsss="layui-row" >  
+			               <blockquote class="layui-elem-quote">
+			               
+			                   <div style="position:relative">My Blog For Cc <a href="#" class="layui-layout-right">个人资料入口<i class="layui-icon" style="font-size: 14px; color: #009688;">&#xe612;</i> </a></div>
+			                  
+			                </blockquote>
+		             </div>  
+		              <!-- 第一行 --> 
+				     <div class="layui-row" >
+					      <div class="layui-col-md9 blog-block layui-anim layui-anim-upbit" >
+					         2/3 
+					      </div>
+					      <div class="layui-col-md3 blog-block layui-anim layui-anim-upbit" style="maigin-left:2px;">
+					        1/3
+					      </div>
+				    </div>
+				    <div class="layui-row" >
+				      <div class="layui-col-md9 blog-block layui-anim layui-anim-upbit" >
+				         2/3 
+				      </div>
+				      <div class="layui-col-md3 blog-block layui-anim layui-anim-upbit" style="maigin-left:2px;">
+				        1/3
+				      </div>
+				    </div>
+				          <!-- 第一行 --> 
+				     <div class="layui-row" >
+					      <div class="layui-col-md9 blog-block layui-anim layui-anim-upbit" >
+					         2/3 
+					      </div>
+					      <div class="layui-col-md3 blog-block layui-anim layui-anim-upbit" style="maigin-left:2px;">
+					        1/3
+					      </div>
+				    </div>
+				    <div class="layui-row" >
+				      <div class="layui-col-md9 blog-block layui-anim layui-anim-upbit" >
+				         2/3 
+				      </div>
+				      <div class="layui-col-md3 blog-block layui-anim layui-anim-upbit" style="maigin-left:2px;">
+				        1/3
+				      </div>
+				    </div>
+			
+				  </div>
+<!-- <div class="layui-layout layui-layout-admin"> -->
+  <%-- <div class="layui-header">
     <div class="layui-logo">layui 后台布局</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
@@ -136,8 +229,7 @@
     © layui.com - 底部固定区域
   </div>
 </div>
-<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
+
 <script>
 layui.use('util', function(){
     var util = layui.util;
@@ -163,7 +255,7 @@ layui.use('table', function(){
 	  table.render({
 	    elem: '#test', //指定原始表格元素选择器（推荐id选择器）
 	    height: 300, //容器高度
-	    url:"getUser",
+	    url:"",
 	    cols: [[
 	    	  {checkbox: true,width:100,align:"center"},
 	
@@ -210,6 +302,29 @@ layui.use('table', function(){
   <a class="layui-btn layui-btn-mini" lay-event="detail">查看</a>
   <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+</script> --%>
+
+<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
+<script>
+
+layui.use(['element','layer','table'], function(){
+	  var element = layui.element; 
+	  var layer=layui.layer;
+	  //进入页面进行提示
+	  layer.confirm('您是如何看待Layui?',
+			  {
+		          btn: ['美观','大方'] //按钮
+		      }, function(){
+		          layer.msg('的确很美观', {icon: 1});
+		      }, function(){
+				  layer.msg('也可以这样', {
+				    time: 20000, //20s后自动关闭
+				    btn: ['明白了', '知道了']
+				  });
+		});
+});
+
 </script>
 </body>
 </html>
