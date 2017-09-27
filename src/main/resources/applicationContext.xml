@@ -23,7 +23,7 @@
         <!-- 导入DAO配置 -->    
         <import resource="spring-dao.xml"/>    
             
-        <!-- 导入数据库配置 -->    
+        <!-- 导入事物 -->    
         <import resource="spring-db.xml"/>    
             
         <!-- 导入数据库配置 -->    
