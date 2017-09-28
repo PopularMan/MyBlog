@@ -122,18 +122,29 @@
 			  
            </pre>     
       </div>
+      <div class="layui-row" >
+           
+		      	<!-- 分页部分 -->
+				<div id="blog-page" style="padding-left:30%"></div>
+      </div>
 </body>
 <script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
 <script>
-layui.use(['code','layer'], function(){ //加载code模块
+layui.use(['code','layer','laypage'], function(){ //加载code模块
 	 var $=layui.jquery;
+     var laypage = layui.laypage;
+	 laypage.render({
+			    elem: 'blog-page' //注意，这里的 test1 是 ID，不用加 # 号
+			    ,count: 50 //数据总数，从服务端得到
+	 });
 	 var layer= parent.layer;
 	  layui.code({
 		  elem:"pre",
 	      title: 'Excel导入导出',
 	      height: '200px',
 	      encode: true
-	  }); //引用code方法
+	  });
+	  //引用code方法
 	  $("#codeAddNew").on("click",function(){
 		  layer.open({
 			  type: 1,

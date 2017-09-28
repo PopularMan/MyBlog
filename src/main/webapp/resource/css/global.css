@@ -19,6 +19,20 @@ font-family: KaiTi;
 display: inline-block;
 z-index: 10
 }
+.incospan{
+display: inline-block;
+width: 30px;
+height: 30px;
+border-radius: 15px;
+text-align: center;
+line-height: 30px;
+margin-left:30px;
+}
+.aircle-information{list-style: none;font-size:16px;font-family: "kaiti";}
+.aircle-information li{display: block;width: 100%;height:30px;margin-top: 8px;padding-left:20%;border-bottom: 1px solid #eee}
+.aircle-information li:hover{color:#009E94}
+.layui-nav .layui-this:after {background-color:#009E94}
+.layui-nav-bar{background-color:#009E94}
 .layui-elem-quote{background-color:#009688;color:white;}
 #canvanDiv{position: absolute;top: 0px;left:0px;z-index:-100;}
 .layui-layout-left{left:300px;}
@@ -34,8 +48,11 @@ body{background-color: #eee;overflow-y:scroll;overflow-x:hidden}
 .blog-list-item{width:100%;heigtht:100%;padding:10px;}
 .blog-list-item>.blog-list-item-left{width:25%;float: left}
 .blog-list-item>.blog-list-item-right{width:70%;float: left;padding-left: 4%;}
-.blog-list-item>.blog-list-item-right a{font-size:18px;color:white}
+.blog-list-item>.blog-list-item-right a{font-size:18px;color:#009688}
+.blog-list-item>.blog-list-item-right a:hover{color:#eee}
 .blog-list-item>.blog-list-item-right p{font-size: 14px;margin-top: 10px;text-indent: 2em;}
 .blog-list-item>.blog-list-item-left img{width: 100%;height: 150px}
 .blog-list-item>.blog-list-item-footer p{color:#a6a6a6;position: relative;padding:5px;font-size:12px;}
 .blog-list-item>.blog-list-item-footer>p>.spaninfo{float: right;display: inline;width:50px;}
+.blog-footer{width:100%;height:60px;background-color:#009E94 }
+.layui-field-title{padding-left:38%; font-family:KaiTi;font-size:14px;border-top: 1px solid #0064b4}

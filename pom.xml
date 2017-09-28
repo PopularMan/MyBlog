@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ssm.maven</groupId>
-  <artifactId>MavenSSM</artifactId>
+  <artifactId>MyBlog</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>MavenSSM Maven Webapp</name>
+  <name>MyBlog Maven Webapp</name>
   <url>http://maven.apache.org</url>
      <!-- 用来设置版本号 -->    
     <properties>    
@@ -177,7 +177,7 @@
 	</dependency> 
   </dependencies>
   <build>
-    <finalName>MavenSSM</finalName>
+    <finalName>MyBlog</finalName>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

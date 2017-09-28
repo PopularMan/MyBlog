@@ -22,11 +22,11 @@
 	<!-- 页面导航栏开始 -->
 	<div class="fixed">
 		<div class="layui-col-md9">
-			<a href="#" class="title"> Person Blog</a>
+			<a href="#" class="title" style="padding-left:10%"> My Blog</a>
 			<ul class="layui-nav layui-layout-left">
-				<li class="layui-nav-item layui-this"><a href="">个人博客</a></li>
-				<li class="layui-nav-item"><a href="page/timeaxis" target='main'>时间轴</a></li>
-				<li class="layui-nav-item"><a href="page/codeSnippets" target='main'>代码片段</a></li>
+				<li class="layui-nav-item layui-this"><a href="page/PersonBlog" target="main"><i class="fa fa-user fa-fw"></i>个人博客</a></li>
+				<li class="layui-nav-item"><a href="page/timeaxis" target='main'><i class="fa fa-clock-o fa-fw"></i>时间轴</a></li>
+				<li class="layui-nav-item"><a href="page/codeSnippets" target='main'><i class="fa fa-flag fa-fw"></i>代码片段</a></li>
 				<li class="layui-nav-item"><a href="javascript:;">暂未开放</a>
 					<dl class="layui-nav-child">
 						<dd>
@@ -50,39 +50,70 @@
  
 	<!-- 一般是页面主题部分 -->
 	<div class="layui-container" style="padding: 10px; margin-top: 70px;position: relative;">
-	  <!-- 左边部分 -->
-      <div class="blog-left">
-		<iframe src="page/PersonBlog" id="iFrame1" class="iframe" onload="SetWinHeight(this)"  name="main" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="100%" frameborder="0" ></iframe>
-      </div>
-		<!-- 右边部分 -->
+		  <!-- 左边部分 -->
+	      <div class="blog-left">
+			<iframe src="page/PersonBlog" onload="SetWinHeight(this);" id="iFrame1" class="iframe"   name="main" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="100%" frameborder="0" ></iframe>
+	      </div>
+		  <!-- 右边部分 -->
+				
+			<div class="blog-right" >
+			     
+			     <div class="mouduletop animated bounceInRight">
+			          <div class="layui-row">
+			            <blockquote class="layui-elem-quote " style="background-color: #009688"><i class="fa fa-user fa-fw"></i>个人资料</blockquote> 
+			          </div>  
+			          <div class="layui-row">
+			              <img flag=0 style="width:150px;height:150px;margin:10px 25%" id="myimg" class="layui-circle" src="${pageContext.request.contextPath}/resource/img/xls.jpg">              
+			          </div>   
+			          <hr>
+			          <div class="layui-row">
+			               <h2 class="title" style="color:#000000;font-size: bold;margin:5px 23%">My Blog For </h2>
+			          </div>  
+			          <hr>  
+			          <div class="layui-row">
+			             <p>
+			                <span class="incospan"><i class="fa fa-location-arrow fa-2x"></i></span>
+			                <span class="incospan"><i class="fa fa-qq fa-2x"></i></span>
+			                <span class="incospan"><i class="fa fa-envelope fa-2x"></i></span>
+			                <span class="incospan"><i class="fa fa-wechat fa-2x"></i></span>
+			             </p>
+			          </div> 
+			     </div>
+			     <div class="moudulebottom animated bounceInRight">
+			          <div class="layui-row">
+			            <blockquote class="layui-elem-quote " style="background-color: #009688"><i class="fa fa-volume-up"></i>&nbsp;最新资讯</blockquote> 
+			          </div>  
+			          <div class="layui-row">
+			             <ul class="aircle-information">
+			                 <li><i class="fa fa-hand-o-right"></i>这里是文章资讯连接噢！</li>
+			                 <li><i class="fa fa-hand-o-right"></i>这里是文章资讯连接噢！</li>
+			                 <li><i class="fa fa-hand-o-right"></i>这里是文章资讯连接噢！</li>
+			                 <li><i class="fa fa-hand-o-right"></i>这里是文章资讯连接噢！</li>
+			                 <li><i class="fa fa-hand-o-right"></i>这里是文章资讯连接噢！</li>
+			             </ul>
+			          </div>       
+			     </div>
 		
-		<div class="blog-right" >
-		     
-		     <div class="mouduletop animated bounceInRight">
-		          <div class="layui-row">
-		            <blockquote class="layui-elem-quote " style="background-color: #009688">个人博客</blockquote> 
-		          </div>         
-		     </div>
-		     <div class="moudulebottom animated bounceInRight">
-		          <div class="layui-row">
-		            <blockquote class="layui-elem-quote " style="background-color: #009688">最新资讯</blockquote> 
-		          </div>         
-		     </div>
-	
-		
-		</div>
+			
+			</div>
 
-		<!-- 底部分页部分 -->
-		
+			<!-- 清除浮动 -->
+			<div class="clear"></div>
 	
 	</div>
-
-
+	<!-- 容器结束 -->
+    <!-- 底线部分 -->
+    <fieldset class="layui-elem-field layui-field-title">
+      <legend>做人还是有点底线的好！！！</legend>
+    </fieldset>
+    <!-- fotter部分 -->
+	<div class="blog-footer">
 	
+	</div>
 	<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
 	<script>
-	
+	    //设置iframe自动填充高度
 		function SetWinHeight(obj) {
 			var win = obj;
 			if (document.getElementById) {
@@ -98,181 +129,47 @@
 		layui.use([ 'element', 'layer', 'table', 'laypage' ], function() {
 			var element = layui.element;
 			var layer = layui.layer;
-			var laypage = layui.laypage;
-			laypage.render({
-				elem : 'blog-page' //注意，这里的 test1 是 ID，不用加 # 号
-				,
-				count : 50
-			//数据总数，从服务端得到
-			});
+			var $=layui.jquery;
+			$(function(){
+				//图标hover时间
+				var index;
+				$(".incospan").each(function(m,n){
+					$(n).hover(function(){
+						if(m==0){
+							index=layer.tips('鄙人来自河南信阳', this);
+						}
+						if(m==1){
+							index=layer.tips('1255780376', this);
+						}
+						if(m==2){
+							index=layer.tips('15238067632@163.com', this);
+						}
+						if(m==3){
+							index=layer.tips('微信吗？自己猜', this);
+						}			
+					},function(){
+						layer.close(index);
+					})
+				});
+				//图片转换事件
+				$("#myimg").click(function(){
+					if($(this).attr("flag")==0){
+						$(this).removeClass("animated rotateIn");
+						$(this).addClass("animated rotateIn");
+						$(this).attr("src","/MyBlog/resource/img/zgr.jpg");
+						$(this).attr("flag",1);
+					}else{
+						$(this).removeClass("animated rotateIn");
+						$(this).addClass("animated rotateIn");
+						$(this).attr("src","/MyBlog/resource/img/xls.jpg");
+						$(this).attr("flag",0);
+					}
+				});
+				
+		    });
 		});
 	</script>
-	<%-- <!-- canvas动态背景 -->
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resource/js/three.min.js"></script>
-	<script type="text/javascript">
-		var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
 
-		var container;
-		var camera, scene, renderer;
-
-		var particles, particle, count = 0;
-
-		var mouseX = 0, mouseY = 0;
-
-		var windowHalfX = window.innerWidth / 2;
-		var windowHalfY = window.innerHeight / 2;
-
-		init();
-		animate();
-
-		function init() {
-
-			container = document.createElement('div');
-			container.id = "canvanDiv";
-			document.body.appendChild(container);
-
-			camera = new THREE.PerspectiveCamera(75, window.innerWidth
-					/ window.innerHeight, 1, 10000);
-			camera.position.z = 1000;
-
-			scene = new THREE.Scene();
-
-			particles = new Array();
-
-			var PI2 = Math.PI * 2;
-			var material = new THREE.ParticleCanvasMaterial({
-
-				color : 0xffffff,
-				program : function(context) {
-
-					context.beginPath();
-					context.arc(0, 0, 1, 0, PI2, true);
-					context.fill();
-
-				}
-
-			});
-
-			var i = 0;
-
-			for (var ix = 0; ix < AMOUNTX; ix++) {
-
-				for (var iy = 0; iy < AMOUNTY; iy++) {
-
-					particle = particles[i++] = new THREE.Particle(material);
-					particle.position.x = ix * SEPARATION
-							- ((AMOUNTX * SEPARATION) / 2);
-					particle.position.z = iy * SEPARATION
-							- ((AMOUNTY * SEPARATION) / 2);
-					scene.add(particle);
-
-				}
-
-			}
-
-			renderer = new THREE.CanvasRenderer();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			container.appendChild(renderer.domElement);
-
-			document.addEventListener('mousemove', onDocumentMouseMove, false);
-			document
-					.addEventListener('touchstart', onDocumentTouchStart, false);
-			document.addEventListener('touchmove', onDocumentTouchMove, false);
-
-			//
-
-			window.addEventListener('resize', onWindowResize, false);
-
-		}
-
-		function onWindowResize() {
-
-			windowHalfX = window.innerWidth / 2;
-			windowHalfY = window.innerHeight / 2;
-
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize(window.innerWidth, window.innerHeight);
-
-		}
-
-		//
-
-		function onDocumentMouseMove(event) {
-
-			mouseX = event.clientX - windowHalfX;
-			mouseY = event.clientY - windowHalfY;
-
-		}
-
-		function onDocumentTouchStart(event) {
-
-			if (event.touches.length === 1) {
-
-				event.preventDefault();
-
-				mouseX = event.touches[0].pageX - windowHalfX;
-				mouseY = event.touches[0].pageY - windowHalfY;
-
-			}
-
-		}
-
-		function onDocumentTouchMove(event) {
-
-			if (event.touches.length === 1) {
-
-				event.preventDefault();
-
-				mouseX = event.touches[0].pageX - windowHalfX;
-				mouseY = event.touches[0].pageY - windowHalfY;
-
-			}
-
-		}
-
-		//
-
-		function animate() {
-
-			requestAnimationFrame(animate);
-
-			render();
-
-		}
-
-		function render() {
-
-			camera.position.x += (mouseX - camera.position.x) * .05;
-			camera.position.y += (-mouseY - camera.position.y) * .05;
-			camera.lookAt(scene.position);
-
-			var i = 0;
-
-			for (var ix = 0; ix < AMOUNTX; ix++) {
-
-				for (var iy = 0; iy < AMOUNTY; iy++) {
-
-					particle = particles[i++];
-					particle.position.y = (Math.sin((ix + count) * 0.3) * 50)
-							+ (Math.sin((iy + count) * 0.5) * 50);
-					particle.scale.x = particle.scale.y = (Math
-							.sin((ix + count) * 0.3) + 1)
-							* 2 + (Math.sin((iy + count) * 0.5) + 1) * 2;
-
-				}
-
-			}
-
-			renderer.render(scene, camera);
-
-			count += 0.1;
-
-		}
-	</script>
- --%>
 
 </body>
 </html>

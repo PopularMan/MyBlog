@@ -25,7 +25,7 @@
 				<blockquote class="layui-elem-quote animated bounceInLeft">
 
 					<div style="position: relative">
-						My Blog For Cc <a href="#" class="layui-layout-right">个人资料入口<i
+						<i class="fa fa-home"></i>My Blog For Cc <a href="#" class="layui-layout-right">个人资料入口<i
 							class="layui-icon" style="font-size: 14px; color: #2F4056;">&#xe612;</i>
 						</a>
 					</div>
@@ -123,7 +123,7 @@
 				</div>
 		 	</div>
 	
-           <div class="layui-row" >
+           <div class="layui-row animated bounceInLeft" style="height:50px;">
            
 		      	<!-- 分页部分 -->
 				<div id="blog-page" style="padding-left:30%"></div>
@@ -139,10 +139,13 @@
 			var element = layui.element;
 			var layer   = layui.layer;
 			var laypage = layui.laypage;
-		    laypage.render({
+	        var $=layui.jquery;
+	  
+	        laypage.render({
 				    elem: 'blog-page' //注意，这里的 test1 是 ID，不用加 # 号
 				    ,count: 50 //数据总数，从服务端得到
-			});
+			 });
+		
 		});
 	
 	</script>

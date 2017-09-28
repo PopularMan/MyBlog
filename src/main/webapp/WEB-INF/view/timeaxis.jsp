@@ -14,11 +14,14 @@
 	href="${pageContext.request.contextPath}/resource/css/font-awesome.css"
 	media="all">
 <script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resource/css/animate.min.css"
+	media="all">
 <title>项目开发进度时间轴</title>
 </head>
 <body style="background-color:#fff;">
-    <div class="layui-row">
-      	<blockquote class="layui-elem-quote  animated bounceInLeft ">
+    <div class="layui-row animated zoomIn">
+      	<blockquote class="layui-elem-quote ">
 
 					<div style="position: relative">
 						<i class="fa fa-home"></i>时间轴 <a href="#" class="layui-layout-right">个人资料入口<i
@@ -27,8 +30,8 @@
 					</div>
 				</blockquote>
     </div>
-    <div class="layui-row" style="border-radius: 5px;margin-top:10px;">
-		 <ul class="layui-timeline  animated bounceInLeft">
+    <div class="layui-row animated zoomIn" style="border-radius: 5px;margin-top:10px;">
+		 <ul class="layui-timeline">
 		  <li class="layui-timeline-item">
 		    <i class="layui-icon layui-timeline-axis">&#xe60e;</i>
 		    <div class="layui-timeline-content layui-text">
@@ -50,6 +53,17 @@
 		        <li>编写主页面Index,jsp</li>
 		        <li>博客页面，与博客详情页面搭建完成</li>
 		        <li>突然感觉，做这个项目干啥呢，全倒刺前端了，算了明天还是学学QQ互联吧</li>
+		      </ul>
+		    </div>
+		  </li>
+		   <li class="layui-timeline-item">
+		    <i class="layui-icon layui-timeline-axis">&#xe60e;</i>
+		    <div class="layui-timeline-content layui-text">
+		      <h3 class="layui-timeline-title">2017-09-28</h3>
+		      <p>还是前端页面一点点做，后端准备最后再做</p>
+		      <ul>
+		        <li>今天先完成主页面的一些整体 布局完善吧！</li>
+		        <li>表示有点累</li>
 		      </ul>
 		    </div>
 		  </li>
