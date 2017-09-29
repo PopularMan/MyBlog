@@ -29,18 +29,17 @@ line-height: 30px;
 margin-left:30px;
 }
 .aircle-information{list-style: none;font-size:16px;font-family: "kaiti";}
-.aircle-information li{display: block;width: 100%;height:30px;margin-top: 8px;padding-left:20%;border-bottom: 1px solid #eee}
+.aircle-information li{display: block;width: 75%;height:30px;margin-top: 8px;padding-left:15%;border-bottom: 1px solid #eee}
 .aircle-information li:hover{color:#009E94}
 .layui-nav .layui-this:after {background-color:#009E94}
 .layui-nav-bar{background-color:#009E94}
 .layui-elem-quote{background-color:#009688;color:white;}
-#canvanDiv{position: absolute;top: 0px;left:0px;z-index:-100;}
+
 .layui-layout-left{left:300px;}
-.blog-block{border-left:1px solid #009E94;background-color:#fff;border-radius:5px;  height:184px;margin-bottom: 8px;}
+.blog-block{border-left:1px solid #009E94;background-color:#fff;transition: all 0.6s ease-in;border-radius:5px;  height:184px;margin-bottom: 8px;}
 .layui-row:hover{cursor: pointer;transition: all .2s}
-body{background-color: #eee;overflow-y:scroll;overflow-x:hidden}
-.blog-left{width: 70%;float: left;min-height: 600px;}
-.iframe{min-height: 600px}
+body{background-color: black;overflow-y:scroll;overflow-x:hidden}
+.blog-left{width: 70%;float: left;min-height: 600px;max-height: 800px;}
 .blog-right{width: 28%;float: right;margin-left:10px;padding:0px;}
 .blog-right .mouduletop{background-color: #fff;height:400px;border-radius: 5px;box-shadow: 0 1px 8px #a6a6a6;}
 .blog-right .moudulebottom{background-color: #fff;height:260px;border-radius: 5px;box-shadow: 0 1px 8px #a6a6a6;margin-top:10px;}
@@ -54,5 +53,4 @@ body{background-color: #eee;overflow-y:scroll;overflow-x:hidden}
 .blog-list-item>.blog-list-item-left img{width: 100%;height: 150px}
 .blog-list-item>.blog-list-item-footer p{color:#a6a6a6;position: relative;padding:5px;font-size:12px;}
 .blog-list-item>.blog-list-item-footer>p>.spaninfo{float: right;display: inline;width:50px;}
-.blog-footer{width:100%;height:60px;background-color:#009E94 }
-.layui-field-title{padding-left:38%; font-family:KaiTi;font-size:14px;border-top: 1px solid #0064b4}
+.blog-footer{width:100%;height:60px;background-color:#009E94;margin-top:10px;}

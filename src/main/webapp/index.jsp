@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -16,9 +16,19 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resource/css/animate.min.css"
 	media="all">
+<style>
+canvas{
+  position:absolute;
+  top:0;
+  left:0;
+}
+</style>	
+	
 <title>个人博客系统</title>
 </head>
 <body>
+    <!-- canvas -->
+   <canvas id="c"></canvas>
 	<!-- 页面导航栏开始 -->
 	<div class="fixed">
 		<div class="layui-col-md9">
@@ -52,7 +62,7 @@
 	<div class="layui-container" style="padding: 10px; margin-top: 70px;position: relative;">
 		  <!-- 左边部分 -->
 	      <div class="blog-left">
-			<iframe src="page/PersonBlog" onload="SetWinHeight(this);" id="iFrame1" class="iframe"   name="main" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="100%" frameborder="0" ></iframe>
+			<iframe src="page/PersonBlog"   id="iFrame1" class="iframe"   name="main"  frameborder="no" border="0" marginwidth="0" marginheight="0" width= "100%" height= "120%"  style="border:0" scrolling="no" allowtransparency="yes"></iframe>
 	      </div>
 		  <!-- 右边部分 -->
 				
@@ -93,8 +103,6 @@
 			             </ul>
 			          </div>       
 			     </div>
-		
-			
 			</div>
 
 			<!-- 清除浮动 -->
@@ -103,73 +111,16 @@
 	</div>
 	<!-- 容器结束 -->
     <!-- 底线部分 -->
-    <fieldset class="layui-elem-field layui-field-title">
+<!--     <fieldset class="layui-elem-field layui-field-title">
       <legend>做人还是有点底线的好！！！</legend>
-    </fieldset>
+    </fieldset> -->
     <!-- fotter部分 -->
 	<div class="blog-footer">
-	
+	   
 	</div>
 	<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
-	<script>
-	    //设置iframe自动填充高度
-		function SetWinHeight(obj) {
-			var win = obj;
-			if (document.getElementById) {
-				if (win && !window.opera) {
-					if (win.contentDocument
-							&& win.contentDocument.body.offsetHeight)
-						win.height = win.contentDocument.body.offsetHeight;
-					else if (win.Document && win.Document.body.scrollHeight)
-						win.height = win.Document.body.scrollHeight;
-				}
-			}
-		}
-		layui.use([ 'element', 'layer', 'table', 'laypage' ], function() {
-			var element = layui.element;
-			var layer = layui.layer;
-			var $=layui.jquery;
-			$(function(){
-				//图标hover时间
-				var index;
-				$(".incospan").each(function(m,n){
-					$(n).hover(function(){
-						if(m==0){
-							index=layer.tips('鄙人来自河南信阳', this);
-						}
-						if(m==1){
-							index=layer.tips('1255780376', this);
-						}
-						if(m==2){
-							index=layer.tips('15238067632@163.com', this);
-						}
-						if(m==3){
-							index=layer.tips('微信吗？自己猜', this);
-						}			
-					},function(){
-						layer.close(index);
-					})
-				});
-				//图片转换事件
-				$("#myimg").click(function(){
-					if($(this).attr("flag")==0){
-						$(this).removeClass("animated rotateIn");
-						$(this).addClass("animated rotateIn");
-						$(this).attr("src","/MyBlog/resource/img/zgr.jpg");
-						$(this).attr("flag",1);
-					}else{
-						$(this).removeClass("animated rotateIn");
-						$(this).addClass("animated rotateIn");
-						$(this).attr("src","/MyBlog/resource/img/xls.jpg");
-						$(this).attr("flag",0);
-					}
-				});
-				
-		    });
-		});
-	</script>
-
-
+	<script src="${pageContext.request.contextPath}/resource/js/index.js"></script>
+   <script src="${pageContext.request.contextPath}/resource/js/canvas.js"></script>
 </body>
 </html>

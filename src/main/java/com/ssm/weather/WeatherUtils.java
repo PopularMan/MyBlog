@@ -116,5 +116,14 @@ public class WeatherUtils {
     public static void main(String[] args) throws Exception {  
         String weatherInfo = getWeather("…œ∫£");  
         System.out.println(weatherInfo);  
+        short s1=12;
+        short s2=34;
+        s2+=1;
+        s1=(short) (s1+s2);
+        float a=0.123f;
+        int b=1245;
+        float d=a+b;
+        b+=d;
+        b=(int) (b+d);
     }  
 }

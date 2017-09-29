@@ -37,7 +37,7 @@
 				<div class="layui-col-md12 blog-block animated bounceInLeft">				    
 				      <div class="blog-list-item">
 				           <div class="blog-list-item-left">  
-				              <img src="${pageContext.request.contextPath}/resource/img/14a58b48908748169d3db56b901e9cf6.jpg">
+				              <img src="${pageContext.request.contextPath}/resource/img/665f644e43731ff9db3d341da5c827e1.jpg">
 				           </div>
 				           <div class="blog-list-item-right">  
 				                 <h3><span class="layui-badge layui-bg-green">置顶</span><a target="main" href="blogDetail">本站正式成功发布上线！</a></h3>
@@ -134,17 +134,23 @@
 
 </body>
 <script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
+<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
 	<script>
 		layui.use([ 'element', 'layer', 'table','laypage' ], function() {
 			var element = layui.element;
 			var layer   = layui.layer;
 			var laypage = layui.laypage;
 	        var $=layui.jquery;
-	  
+	        //调用分页
 	        laypage.render({
-				    elem: 'blog-page' //注意，这里的 test1 是 ID，不用加 # 号
-				    ,count: 50 //数据总数，从服务端得到
-			 });
+	          elem: 'blog-page',
+	          count:10,
+	          limit:3,
+	          jump: function(obj){
+	        	  console.log("页数"+obj.limit);
+	        	  console.log("页数"+obj.curr);      
+	          }
+	        });
 		
 		});
 	

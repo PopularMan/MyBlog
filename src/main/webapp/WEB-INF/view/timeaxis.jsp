@@ -67,6 +67,17 @@
 		      </ul>
 		    </div>
 		  </li>
+		   <li class="layui-timeline-item">
+		    <i class="layui-icon layui-timeline-axis">&#xe60e;</i>
+		    <div class="layui-timeline-content layui-text">
+		      <h3 class="layui-timeline-title">2017-09-29</h3>
+		      <p>今天暂时先不写代码</p>
+		      <ul>
+		        <li>租了一台服务器，准备先搭建好FTP服务器</li>
+		  
+		      </ul>
+		    </div>
+		  </li>
 
 
 		</ul>
