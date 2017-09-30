@@ -22,5 +22,9 @@ public class PageController {
    public String codeSnippets() {
 	   return "codeSnippets";
    }
+   @RequestMapping("publishBlog")
+   public String publishBlog() {
+	   return "publishBlog";
+   }
  
 }

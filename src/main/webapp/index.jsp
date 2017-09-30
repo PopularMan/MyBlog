@@ -21,6 +21,7 @@ canvas{
   position:absolute;
   top:0;
   left:0;
+  z-index:-100;
 }
 </style>	
 	
@@ -40,7 +41,7 @@ canvas{
 				<li class="layui-nav-item"><a href="javascript:;">暂未开放</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="">暂未开放</a>
+							<a href="page/publishBlog" target='main'>博客发表</a>
 						</dd>
 						<dd>
 							<a href="">暂未开放</a>
@@ -62,7 +63,7 @@ canvas{
 	<div class="layui-container" style="padding: 10px; margin-top: 70px;position: relative;">
 		  <!-- 左边部分 -->
 	      <div class="blog-left">
-			<iframe src="page/PersonBlog"   id="iFrame1" class="iframe"   name="main"  frameborder="no" border="0" marginwidth="0" marginheight="0" width= "100%" height= "120%"  style="border:0" scrolling="no" allowtransparency="yes"></iframe>
+			<iframe src="page/PersonBlog"   id="iFrame1" class="iframe"   name="main"  frameborder="no" border="0" marginwidth="0" marginheight="0" width= "100%" height= "100%"  style="border:0" scrolling="no" allowtransparency="yes"></iframe>
 	      </div>
 		  <!-- 右边部分 -->
 				
@@ -77,7 +78,7 @@ canvas{
 			          </div>   
 			          <hr>
 			          <div class="layui-row">
-			               <h2 class="title" style="color:#000000;font-size: bold;margin:5px 23%">My Blog For </h2>
+			               <h2 class="title" style="color:#000000;font-size: bold;margin:5px 23%">My Blog </h2>
 			          </div>  
 			          <hr>  
 			          <div class="layui-row">
@@ -122,5 +123,12 @@ canvas{
 	<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/js/index.js"></script>
    <script src="${pageContext.request.contextPath}/resource/js/canvas.js"></script>
+   <script>
+       $(function(){
+    	     $(".iframe").height($(window.frames["main"].document).find("body").height()); 
+       });
+  
+ 
+   </script>
 </body>
 </html>

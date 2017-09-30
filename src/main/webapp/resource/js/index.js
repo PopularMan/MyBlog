@@ -1,15 +1,4 @@
-//设置iframe自动填充高度
-function SetWinHeight(obj) {
-	var win = obj;
-	if (document.getElementById) {
-		if (win && !window.opera) {
-			if (win.contentDocument && win.contentDocument.body.offsetHeight)
-				win.height = win.contentDocument.body.offsetHeight;
-			else if (win.Document && win.Document.body.scrollHeight)
-				win.height = win.Document.body.scrollHeight;
-		}
-	}
-}
+
 // 加载layui
 layui.use([ 'element', 'layer', 'table', 'laypage', 'util' ], function() {
 	var element = layui.element;

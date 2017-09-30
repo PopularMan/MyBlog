@@ -92,8 +92,8 @@
 				      </div>
 				</div>
 		 	</div>
-		 	<!-- 第四行 -->
-			<div class="layui-row">
+		 			 <!-- 第三行 -->
+		 <div class="layui-row">
 				<div class="layui-col-md12 blog-block animated bounceInLeft">				    
 				      <div class="blog-list-item">
 				           <div class="blog-list-item-left">  
@@ -122,6 +122,9 @@
 				      </div>
 				</div>
 		 	</div>
+
+
+
 	
            <div class="layui-row animated bounceInLeft" style="height:50px;">
            
@@ -153,6 +156,5 @@
 	        });
 		
 		});
-	
 	</script>
 </html>

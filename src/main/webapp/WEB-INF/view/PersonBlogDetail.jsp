@@ -73,7 +73,8 @@ layui.use('layedit', function(){
   layedit.build('demo',{
 	  height: 180 //设置编辑器高度
   }); //建立编辑器
- 
+  var parnetIframe=window.parent.document.getElementById("iFrame1");
+  $(parnetIframe).height($("body").height());
 });
 </script>
 </html>
