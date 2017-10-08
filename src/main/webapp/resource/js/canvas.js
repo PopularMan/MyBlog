@@ -1,5 +1,6 @@
 var w = c.width = window.innerWidth,
-    h = c.height = window.innerHeight,
+ h = c.height = window.innerHeight,
+
     ctx = c.getContext('2d'),
     
     count = (w*h/3000)|0,
@@ -9,7 +10,6 @@ var w = c.width = window.innerWidth,
     
     particles = [],
     huePart = 360/count;
-
 for(var i = 0; i < count; ++i)
   particles.push(new Particle((huePart*i)|0));
 

@@ -78,6 +78,28 @@
 		      </ul>
 		    </div>
 		  </li>
+		  <li class="layui-timeline-item">
+		    <i class="layui-icon layui-timeline-axis">&#xe60e;</i>
+		    <div class="layui-timeline-content layui-text">
+		      <h3 class="layui-timeline-title">2017-10-03</h3>
+		      <p>半夜心血来操-起来撸代码</p>
+		      <ul>
+		        <li>熟悉使用layui的form空间，</li>
+		  
+		      </ul>
+		    </div>
+		  </li>
+		 <li class="layui-timeline-item">
+		    <i class="layui-icon layui-timeline-axis">&#xe60e;</i>
+		    <div class="layui-timeline-content layui-text">
+		      <h3 class="layui-timeline-title">2017-10-04</h3>
+		      <p>今天比较忙，毕竟中秋</p>
+		      <ul>
+		        <li>随便写点，给博客完善一下吧</li>
+		  
+		      </ul>
+		    </div>
+		  </li>
 
 
 		</ul>

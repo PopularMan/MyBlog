@@ -19,119 +19,36 @@
 	media="all">
 </head>
 <body>
-<div>
+<div style="height:1000px">
+
+         
 	     <!-- 第一行 -->
 			<div clsss="layui-row">
 				<blockquote class="layui-elem-quote animated bounceInLeft">
 
 					<div style="position: relative">
-						<i class="fa fa-home"></i>My Blog For Cc <a href="#" class="layui-layout-right">个人资料入口<i
+						<i class="fa fa-home"></i>   My Blog <a href="#" class="layui-layout-right">个人资料入口<i
 							class="layui-icon" style="font-size: 14px; color: #2F4056;">&#xe612;</i>
 						</a>
 					</div>
-
 				</blockquote>
 			</div>
-			<!-- 第二行内容 -->
-			<div class="layui-row">
-				<div class="layui-col-md12 blog-block animated bounceInLeft">				    
-				      <div class="blog-list-item">
-				           <div class="blog-list-item-left">  
-				              <img src="${pageContext.request.contextPath}/resource/img/665f644e43731ff9db3d341da5c827e1.jpg">
-				           </div>
-				           <div class="blog-list-item-right">  
-				                 <h3><span class="layui-badge layui-bg-green">置顶</span><a target="main" href="blogDetail">本站正式成功发布上线！</a></h3>
-				                 <p>
-				                      1.经过2个月的开发，本站正式发布上线，后续还将会继续开发新的功能，希望大家在浏览本站的同时发现问题还请及时与站长联系哦！      
-				                 </p>
-				           </div>
-				           <!-- 清除浮动 -->
-				           <div class="clear"></div>
-				           <!-- 分割线 --> 
-				           <!-- footer --> 
-				           <div class="blog-list-item-footer">
-				           
-				              <p>
-				                <span><i class="fa fa-clock-o"></i>2017-01-01 14:20</span>
-				                <span class="spaninfo"><i class="fa fa-eye"></i>20</span>
-				                <span class="spaninfo"><i class="fa fa-share"></i>120</span>
-				                <span class="spaninfo"><i class="fa fa-commenting"></i>100</span>
-				              </p>
-				           
-				           </div>       
-				      </div>
-				</div>
-		 	</div>
-		 <!-- 第三行 -->
-		 <div class="layui-row">
-				<div class="layui-col-md12 blog-block animated bounceInLeft">				    
-				      <div class="blog-list-item">
-				           <div class="blog-list-item-left">  
-				              <img src="${pageContext.request.contextPath}/resource/img/14a58b48908748169d3db56b901e9cf6.jpg">
-				           </div>
-				           <div class="blog-list-item-right">  
-				                 <h3><span class="layui-badge layui-bg-green">置顶</span><a target="_blank" href="/articles/detail/5a12e89edad6a00a8f8d9b031d5bad3f">本站正式成功发布上线！</a></h3>
-				                 <p>
-				                      1.经过2个月的开发，本站正式发布上线，后续还将会继续开发新的功能，希望大家在浏览本站的同时发现问题还请及时与站长联系哦！      
-				                 </p>
-				           </div>
-				           <!-- 清除浮动 -->
-				           <div class="clear"></div>
-				           <!-- 分割线 --> 
-				           <!-- footer --> 
-				           <div class="blog-list-item-footer">
-				           
-				              <p>
-				                <span><i class="fa fa-clock-o"></i>2017-01-01 14:20</span>
-				                <span class="spaninfo"><i class="fa fa-eye"></i>20</span>
-				                <span class="spaninfo"><i class="fa fa-share"></i>120</span>
-				                <span class="spaninfo"><i class="fa fa-commenting"></i>100</span>
-				              </p>
-				           
-				           </div>       
-				      </div>
-				</div>
-		 	</div>
-		 			 <!-- 第三行 -->
-		 <div class="layui-row">
-				<div class="layui-col-md12 blog-block animated bounceInLeft">				    
-				      <div class="blog-list-item">
-				           <div class="blog-list-item-left">  
-				              <img src="${pageContext.request.contextPath}/resource/img/14a58b48908748169d3db56b901e9cf6.jpg">
-				           </div>
-				           <div class="blog-list-item-right">  
-				                 <h3><span class="layui-badge layui-bg-green">置顶</span><a target="_blank" href="/articles/detail/5a12e89edad6a00a8f8d9b031d5bad3f">本站正式成功发布上线！</a></h3>
-				                 <p>
-				                      1.经过2个月的开发，本站正式发布上线，后续还将会继续开发新的功能，希望大家在浏览本站的同时发现问题还请及时与站长联系哦！      
-				                 </p>
-				           </div>
-				           <!-- 清除浮动 -->
-				           <div class="clear"></div>
-				           <!-- 分割线 --> 
-				           <!-- footer --> 
-				           <div class="blog-list-item-footer">
-				           
-				              <p>
-				                <span><i class="fa fa-clock-o"></i>2017-01-01 14:20</span>
-				                <span class="spaninfo"><i class="fa fa-eye"></i>20</span>
-				                <span class="spaninfo"><i class="fa fa-share"></i>120</span>
-				                <span class="spaninfo"><i class="fa fa-commenting"></i>100</span>
-				              </p>
-				           
-				           </div>       
-				      </div>
-				</div>
-		 	</div>
+          <div id="content">
+            
+          
+          </div>
 
 
-
-	
-           <div class="layui-row animated bounceInLeft" style="height:50px;">
+      <div class="layui-row animated bounceInLeft" style="height:50px;">
            
 		      	<!-- 分页部分 -->
 				<div id="blog-page" style="padding-left:30%"></div>
-            </div>
-		</div>
+       </div>
+
+	
+</div>
+	
+     
 		 <!-- 左边部分结束 -->
 		
 
@@ -148,10 +65,54 @@
 	        laypage.render({
 	          elem: 'blog-page',
 	          count:10,
-	          limit:3,
+	          limit:4,
 	          jump: function(obj){
 	        	  console.log("页数"+obj.limit);
-	        	  console.log("页数"+obj.curr);      
+	        	  console.log("页数"+obj.curr); 
+	        	  $.ajax({
+	        		  url:"../blog/Blog",
+	        		  type:"get",
+	        		  dataType:"json",
+	        		  async:true,
+	        		  data:{pageNumber:obj.curr,limit:obj.limit},
+	        		  success:function(res){
+	        			  console.log(res);
+	        			  $("#content").html("");
+	        			  //循环数据
+	        			  layui.each(res.data, function(index, item){
+							$("#content").append(
+									'<div class="layui-row">'+
+									 '<div class="layui-col-md12 blog-block animated bounceInLeft">'+			    
+								      '<div class="blog-list-item">'+
+								           '<div class="blog-list-item-left">'+  
+								             ' <img src="${pageContext.request.contextPath}/resource/'+item.blog_coverimage+'">'+
+								          ' </div>'+
+								           '<div class="blog-list-item-right">'+  
+								                '<h3><span class="layui-badge-rim layui-bg-green">顶</span><a target="main" href="blogDetail?id='+item.blog_id+'">'+item.blog_title+'</a></h3>'+
+								                ' <p>'+item.blog_futitle+'</p>'+
+								          '</div>'+
+								          '<div class="clear"></div>'+
+								           '<div class="blog-list-item-footer">'+
+								           
+								              '<p>'+
+								                '<span><i class="fa fa-clock-o"></i>'+item.blog_time+'</span>'+
+								               ' <span class="spaninfo"><i class="fa fa-eye"></i>'+item.blog_eyes+'</span>'+
+								                '<span class="spaninfo"><i class="fa fa-share"></i>0</span>'+
+								                '<span class="spaninfo"><i class="fa fa-commenting"></i>100</span>'+
+								              '</p>'+
+								           
+								           '</div> '+      
+								      '</div>'+
+								'</div>'+
+						 	'</div>');
+							});   
+	        			  laypage.render({
+	        		          elem: 'blog-page',
+	        		          limit:4,
+	        		          count:data.count
+	        		      });
+	        		  }
+	        	  });
 	          }
 	        });
 		

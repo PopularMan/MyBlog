@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
+    <mapper namespace="com.ssm.dao.IBlogDao" >      
+       <insert id="insertBlog" parameterType="com.ssm.dto.Blog" >
+       insert into blogs values(#{blog_id},#{blog_title},#{blog_futitle},#{blog_coverimage},#{blog_type},#{blog_state},#{blog_article},#{blog_author},#{blog_time},#{blog_eyes})
+       </insert>    
+       
+       
+       <select id="getBlogs" resultType="Map" parameterType="com.ssm.util.PageParam" >
+         select  b.blog_id,
+                 b.blog_title,
+                 b.blog_futitle, 
+                 b.blog_coverimage,
+                 t.btype_name,
+                 b.blog_state,
+                 b.blog_article,
+                 b.blog_author,
+                 DATE_FORMAT(b.blog_time,'%y-%m-%d %h:%i ') as blog_time,
+                 b.blog_eyes from blogs b INNER JOIN blog_type t on t.btype_id = b.blog_type
+                 order by b.blog_state desc,b.blog_time desc  limit ${startIndex},${limit}
+       </select> 
+        <select id="getBlogsCount" resultType="int" >
+         select  count(*) from blogs 
+       </select>
+         <select id="selectBlog" resultType="com.ssm.dto.Blog" parameterType="String" >
+         select * from blogs where blog_id=#{id}
+       </select> 
+       
+      
+    </mapper>    

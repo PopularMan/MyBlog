@@ -18,7 +18,7 @@ public class PageParam {
 		this.limit = limit;
 	}
 	public Integer getStartIndex() {
-		System.out.println("起始下表"+startIndex);
+		System.out.println("璧峰涓嬫爣"+startIndex);
 		return  startIndex;
 	}
 	public PageParam(Integer pageNumber, Integer limit) {

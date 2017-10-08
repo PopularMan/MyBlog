@@ -8,13 +8,14 @@ layui.use([ 'element', 'layer', 'table', 'laypage', 'util' ], function() {
 	var util = layui.util;
 	// 执行
 	util.fixbar({
-		bar1 : true,
+		bar1 : "&#xe6fc;",
 		bar2 : "&#xe60b;",
 		bgcolor:"#009688",
 		click : function(type) {
 			console.log(type);
 			if (type === 'bar1') {
-				layer.msg("你点它干啥，又没啥用")
+				layer.msg("音乐播放器开发中");
+				
 			}
 			if (type === 'bar2') {
 				layer.tips("此情此景，我想吟诗一首", this);

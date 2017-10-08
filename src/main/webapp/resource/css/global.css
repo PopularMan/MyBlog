@@ -8,6 +8,9 @@
 	z-index: 999;
 	background:#393D49;
 }
+.blog-user{
+	  line-height: 64px;
+}
 .title{
 text-align: center;
 margin: 0 auto;
@@ -21,26 +24,51 @@ z-index: 10;
 }
 .incospan{
 display: inline-block;
-width: 30px;
-height: 30px;
+width: 20px;
+height: 20px;
 border-radius: 15px;
 text-align: center;
 line-height: 30px;
-margin-left:30px;
+margin-left:15%;
 }
-.aircle-information{list-style: none;font-size:14px;color:#7c7c7c;font-family: "kaiti";}
-.aircle-information li{display: block;width: 75%;height:30px;margin-top: 8px;padding-left:15%;border-bottom: 1px solid #eee}
-.aircle-information li:hover{color:#009E94}
+@keyframes fade-in {  
+    0% {opacity: 0;}/*初始状态 透明度为0*/  
+    40% {opacity: 0;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}  
+.aircle-information{}
+.aircle-information li {float:left;width:40%;margin: 5px 5px;padding:0;}
+.aircle-information li a{
+	text-align: center;
+    line-height: 25px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+	width:100%;
+	height:30px;
+    background: inherit;
+    border: 1px solid #d2d2d2;
+}
+.aircle-information li a:hover{color:#367dff
+}
 .layui-nav .layui-this:after {background-color:#009E94}
 .layui-nav-bar{background-color:#009E94}
 .layui-elem-quote{background-color:#009688;color:white;}
 
 .layui-layout-left{left:300px;}
-.blog-block{border-left:1px solid #009E94;background-color:#fff;transition: all 0.6s ease-in;border-radius:5px;  height:184px;margin-bottom: 8px;}
+.blog-block{border-left:0px solid #009E94;background-color:#fff;border-radius:5px;  height:184px;margin-bottom: 8px;transition:all 1s;}
+.blog-block:hover{
+
+}
 .layui-row:hover{cursor: pointer;transition: all .2s}
-body{background-color: #eee; overflow-y:scroll;overflow-x:hidden}
-.blog-left{width: 70%;float: left;min-height: 600px;}
-.blog-right{width: 28%;float: right;margin-left:10px;padding:0px;}
+body{background-color: #eee; overflow-y:scroll;overflow-x:hidden;font-family:"Microsoft YaHei"}
+.blog-left{width: 70%;float: left;min-height: 600px;min-width:400px; padding-top: 10px;}
+.blog-right{width: 28%;float: right;margin-left:10px;padding:0px;min-width:200px;}
 .blog-right .mouduletop{background-color: #fff;height:400px;border-radius: 5px;box-shadow: 0 1px 8px #a6a6a6;}
 .blog-right .moudulebottom{background-color: #fff;height:260px;border-radius: 5px;box-shadow: 0 1px 8px #a6a6a6;margin-top:10px;}
 .clear {clear: both;}
@@ -54,3 +82,87 @@ body{background-color: #eee; overflow-y:scroll;overflow-x:hidden}
 .blog-list-item>.blog-list-item-footer p{color:#a6a6a6;position: relative;padding:5px;font-size:12px;}
 .blog-list-item>.blog-list-item-footer>p>.spaninfo{float: right;display: inline;width:50px;}
 .blog-footer{width:100%;height:60px;background-color:#009E94;bottom:0;z-index:100;position:fixed; }
+
+/*--音乐播放器--*/
+
+#music-player{position: fixed;top:30%;right:0;border:1px solid #eee;background: #009688;width:300px;height:100px;}
+
+
+.c-btn {
+ text-decoration:none;
+ position:relative;
+ display:inline-block;
+ height:100%;
+}
+.c-btn:after {
+ content:'';
+ display:block;
+ position:absolute;
+}
+.c-btn:before {
+ content:'';
+ display:block;
+ position:absolute;
+}
+.c-btn--border-line {
+ background:none;
+ border:0;
+ box-sizing:border-box;
+ box-shadow:inset 0 0 0 0px transparent;
+}
+.c-btn--border-line:after,.c-btn--border-line:before {
+ box-sizing:border-box;
+ border:1px solid transparent;
+ width:0;
+ height:0;
+}
+.c-btn--border-line:after {
+ top:0;
+ left:0;
+ -webkit-transition:border-color 0s ease-in 0.8s,width 0.2s ease-in 0.6s,height 0.2s ease-in 0.4s;
+ transition:border-color 0s ease-in 0.8s,width 0.2s ease-in 0.6s,height 0.2s ease-in 0.4s;
+}
+.c-btn--border-line:before {
+ bottom:0;
+ right:0;
+ -webkit-transition:border-color 0s ease-in 0.4s,width 0.2s ease-in 0.2s,height 0.2s ease-in;
+ transition:border-color 0s ease-in 0.4s,width 0.2s ease-in 0.2s,height 0.2s ease-in;
+}
+.c-btn--border-line:hover:after,.c-btn--border-line:hover:before {
+ width:100%;
+ height:100%;
+}
+.c-btn--border-line:hover:after {
+ border-top-color:#367dff;
+ border-right-color:#367dff;
+ -webkit-transition:width 0.2s ease-out,height 0.2s ease-out 0.2s;
+ transition:width 0.2s ease-out,height 0.2s ease-out 0.2s;
+}
+.c-btn--border-line:hover:before {
+ border-bottom-color:#367dff;
+ border-left-color:#367dff;
+ -webkit-transition:border-color 0s ease-out 0.4s,width 0.2s ease-out 0.4s,height 0.2s ease-out 0.6s;
+ transition:border-color 0s ease-out 0.4s,width 0.2s ease-out 0.4s,height 0.2s ease-out 0.6s;
+}
+.c-btn--line:after {
+ -webkit-transform-origin:right;
+ transform-origin:right;
+ -webkit-transform:scaleX(0);
+ transform:scaleX(0);
+ bottom:0;
+ background-color:#367dff;
+ -webkit-transition:-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:transform 0.6s cubic-bezier(0.55,0,0.1,1),-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+}
+.c-btn--line:hover:after {
+ -webkit-transform:scaleX(1);
+ transform:scaleX(1);
+ -webkit-transform-origin:left;
+ transform-origin:left;
+ -webkit-transition:-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:transform 0.6s cubic-bezier(0.55,0,0.1,1);
+ transition:transform 0.6s cubic-bezier(0.55,0,0.1,1),-webkit-transform 0.6s cubic-bezier(0.55,0,0.1,1);
+}

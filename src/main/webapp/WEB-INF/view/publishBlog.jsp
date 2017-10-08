@@ -18,6 +18,20 @@
 	href="${pageContext.request.contextPath}/resource/css/animate.min.css"
 	media="all">
 <title>项目开发进度时间轴</title>
+<style>
+#showimg{
+    position: relative;
+    top:-30px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    }
+#showimg>img{
+    width：200px;
+    height:134px;
+    }
+</style>
 </head>
 <body style="background-color:#fff;">
     <div class="layui-row animated zoomIn">
@@ -36,28 +50,29 @@
 		  <div class="layui-form-item">
 		    <label class="layui-form-label">博客标题</label>
 		    <div class="layui-input-block">
-		      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+		      <input type="text" name="blog_title" id="blogtitle" required  lay-verify="required" placeholder="请输入标题"  autocomplete="off" class="layui-input">
 		    </div>
 		  </div>
 		  	<div class="layui-form-item">
 		    <label class="layui-form-label">副标题:</label>
 		    <div class="layui-input-block">
-		      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+		      <input type="text" name="blog_futitle" id="blogfutitle" required  lay-verify="required" placeholder="请输入副标题" autocomplete="off" class="layui-input">
 		    </div>
 		  </div>
 		  <div class="layui-form-item">
 		    <label class="layui-form-label">博客类型</label>
 		    <div class="layui-input-block">
-		      <select name="interest" lay-filter="aihao">
-		        <option value="0">写作</option>
-		        <option value="1">阅读</option>
+		      <select  lay-filter="aihao" id="blogtype" name="blog_type"  >
+		        <option value="1">技术文章</option>
+		        <option value="2">聊天灌水</option>
 		      </select>
 		    </div>
 		  </div>
 		   <div class="layui-form-item">
 		    <label class="layui-form-label">是否置顶:</label>
 		    <div class="layui-input-block">
-		      <input type="checkbox" checked lay-skin="switch">
+		      <input type="radio" name="blogstate" value="1" title="置顶">
+              <input type="radio" name="blogstate" value="0" title="不置顶" checked>
 		    </div>
 		  </div>
 		  <div class="layui-form-item">
@@ -67,17 +82,19 @@
 				  <i class="layui-icon"></i>
 				  <p>点击上传，或将文件拖拽到此处</p>
 			</div>
-			<div><img class="layui-upload-img" id="demo1"></div>
-		    </div>
+			 <div style="display: inline-block;" id="showimg">
+			  <img class="layui-upload-img" id="demo1"></div>
+			  <input name="blog_coverimage" id="blog_coverimage" type="hidden">
+		    </div> 
 		  </div>
 
 		  <div class="layui-form-item layui-form-text">
 		    <label class="layui-form-label">博客内容:</label>
-		         <textarea id="demo" style="display: none;"></textarea>   
+		         <textarea name="blog_artcle" id="demo" style="display: none;"></textarea>   
 		  </div>
 		  <div class="layui-form-item">
 		    <div class="layui-input-block">
-		      <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+		      <button class="layui-btn" lay-submit lay-filter="commit">立即提交</button>
 		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		    </div>
 		  </div>
@@ -90,9 +107,55 @@ layui.use(['form','layedit','upload'], function(){
   var layedit = layui.layedit;
   var upload  = layui.upload;
   var $=layui.jquery;
-  layedit.build('demo',{
-	  height: 300 //设置编辑器高度
+  layedit.set({
+	  uploadImage: {
+	     url: '../upload/image' //接口url
+	    ,type: 'post' //默认post
+	  }
+	});
+  var layeditIndex=layedit.build('demo',{
+	  height: 500 //设置编辑器	  
   });
+  //监听表单提交
+  form.on('submit(commit)', function(data){
+	    layer.msg(JSON.stringify(data.field));
+	    
+	    var str=JSON.stringify(data.field);
+	    var obj=JSON.parse(str);
+	    delete obj["file"];
+	    obj.blog_article=layedit.getContent(layeditIndex);
+	    console.log(JSON.stringify(obj));
+	    var index;
+	    $.ajax({
+	    	url:"../blog/Blog",
+	    	data:obj,
+	        type:"post",
+	        beforeSend:function(){
+	        	index=layer.msg('博客正在发表中', {
+	        		  icon: 16
+	        		  ,shade: 0.5
+	            });
+	        },
+	        success:function(res){
+	        	if(res){
+	        		layer.close(index);
+	        		layer.msg("博客发表成功");
+	        		form.render();
+	        	}else{
+	        		layer.close(index);
+	        		layer.msg("博客发表失败");
+	        		
+	        	}
+	        	   
+	        },
+	        complete:function(res,status){
+	        	
+	        }
+	    })
+	    
+	    return false;
+   });
+  
   //拖拽上传
   upload.render({
     elem: '#test10'
@@ -100,16 +163,17 @@ layui.use(['form','layedit','upload'], function(){
     ,before: function(obj){
      //预读本地文件示例，不支持ie8
     	 obj.preview(function(index, file, result){
-    	 $('#demo1').attr('src', result); //图片链接（base64）
+    	    $('#demo1').attr('src', result); //图片链接（base64）
     	  });
      }
     ,done: function(res){
       console.log(res)
+      $("#blog_coverimage").val(res.data.src);
     }
   });
   var parnetIframe=window.parent.document.getElementById("iFrame1");
   //alert($("body").height())
-  $(parnetIframe).height($("body").height()+20);
+   $(parnetIframe).height($("body").height()+300);
 });
 
 </script>

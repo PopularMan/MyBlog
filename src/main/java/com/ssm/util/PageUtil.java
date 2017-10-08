@@ -6,7 +6,7 @@ public class PageUtil<T> {
 	private int code;
 	private String msg;
 	private int count;
-	private  List<T> data;
+	private  List data;
 	public int getCode() {
 		return code;
 	}
@@ -25,10 +25,10 @@ public class PageUtil<T> {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public List<T> getData() {
+	public List getData() {
 		return data;
 	}
-	public void setData(List<T> data) {
+	public void setData(List data) {
 		this.data = data;
 	}
 	

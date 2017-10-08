@@ -14,34 +14,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ssm.util.ConstantValue;
+
 @RequestMapping("upload")
 @Controller
 public class UploadController {
 	
 	
-	//上传单张图片
 	@RequestMapping("image")
 	@ResponseBody
 	public Map updateImage(@RequestParam(value = "file", required = false) MultipartFile file,HttpServletRequest request) {
 		Map map=new HashMap();
 		Map map1=new HashMap();
-		//获取文件夹路径
 		String path = request.getSession().getServletContext().getRealPath("resource"); 
 		path+=File.separator+"img";
 		System.out.println(path);
 		String fileName = file.getOriginalFilename();
 		String realName = UUID.randomUUID().toString()+fileName.substring(fileName.lastIndexOf("."), fileName.length());
-		File targetFile = new File(path, fileName);
+		File targetFile = new File(path, realName);
+		
 		try {
 			file.transferTo(targetFile);
 		    map.put("code", 0);
-		    map.put("msg", "成功");
-		    map1.put("src","http://localhost:8080/MyBlog/resource/img/zgr.jpg");
+		    map.put("msg", "鎴愬姛");
+		    ConstantValue.tepmpImagePath="img"+File.separator+realName;
+		    String imagePath=request.getServletContext().getContextPath()+"/resource/img/"+realName;
+		    imagePath=imagePath.replaceAll("\\\\", "/");
+		    map1.put("src",imagePath);
 		    map.put("data", map1);
 		} catch (IllegalStateException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		   return null;
+			map.put("code", 1);
+		    map.put("msg", "澶辫触");
+		    map1.put("src",path);
+		    map.put("data", map1);	   
+		   return map;
 		}
 		return map;
 		
