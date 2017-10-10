@@ -33,6 +33,7 @@
 					</div>
 				</blockquote>
     </div>
+    
     <div class="layui-row animated zoomIn" style="border-radius: 5px;margin-top:10px;">
     
                     <div class="timeline-box shadow">
@@ -44,6 +45,14 @@
                             <div class="timeline-month">
                                 <h3 class=" animated fadeInLeft"><a class="monthToggle" href="javascript:;">10月</a><i class="fa fa-caret-down fa-fw"></i></h3>
                                 <ul>
+                                    <li class=" ">
+                                        <div class="h4  animated fadeInLeft">
+                                            <p class="date">2017-10-10 17:10</p>
+                                        </div>
+                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
+                                        <div class="content animated fadeInRight">啊，啊，啊， 啊， 突然要我自己做个项目好多知识点不会！好烦，这个博客要暂停一段时间了</div>
+                                        <div class="clear"></div>
+                                    </li>
                                     <li class=" ">
                                         <div class="h4  animated fadeInLeft">
                                             <p class="date">2017-10-03 19:33</p>

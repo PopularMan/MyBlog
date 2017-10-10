@@ -42,15 +42,23 @@ keyframes fade-in { 0% {
 40%
 {
 opacity
+
+
 :
+
  
+
 0;
 } /*杩囨浮鐘舵�� 閫忔槑搴︿负0*/
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 } /*缁撴潫鐘舵�� 閫忔槑搴︿负1*/
 }
@@ -62,15 +70,23 @@ opacity
 40%
 {
 opacity
+
+
 :
+
  
+
 0;
 }
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 }
 }
@@ -238,7 +254,8 @@ body {
 /*--闊充箰鎾斁鍣�--*/
 #music-player {
 	position: fixed;
-	display: none; top : 30%;
+	display: none;
+	top: 30%;
 	right: 0;
 	border: 1px solid #eee;
 	background: #009688;
@@ -447,3 +464,27 @@ body {
 	padding-left: 7px;
 }
 /*网站底部END*/
+/*右侧模块（网站首页和文章列表以及文章详细共用）*/
+.blog-module {
+	margin-bottom: 10px;
+	padding: 15px;
+	background: #fff;
+	height: 100%;
+}
+
+.blog-module>.blog-module-title {
+	border-bottom: 1px solid #009688;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 0 0 5px 0;
+	margin-bottom: 5px;
+}
+
+.blog-module-ul li, .blog-module-ul .fa {
+	margin: 3px 0;
+}
+
+.blog-module-ul li .fa {
+	color: #009688;
+}
+/*右侧模块END*/

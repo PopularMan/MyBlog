@@ -68,7 +68,7 @@ canvas{
 	<!-- 一般是页面主题部分 -->
 	<div class="layui-container" style="padding: 10px; margin-top: 150px;position: relative;">
 		  <!-- 左边部分 -->
-	      <div class="blog-left" style="height:1000px;">
+	      <div class="blog-left" style="height:auto">
 			<iframe src="page/PersonBlog"   id="iFrame1" class="iframe"   name="main"  frameborder="no" border="0" marginwidth="0" marginheight="0" width= "100%" height= "100%"  style="border:0" scrolling="no" allowtransparency="yes"></iframe>
 	      </div>
 		  <!-- 右边部分 -->
