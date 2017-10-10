@@ -82,7 +82,7 @@
 	        			  layui.each(res.data, function(index, item){
 							$("#content").append(
 									'<div class="layui-row">'+
-									 '<div class="layui-col-md12 blog-block animated bounceInLeft">'+			    
+									 '<div class="layui-col-md12 blog-block animated zoomIn">'+			    
 								      '<div class="blog-list-item">'+
 								           '<div class="blog-list-item-left">'+  
 								             ' <img src="${pageContext.request.contextPath}/resource/'+item.blog_coverimage+'">'+

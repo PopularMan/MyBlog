@@ -34,9 +34,9 @@ public class PageController {
    public String timeaxis() {
 	   return "timeaxis";
    }
-   @RequestMapping("codeSnippets")
+   @RequestMapping("info")
    public String codeSnippets() {
-	   return "codeSnippets";
+	   return "info";
    }
    @RequestMapping("publishBlog")
    public String publishBlog() {

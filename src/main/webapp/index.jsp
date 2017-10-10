@@ -27,7 +27,6 @@ canvas{
   height:100px;
 }
 </style>	
-	
 <title>个人博客系统</title>
 </head>
 <body>
@@ -40,8 +39,8 @@ canvas{
 			<a href="#" class="title" style="padding-left:10%"> My Blog</a>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item layui-this"><a href="page/PersonBlog" target="main"><i class="fa fa-user fa-fw"></i>个人博客</a></li>
-				<li class="layui-nav-item"><a href="page/timeaxis" target='main'><i class="fa fa-clock-o fa-fw"></i>时间轴</a></li>
-				<li class="layui-nav-item"><a href="page/codeSnippets" target='main'><i class="fa fa-flag fa-fw"></i>代码片段</a></li>
+				<li class="layui-nav-item"><a href="page/timeaxis" target='main'><i class="fa fa-clock-o fa-fw"></i>时光轴</a></li>
+				<li class="layui-nav-item"><a href="page/codeSnippets" target='main'><i class="fa  fa-info fa-fw"></i>关于本站</a></li>
 				<li class="layui-nav-item"><a href="javascript:;">暂未开放</a>
 					<dl class="layui-nav-child">
 						<dd>
@@ -121,6 +120,21 @@ canvas{
 			             </ul>
 			          </div>       
 			     </div>
+			     <div class="moudulebottom animated bounceInRight" style="height:auto">
+			          <div class="layui-row">
+			            <blockquote class="layui-elem-quote" style="background-color: #009688"><i class="fa fa-volume-up"></i>&nbsp;友情链接</blockquote> 
+			          </div>  
+			          <div class="layui-row">
+			             <ul class="aircle-information">
+			                 <li><a href="http://www.Layui.com" target="_blank" class="c-btn c-btn--border-line"><i class="fa fa-paper-plane-o"></i>  LayUI</a></li>
+			                 <li><a href="#" class="c-btn c-btn--border-line">WH博客</a></li>
+			                 <li><a href="#" class="c-btn c-btn--border-line">极客社区</a></li>
+
+			             </ul>
+			          </div>       
+			     </div>
+			     
+			     
 			</div>
 
 			<!-- 清除浮动 -->
@@ -129,17 +143,15 @@ canvas{
 	</div>
 	<!-- 容器结束 -->
     <!-- 底线部分 -->
-<!--     <fieldset class="layui-elem-field layui-field-title">
-      <legend>做人还是有点底线的好！！！</legend>
-    </fieldset> -->
- <!--    <!-- fotter部分
-	<div class="blog-footer">
-	   
-	</div> -->
+    
+	    <!-- 底部 -->
+    <footer class="blog-footer">
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">不落阁</a><span>Design By LY</span></p>
+        <p><a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备16029915号-1</a></p>
+    </footer>
 	
-	
-	
-	<div id="music-player" class="c-btn c-btn--border-line"></div>
+	<!-- 音乐播放器等待开发 -->
+	<div id="music-player"></div>
 	<script src="${pageContext.request.contextPath}/resource/layui/jquery-1.8.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/layui/layui.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/js/index.js"></script>
@@ -147,7 +159,7 @@ canvas{
    <script>
        $(function(){
     	     $(".iframe").height($(window.frames["main"].document).find("body").height()); 
-    	     $("#c").attr("height","100");
+    	     $("#c").attr("height","150");
        });
   
  
