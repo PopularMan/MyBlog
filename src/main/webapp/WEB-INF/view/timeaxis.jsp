@@ -25,7 +25,6 @@
 <body style="background-color:#fff;">
     <div class="layui-row animated zoomIn">
       	<blockquote class="layui-elem-quote ">
-
 					<div style="position: relative">
 						<i class="fa fa-home"></i>时间轴 <a href="#" class="layui-layout-right">个人资料入口<i
 							class="layui-icon" style="font-size: 14px; color: #009688;">&#xe612;</i>
