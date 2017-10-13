@@ -3,20 +3,19 @@ package com.ssm.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssm.dto.Blog;
 import com.ssm.service.IBlogService;
-
-@RequestMapping("page")
 @Controller
 public class PageController {
 	
    @Autowired private IBlogService blogService;
-   @RequestMapping("PersonBlog")
-   public String PersonBlog() {
-	   return "PersonBlog";
+   @RequestMapping("page/{path}")
+   public String pageConvert(@PathVariable("path") String path) {
+	   return path;
    }
    @RequestMapping("blogDetail")
    public ModelAndView PersonBlogDetail(String id) {
@@ -30,17 +29,5 @@ public class PageController {
 	   }
 	   return model;
    }
-   @RequestMapping("timeaxis")
-   public String timeaxis() {
-	   return "timeaxis";
-   }
-   @RequestMapping("info")
-   public String codeSnippets() {
-	   return "info";
-   }
-   @RequestMapping("publishBlog")
-   public String publishBlog() {
-	   return "publishBlog";
-   }
- 
+   
 }

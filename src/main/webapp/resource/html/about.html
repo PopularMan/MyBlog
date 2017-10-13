@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<!--
+    
+ @Name：不落阁整站模板源码
+ @Author：Absolutely
+ @Site：http://www.lyblogs.cn
+
+ -->
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,47 +14,45 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>不落阁 - 关于本站</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/Logo_40.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/Logo_40.png" type="image/x-icon">
     <!--Layui-->
-    <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
+    <link href="../plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
-    <link href="${pageContext.request.contextPath}/resource/plug/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../plug/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!--全局样式表-->
-    <link href="${pageContext.request.contextPath}/resource/css/global.css" rel="stylesheet" />
+    <link href="../css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
-    <link href="${pageContext.request.contextPath}/resource/css/about.css" rel="stylesheet" />
+    <link href="../css/about.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
         <div class="blog-container">
-             <ul> 
-             <!-- QQ互联登陆 -->
-             <li class="layui-nav-item"> 
-                <a href="javascript:;" id="loginbtn" class="blog-user"><i class="fa fa-qq"></i></a>
-                <a href="javascript:;" id="loginout" class="blog-user layui-hide">
-                  <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="徐老师" title="徐老师" />&nbsp;A CXY
-               </a>
-              </li>
-            </ul>
+            <!-- QQ互联登陆 -->
+            <a href="javascript:;" class="blog-user">
+                <i class="fa fa-qq"></i>
+            </a>
             <a href="javascript:;" class="blog-user layui-hide">
-                <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
+                <img src="../images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
             </a>
             <!-- 不落阁 -->
-            <a class="blog-logo" href="index.jsp">MyBlog</a>
+            <a class="blog-logo" href="home.html">不落阁</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
-               <li class="layui-nav-item ">
-                    <a href="../index.jsp"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
+                <li class="layui-nav-item">
+                    <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="timeline.html"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
                 </li>
                 <li class="layui-nav-item layui-this">
-                    <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="info"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                    <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
             </ul>
             <!-- 手机和平板的导航开关 -->
@@ -76,7 +80,7 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resource/images/Logo_100.png" alt="不落阁" />
+                                    <img src="../images/Logo_100.png" alt="不落阁" />
                                 </div>
                                 <p class="aboutinfo-nickname">不落阁</p>
                                 <p class="aboutinfo-introduce">一个.NET程序员的个人博客，记录博主学习和成长之路，分享.NET方面技术和源码</p>
@@ -107,7 +111,7 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" />
+                                    <img src="../images/Absolutely.jpg" alt="Absolutely" />
                                 </div>
                                 <p class="aboutinfo-nickname">Absolutely</p>
                                 <p class="aboutinfo-introduce">一枚90后程序员，.NET开发工程师，主攻B/S架构，略懂Web前端</p>
@@ -126,7 +130,7 @@
                                         <h1>个人信息</h1>
                                         <p>暂无</p>
                                         <h1>个人介绍</h1>
-                                        <p>一个没有故事的男同学，没什么介绍${pageContext.request.contextPath}/resource${pageContext.request.contextPath}/resource${pageContext.request.contextPath}/resource</p>
+                                        <p>一个没有故事的男同学，没什么介绍......</p>
                                         <h1 style="text-align:center;">The End</h1>
                                     </div>
                                 </fieldset>
@@ -135,7 +139,7 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resource/images/handshake.png" alt="友情链接" />
+                                    <img src="../images/handshake.png" alt="友情链接" />
                                 </div>
                                 <p class="aboutinfo-nickname">友情链接</p>
                                 <p class="aboutinfo-introduce">Name：不落阁&nbsp;&nbsp;&nbsp;&nbsp;Site：www.lyblogs.cn</p>
@@ -177,7 +181,7 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resource/images/messagewall.png" alt="留言墙" />
+                                    <img src="../images/messagewall.png" alt="留言墙" />
                                 </div>
                                 <p class="aboutinfo-nickname">留言墙</p>
                                 <p class="aboutinfo-introduce">本页面可留言、吐槽、提问。欢迎灌水，杜绝广告！</p>
@@ -203,7 +207,7 @@
                                             <ul class="blog-comment">
                                                 <li>
                                                     <div class="comment-parent">
-                                                        <img src="${pageContext.request.contextPath}/resource/images/Logo_40.png" alt="不落阁" />
+                                                        <img src="../images/Logo_40.png" alt="不落阁" />
                                                         <div class="info">
                                                             <span class="username">不落阁</span>
                                                         </div>
@@ -214,14 +218,14 @@
                                                     </div>
                                                     <hr />
                                                     <div class="comment-child">
-                                                        <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="Absolutely" />
+                                                        <img src="../images/Absolutely.jpg" alt="Absolutely" />
                                                         <div class="info">
                                                             <span class="username">Absolutely</span><span>这是用户回复内容</span>
                                                         </div>
                                                         <p class="info"><span class="time">2017-03-18 18:26</span></p>
                                                     </div>
                                                     <div class="comment-child">
-                                                        <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="Absolutely" />
+                                                        <img src="../images/Absolutely.jpg" alt="Absolutely" />
                                                         <div class="info">
                                                             <span class="username">Absolutely</span><span>这是第二个用户回复内容</span>
                                                         </div>
@@ -289,10 +293,10 @@
     <!--遮罩-->
     <div class="blog-mask animated layui-hide"></div>
     <!-- layui.js -->
-    <script src="${pageContext.request.contextPath}/resource/plug/layui/layui.js"></script>
+    <script src="../plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
-    <script src="${pageContext.request.contextPath}/resource/js/global.js"></script>
+    <script src="../js/global.js"></script>
     <!-- 本页脚本 -->
-    <script src="${pageContext.request.contextPath}/resource/js/about.js"></script>
+    <script src="../js/about.js"></script>
 </body>
 </html>
