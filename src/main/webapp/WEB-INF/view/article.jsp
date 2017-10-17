@@ -75,7 +75,7 @@
                         </div>
                         <div class="article-right">
                             <div class="article-title">
-                                <a href="detail.html"><span class="layui-badge-rim layui-bg-green">顶</span>基于laypage的layui扩展模块（pagesize.js）！</a>
+                                <a href="detail"><span class="layui-badge-rim layui-bg-green">顶</span>基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
                             <div class="article-abstract">
                                 该模块主要是针对当前版本laypage没有页容量控制功能而制作，使用该模块后即可实现每页显示多少条数据的控制！本人原创，但是可能有可能只对本人的分页写法有用！

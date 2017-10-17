@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
+    <mapper namespace="com.ssm.dao.IUserDao" >      
+       <insert id="insertUser" parameterType="com.ssm.dto.User" useGeneratedKeys="true" keyProperty="userid" >
+         insert into users values
+         (#{userid},#{openid},#{nickName},#{avatarUrl},#{gender},#{registerTime},#{lastloginTime},#{userip},#{userlocation})
+       </insert>    
+       <update id="updateUser" parameterType="com.ssm.dto.User">
+          update  users set
+          nickName=#{nickName},
+          avatarUrl=#{avatarUrl},
+          gender=#{gender},
+          registerTime=#{registerTime},
+          lastloginTime=#{lastloginTime},
+          userip=#{userip},
+          userlocation=#{userlocation} where openid=#{openid}
+       </update>
+       <select id="selectUser" resultType="com.ssm.dto.User" parameterType="string">
+       
+         select * from users where openid=#{openid}
+       </select>
+    </mapper>    

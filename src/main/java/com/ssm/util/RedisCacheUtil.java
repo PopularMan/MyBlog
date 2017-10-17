@@ -18,10 +18,10 @@ public class RedisCacheUtil {
 	 @Autowired @Qualifier("redisTemplate")
 	 public RedisTemplate redisTemplate;  
 	 *//**
-	  * »º´æ»ù±¾µÄ¶ÔÏó£¬Integer¡¢String¡¢ÊµÌåÀàµÈ
-	  * @param key »º´æµÄ¼üÖµ
-	  * @param value »º´æµÄÖµ
-	  * @return  »º´æµÄ¶ÔÏó
+	  * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Integerï¿½ï¿½Stringï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½
+	  * @param key ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Öµ
+	  * @param value ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	  * @return  ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	  *//*
 	 public <T> ValueOperations<String,T> setCacheObject(String key,T value){
 	  ValueOperations<String,T> operation = redisTemplate.opsForValue(); 
@@ -29,20 +29,20 @@ public class RedisCacheUtil {
 	  return operation;
 	 }
 	 *//**
-	  * »ñµÃ»º´æµÄ»ù±¾¶ÔÏó¡£
-	  * @param key  »º´æ¼üÖµ
+	  * ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	  * @param key  ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	  * @param operation
-	  * @return   »º´æ¼üÖµ¶ÔÓ¦µÄÊý¾Ý
+	  * @return   ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  *//*
 	 public <T> T getCacheObject(String key) {
 	  ValueOperations<String,T> operation = redisTemplate.opsForValue(); 
 	  return operation.get(key);
 	 }
 	 *//**
-	  * »º´æListÊý¾Ý
-	  * @param key  »º´æµÄ¼üÖµ
-	  * @param dataList ´ý»º´æµÄListÊý¾Ý
-	  * @return   »º´æµÄ¶ÔÏó
+	  * ï¿½ï¿½ï¿½ï¿½Listï¿½ï¿½ï¿½ï¿½
+	  * @param key  ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Öµ
+	  * @param dataList ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Listï¿½ï¿½ï¿½ï¿½
+	  * @return   ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
 	  *//*
 	 public <T> ListOperations<String, T> setCacheList(String key,List<T> dataList){
 	  ListOperations listOperation = redisTemplate.opsForList();
@@ -58,9 +58,9 @@ public class RedisCacheUtil {
 	  return listOperation;
 	 }
 	 *//**
-	  * »ñµÃ»º´æµÄlist¶ÔÏó
-	  * @param key »º´æµÄ¼üÖµ
-	  * @return  »º´æ¼üÖµ¶ÔÓ¦µÄÊý¾Ý
+	  * ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½listï¿½ï¿½ï¿½ï¿½
+	  * @param key ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Öµ
+	  * @return  ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  *//*
 	 public <T> List<T> getCacheList(String key)
 	 {
@@ -76,10 +76,10 @@ public class RedisCacheUtil {
 	  return dataList;
 	 }
 	 *//**
-	  * »º´æSet
-	  * @param key  »º´æ¼üÖµ
-	  * @param dataSet »º´æµÄÊý¾Ý
-	  * @return   »º´æÊý¾ÝµÄ¶ÔÏó
+	  * ï¿½ï¿½ï¿½ï¿½Set
+	  * @param key  ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	  * @param dataSet ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	  * @return   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ¶ï¿½ï¿½ï¿½
 	  *//*
 	 public <T> BoundSetOperations<String,T> setCacheSet(String key,Set<T> dataSet)
 	 {
@@ -95,12 +95,12 @@ public class RedisCacheUtil {
 	  return setOperation;
 	 }
 	 *//**
-	  * »ñµÃ»º´æµÄset
+	  * ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½set
 	  * @param key
 	  * @param operation
 	  * @return
 	  *//*
-	 public <T> Set<T> getCacheSet(String key) {
+	  public <T> Set<T> getCacheSet(String key) {
 		  Set<T> dataSet = new HashSet<T>();
 		  BoundSetOperations<String,T> operation = redisTemplate.boundSetOps(key); 
 		   

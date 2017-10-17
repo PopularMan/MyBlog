@@ -10,34 +10,35 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
     var $ = layui.jquery;
     var layer=layui.layer;
     if(user!=""){
-    	 $("#loginbtn").addClass("layui-hide");
+    	 $("#loginout").toggleClass("layui-hide").siblings('a').toggleClass('layui-hide');
     	 //$("#loginbtn").toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
     }else{
     
-     	 $("#loginout").toggleClass('layui-hide').siblings('a').toggleClass('layui-hide');
+     	 $("#loginbtn").addClass('layui-hide');
     }
+
+    var index;
     $("#loginbtn").hover(function(){
-    	layer.tips('QQ登录', '#loginbtn',{
+    	index=layer.tips('QQ登录', '#loginbtn',{
     		tips:1
     	});
     },function(){
-    	layer.closeAll();
+    	layer.close(index);
     });
     $("#loginout").hover(function(){
-    	layer.tips('退出登录', '#loginout',{
+    	index=layer.tips('退出登录', '#loginout',{
     		tips:1
     	});
     },function(){
-    	layer.closeAll();
+    	layer.close(index);
     });
     //模拟QQ登陆
     $('.blog-user').click(function () {
         var user = this;
-        var index = layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:2000});
+        var index = layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0});
         setTimeout(function () {
             layer.close(index);
-           
-        }, 800);
+        },500);
     });
     //分享工具
     layui.util.fixbar({

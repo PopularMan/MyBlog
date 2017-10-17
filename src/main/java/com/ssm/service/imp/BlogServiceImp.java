@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.ssm.dao.IBlogDao;
@@ -18,7 +19,6 @@ import com.ssm.util.PageUtil;
 public class BlogServiceImp implements IBlogService {
     @Autowired
 	private IBlogDao blogDao;
-	@Override
 	public Boolean insertBlog(Blog blog) {
 		if(null!=blog){
 			try {
