@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
+    <meta http-equiv="Content-Type" content="text/html; Charset=utf-8">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>徐老师博客</title>
@@ -42,13 +42,13 @@
                     <a href="index.jsp"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="page/article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                    <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="page/timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
+                    <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="page/info"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                    <a href="info"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
 
             </ul>
@@ -270,7 +270,7 @@
     <!--遮罩-->
     <div class="blog-mask animated layui-hide"></div>
     <script>
-    var user="${user}";
+      var user="${user}";
     </script>
     <!-- layui.js -->
     <script src="${pageContext.request.contextPath}/resource/plug/layui/layui.js"></script>

@@ -34,7 +34,7 @@
             <a href="javascript:;" class="blog-user layui-hide">
                 <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
             </a>
-            <!-- 不落阁 -->
+            <!--MyBlog -->
             <a class="blog-logo" href="index.jsp">MyBlog</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">

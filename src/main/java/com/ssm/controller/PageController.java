@@ -13,7 +13,7 @@ import com.ssm.service.IBlogService;
 public class PageController {
 	
    @Autowired private IBlogService blogService;
-   @RequestMapping("page/{path}")
+   @RequestMapping("{path}")
    public String pageConvert(@PathVariable("path") String path) {
 	   return path;
    }
