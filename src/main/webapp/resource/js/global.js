@@ -6,9 +6,18 @@
 
 */
 
-layui.use(['element', 'layer', 'util', 'form'], function () {
+layui.use(['element', 'layer', 'util', 'form','carousel'], function () {
     var $ = layui.jquery;
     var layer=layui.layer;
+    var carousel = layui.carousel;
+    //改变下时间间隔、动画类型、高度  图片轮播
+    carousel.render({
+      elem: '#test10',
+      width: '100%',
+      interval: 3000,
+      anim: 'fade',
+      height: '150px'
+    });
     if(user!=""){
     	 $("#loginout").toggleClass("layui-hide").siblings('a').toggleClass('layui-hide');
     	 //$("#loginbtn").toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');

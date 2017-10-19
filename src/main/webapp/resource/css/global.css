@@ -21,7 +21,7 @@ body {
 }
 
 .blog-body {
-    margin-top: 65px;
+    margin-top:5px;
 }
 
 .blog-container {
@@ -256,7 +256,7 @@ body {
 
     .blog-nav .blog-logo {
         position: absolute;
-        left: 10%;
+        left: 5%;
         width: auto;
     }
 

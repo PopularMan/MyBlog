@@ -13,6 +13,7 @@ import com.qq.connect.oauth.Oauth;
  * Time: 上午10:28
  */
 public class IndexServlet extends HttpServlet {
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
         try {
@@ -22,7 +23,7 @@ public class IndexServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         doGet(request,  response);
     }

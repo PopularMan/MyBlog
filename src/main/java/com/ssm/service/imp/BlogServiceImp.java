@@ -19,12 +19,13 @@ import com.ssm.util.PageUtil;
 public class BlogServiceImp implements IBlogService {
     @Autowired
 	private IBlogDao blogDao;
+    @Override
 	public Boolean insertBlog(Blog blog) {
 		if(null!=blog){
 			try {
 				blog.setBlog_id(UUID.randomUUID().toString());
 				//blog.setBlog_author("爱唱歌的程序员");
-				blog.setBlog_time(new Timestamp(new Date().getTime()));
+				blog.setBlog_time(new Timestamp(System.currentTimeMillis()));
 				blogDao.insertBlog(blog);
 				return true;
 			} catch (Exception e) {

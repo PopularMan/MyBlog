@@ -22,11 +22,11 @@ import java.util.ArrayList;
  * Time: 下午4:36
  */
 public class AfterLoginRedirectServlet extends HttpServlet {
-
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         doPost(request, response);
     }
-
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=utf-8");
 

@@ -26,7 +26,11 @@ import com.qq.connect.oauth.Oauth;
 import com.ssm.dto.User;
 import com.ssm.service.IUserService;
 import com.ssm.util.AddressUtils;
-
+/**
+ * QQ登录处理
+ * @author lenovo
+ *
+ */
 @Controller
 public class QQLoginController {
 	@Autowired private IUserService userService;
@@ -68,7 +72,7 @@ public class QQLoginController {
 				User user = new User();
 				user.setAvatarUrl(userbean.getAvatar().getAvatarURL50());
 				user.setUserip(req.getRemoteHost());
-				user.setLastloginTime(new Timestamp(new Date().getTime()));
+				user.setLastloginTime(new Timestamp(System.currentTimeMillis()));
 				user.setNickName(userbean.getNickname());
 				user.setOpenid(openID);
 				user.setGender(userbean.getGender());
@@ -82,7 +86,7 @@ public class QQLoginController {
 				}
 				System.out.println("地址" + req.getRemoteAddr() + address);
 				user.setUserlocation(address);
-				user.setRegisterTime(new Timestamp(new Date().getTime()));
+				user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
 				String uuid = UUID.randomUUID().toString();
 				user.setUserid(uuid);
 				int result = userService.insertOrUpdateUser(user);

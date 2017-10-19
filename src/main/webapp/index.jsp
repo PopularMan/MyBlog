@@ -35,7 +35,7 @@
               </li>
             </ul>
             <!-- MyBlog -->
-            <a class="blog-logo" href="home.html">MyBlog</a>
+            <a class="blog-logo" href="index"><img src="resource/images/logo.png" style="width:300px;height:60px;"></a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                 <li class="layui-nav-item layui-this">
@@ -60,14 +60,22 @@
     </nav>
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
- <!--        canvas
-         <canvas id="c"></canvas> -->
+     <!--        canvas
+        <canvas id="c"></canvas> -->
         <!--为了及时效果需要立即设置canvas宽高，否则就在home.js中设置-->
         <!-- 本页脚本 -->
          <script src="${pageContext.request.contextPath}/resource/js/canvas.js"></script>
         <!-- 这个一般才是真正的主体内容 -->
         <div class="blog-container">
             <div class="blog-main">
+                <!-- 轮播 -->
+                <div class="layui-carousel" id="test10" style="margin-bottom:5px;">
+				  <div carousel-item="">
+				     <div><img src="resource/images/img1.png" style="text-align: center;background-position:center "></div>
+			         <div><img src="resource/images/img2.png" style="text-align: center;background-position:center "></div>
+			         <div><img src="resource/images/img3.png" style="text-align: center;background-position:center "></div>
+				  </div>
+				</div>
                 <!-- 网站公告提示 -->
                 <div class="home-tips shadow">
                     <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
@@ -75,7 +83,7 @@
                         <span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作，为大家准备了游客专用账号！</span>
                         <span style="color: red">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
                         <span style="color: red">如果你觉得网站做得还不错，来Fly社区点个赞吧！<a href="http://fly.layui.com/case/2017/" target="_blank" style="color:#01AAED">点我前往</a></span>
-                        <span style="color: #009688">MyBlog&nbsp;—— &nbsp;一个.NET程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
+                        <span style="color: #009688">MyBlog&nbsp;—— &nbsp;一个.JAVA程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
                     </div>
                 </div>
                 <!--左边文章列表-->
@@ -101,12 +109,11 @@
                             <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                         </div>
                     </div>
-                    
-                    <div class="article shadow">
+                              <div class="article shadow animated zoomIn">
                         <div class="article-left">
                             <img src="resource/images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
                         </div>
-                        <div class="article-right">
+                        <div class="article-right animated zoomIn">
                             <div class="article-title">
                                 <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
@@ -123,11 +130,11 @@
                             <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                         </div>
                     </div>
-                    <div class="article shadow">
+                              <div class="article shadow animated zoomIn">
                         <div class="article-left">
                             <img src="resource/images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
                         </div>
-                        <div class="article-right">
+                        <div class="article-right animated zoomIn">
                             <div class="article-title">
                                 <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
@@ -144,11 +151,11 @@
                             <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                         </div>
                     </div>
-                    <div class="article shadow">
+                              <div class="article shadow animated zoomIn">
                         <div class="article-left">
-                            <img src="../images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
+                            <img src="resource/images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
                         </div>
-                        <div class="article-right">
+                        <div class="article-right animated zoomIn">
                             <div class="article-title">
                                 <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
@@ -165,11 +172,11 @@
                             <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                         </div>
                     </div>
-                    <div class="article shadow">
+                              <div class="article shadow animated zoomIn">
                         <div class="article-left">
-                            <img src="../images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
+                            <img src="resource/images/cover/201703181909057125.jpg" alt="基于laypage的layui扩展模块（pagesize.js）！" />
                         </div>
-                        <div class="article-right">
+                        <div class="article-right animated zoomIn">
                             <div class="article-title">
                                 <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
@@ -180,7 +187,7 @@
                         <div class="clear"></div>
                         <div class="article-footer">
                             <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
-                            <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;徐老师</span>
+                            <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Absolutely</span>
                             <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Web前端</a></span>
                             <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
                             <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
@@ -189,13 +196,15 @@
                 </div>
                 <!--右边小栏目-->
                 <div class="blog-main-right">
-                    <div class="blogerinfo shadow">
+                    <div class="blogerinfo blog-module shadow">
+                         
+						<div class="blog-module-title">博主简介</div>
                         <div class="blogerinfo-figure">
                             <img src="resource/images/xls.jpg" style="border-radius:200px"  alt="徐老师" />
                         </div>
                         <p class="blogerinfo-nickname ">徐老师</p>
                         <p class="blogerinfo-introduce">一枚90后程序员，JAVA开发工程师</p>
-                        <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;四川 - 成都</p>
+                        <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;河南 - 信阳</p>
                         <hr />
                         <div class="blogerinfo-contact">
                             <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i class="fa fa-qq fa-2x"></i></a>
@@ -239,19 +248,19 @@
     <!--侧边导航-->
     <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
         <li class="layui-nav-item layui-this">
-            <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+            <a href="index"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
         </li>
         <li class="layui-nav-item">
-            <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+            <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
         </li>
         <li class="layui-nav-item">
-            <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+            <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
         </li>
         <li class="layui-nav-item">
-            <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;开发时光</a>
+            <a href="timeline"><i class="fa fa-road fa-fw"></i>&nbsp;开发时光</a>
         </li>
         <li class="layui-nav-item">
-            <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+            <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
         </li>
     </ul>
     <!--分享窗体-->

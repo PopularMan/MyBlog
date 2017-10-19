@@ -32,7 +32,7 @@ public class UserServiceImp implements IUserService {
 	    	if(null!=u) {
 	    		//更新最后登录时间
 	    		log.info("更新用户");
-	    		u.setLastloginTime(new Timestamp(new Date().getTime()));
+	    		u.setLastloginTime(new Timestamp(System.currentTimeMillis()));
 	    		userDao.updateUser(u);
 	    		return 1;
 	    	}else {
