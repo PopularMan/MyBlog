@@ -35,20 +35,20 @@
               </li>
             </ul>
             <!-- MyBlog -->
-            <a class="blog-logo" href="index"><img src="resource/images/logo.png" style="width:300px;height:60px;"></a>
+            <a class="blog-logo" href="index"></a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                 <li class="layui-nav-item layui-this">
                     <a href="index.jsp"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                    <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章总览</a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="info"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                    <a href="info"><i class="fa fa-info fa-fw"></i>&nbsp;留下脚印</a>
                 </li>
 
             </ul>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="article-right animated zoomIn">
                             <div class="article-title">
-                                <a href="detail.html">基于laypage的layui扩展模块（pagesize.js）！</a>
+                                <a href="article/29940ac8-fec4-49b0-84eb-919b1c975d71">基于laypage的layui扩展模块（pagesize.js）！</a>
                             </div>
                             <div class="article-abstract">
                                 该模块主要是针对当前版本laypage没有页容量控制功能而制作，使用该模块后即可实现每页显示多少条数据的控制！本人原创，但是可能有可能只对本人的分页写法有用！

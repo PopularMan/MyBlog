@@ -35,4 +35,18 @@
        <!-- 上传文件 -->
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
        
+        <!--  缓存  属性-->  
+	    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">    
+	        <property name="configLocation"  value="classpath:spring-ehcache.xml"/>   
+	    </bean>   
+	      
+	    <!-- 支持缓存注解 -->  
+	    <cache:annotation-driven cache-manager="cacheManager" />  
+	      
+	    <!-- 默认是cacheManager -->  
+	    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">    
+	        <property name="cacheManager"  ref="cacheManagerFactory"/>    
+	    </bean>    
+       
+       
     </beans>    

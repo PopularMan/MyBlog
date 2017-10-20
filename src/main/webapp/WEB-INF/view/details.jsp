@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>不落阁 - 文章专栏 - 基于layui的laypage扩展模块！</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/Logo_40.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
+    <title>徐老师博客</title>
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -25,32 +25,32 @@
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
         <div class="blog-container">
-            <!-- QQ互联登陆 -->
-            <a href="javascript:;" class="blog-user">
-                <i class="fa fa-qq"></i>
-            </a>
-            <a href="javascript:;" class="blog-user layui-hide">
-                <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
-            </a>
-            <!-- 不落阁 -->
-            <a class="blog-logo" href="home.html">不落阁</a>
+           <ul> 
+             <!-- QQ互联登陆 -->
+             <li class="layui-nav-item"> 
+                <a href="QQLogin" class="blog-user"><i class="fa fa-qq"></i></a>
+                <a href="loginOut" id="loginout" class="blog-user layui-hide">
+                  <img src="${user.avatarUrl}"  title="${user.nickName}" />&nbsp;${user.nickName}
+                </a>
+              </li>
+            </ul>
+            <!-- MyBlog -->
+            <a class="blog-logo" href="index"></a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
-                <li class="layui-nav-item">
-                    <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
-                </li>
-                <li class="layui-nav-item  layui-this">
-                    <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <li class="layui-nav-item layui-this">
+                    <a href="index.jsp"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+                    <a href="../article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章总览</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="timeline.html"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
+                    <a href="../timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                    <a href="../info"><i class="fa fa-info fa-fw"></i>&nbsp;留下脚印</a>
                 </li>
+
             </ul>
             <!-- 手机和平板的导航开关 -->
             <a class="blog-navicon" href="javascript:;">
@@ -58,6 +58,7 @@
             </a>
         </div>
     </nav>
+
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
         <div class="blog-container">
@@ -195,15 +196,43 @@ pagesize(laypageId, pageSize).callback(function (newPageSize) {
                         </fieldset>
                         <div class="blog-module-title">最新评论</div>
                         <ul class="blog-comment">
-                            <li>
+							<li>
+								<div class="comment-parent">
+									<img
+										src="${pageContext.request.contextPath}/resource/images/xls.jpg"
+										alt="absolutely" />
+									<div class="info">
+										<span class="username">徐老师</span>: <span class="time">2017-03-18
+											18:46:06</span>
+									    
+									</div>
+									<div class="content">
+										我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改</div>
+								</div>
+							
+
+							</li>
+							<li>
                                 <div class="comment-parent">
-                                    <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="absolutely" />
+                                    <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="absolutely" />
                                     <div class="info">
-                                        <span class="username">Absolutely</span>
+                                        <span class="username">徐老师</span>:
                                         <span class="time">2017-03-18 18:46:06</span>
                                     </div>
                                     <div class="content">
-                                        我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
+                                                                                                        我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
+                                    </div>
+                                </div>
+                            </li>
+                             <li>
+                                <div class="comment-parent">
+                                    <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="absolutely" />
+                                    <div class="info">
+                                        <span class="username">徐老师</span>:
+                                        <span class="time">2017-03-18 18:46:06</span>
+                                    </div>
+                                    <div class="content">
+                                                                                                          我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
                                     </div>
                                 </div>
                             </li>
@@ -251,25 +280,22 @@ pagesize(laypageId, pageSize).callback(function (newPageSize) {
     </div>
     <!-- 底部 -->
     <footer class="blog-footer">
-        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">不落阁</a><span>Design By LY</span></p>
-        <p><a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备16029915号-1</a></p>
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">MyBlog</a><span>Design By Zc</span></p>
+        <p><a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备20171019号-1</a></p>
     </footer>
     <!--侧边导航-->
     <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
         <li class="layui-nav-item">
-            <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+            <a href="index"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
         </li>
         <li class="layui-nav-item layui-this">
-            <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+            <a href="airtcle"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章总览</a>
         </li>
         <li class="layui-nav-item">
-            <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+            <a href="timeline"><i class="fa fa-road fa-fw"></i>&nbsp;开发时光</a>
         </li>
         <li class="layui-nav-item">
-            <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+            <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;留下脚印</a>
         </li>
     </ul>
     <!--分享窗体-->

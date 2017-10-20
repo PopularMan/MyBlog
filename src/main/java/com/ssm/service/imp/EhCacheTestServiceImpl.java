@@ -1,4 +1,4 @@
-/*package com.ssm.service.imp;
+package com.ssm.service.imp;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -6,11 +6,13 @@ import org.springframework.stereotype.Service;
 import com.ssm.service.IEhCacheTestService;
 @Service
 public class EhCacheTestServiceImpl implements IEhCacheTestService{
-	@Cacheable(value="myCache",key="#param")
-	public String getTimestamp(String param) {
-		 Long timestamp = System.currentTimeMillis();
-	     return timestamp.toString();
+
+	@Override
+	@Cacheable(value = "serviceCache")
+	public Long getTimestamp(String param) {
+		// TODO Auto-generated method stub
+		return System.currentTimeMillis();
 	}
+	
 
 }
-*/

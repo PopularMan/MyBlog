@@ -15,7 +15,7 @@ layui.use(['element', 'layer', 'util', 'form','carousel'], function () {
       elem: '#test10',
       width: '100%',
       interval: 3000,
-      anim: 'fade',
+      anim: 'default',
       height: '150px'
     });
     if(user!=""){

@@ -38,38 +38,7 @@
     <servlet-name>SpringMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  <!-- QQ登录的servlet -->
-      <servlet>
-        <servlet-name>login</servlet-name>
-        <servlet-class>com.ssm.servlet.IndexServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>login</servlet-name>
-        <!-- 业界标准 用.do后缀来表示 controler -->
-        <url-pattern>/login.do</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>afterlogin</servlet-name>
-        <servlet-class>com.ssm.servlet.AfterLoginRedirectServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>afterlogin</servlet-name>
-        <!-- 业界标准 用.do后缀来表示 controler -->
-        <url-pattern>/afterlogin.do</url-pattern>
-    </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>shuoshuo</servlet-name>
-        <servlet-class>com.ssm.servlet.ShuoShuoServlet</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>shuoshuo</servlet-name>
-        <url-pattern>/shuoshuo.do</url-pattern>
-    </servlet-mapping>
 </web-app>

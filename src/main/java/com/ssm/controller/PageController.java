@@ -17,6 +17,11 @@ public class PageController {
    public String pageConvert(@PathVariable("path") String path) {
 	   return path;
    }
+   @RequestMapping("article/{id}")
+   public String articleDetail(@PathVariable("id") String id) {
+	   
+	   return "details";
+   }
    @RequestMapping("blogDetail")
    public ModelAndView PersonBlogDetail(String id) {
 	   ModelAndView model=new ModelAndView();

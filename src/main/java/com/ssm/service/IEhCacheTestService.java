@@ -1,6 +1,5 @@
-/*package com.ssm.service;
+package com.ssm.service;
 
 public interface IEhCacheTestService {
-	 public String getTimestamp(String param);
+	 public Long getTimestamp(String param);
 }
-*/

@@ -24,7 +24,7 @@ public class BlogServiceImp implements IBlogService {
 		if(null!=blog){
 			try {
 				blog.setBlog_id(UUID.randomUUID().toString());
-				//blog.setBlog_author("爱唱歌的程序员");
+				//blog.setBlog_author("鐖卞敱姝岀殑绋嬪簭鍛�");
 				blog.setBlog_time(new Timestamp(System.currentTimeMillis()));
 				blogDao.insertBlog(blog);
 				return true;

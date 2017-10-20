@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/com/ssm/controller/UploadController.java=UTF-8
+encoding//src/main/java/com/ssm/service/imp/BlogServiceImp.java=UTF-8
 encoding//src/main/java/com/ssm/util/PageParam.java=UTF-8
-encoding/<project>=UTF-8

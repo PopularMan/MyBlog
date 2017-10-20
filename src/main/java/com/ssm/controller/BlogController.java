@@ -39,14 +39,11 @@ public class BlogController {
 	@ResponseBody
 	public PageUtil getBlogs(Integer pageNumber,Integer limit){
 		if(pageNumber!=null || limit!=null){
-			log.info("查询分页博客"+pageNumber+limit);
-			
+			log.info("查询分页博客"+pageNumber+limit);		
 		    PageParam param=new PageParam(pageNumber, limit);
 		    return  blogService.getBlogs(param);
 		}
-		return null;
-	 
-		 
+		return null; 
 	}
 	
 

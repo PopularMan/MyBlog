@@ -1,31 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ehcache>
-    <!-- 指定一个文件目录，当EhCache把数据写到硬盘上时，将把数据写到这个文件目录下 -->
-    <diskStore path="java.io.tmpdir"/>
-
-     <defaultCache
-            maxEntriesLocalHeap="10000"
-            eternal="false"
-            overflowToDisk="false"
-            timeToIdleSeconds="120"
-            timeToLiveSeconds="120"
-            diskSpoolBufferSizeMB="30"
-            maxEntriesLocalDisk="10000000"
-            diskExpiryThreadIntervalSeconds="120"
-            memoryStoreEvictionPolicy="LRU">
-        <persistence strategy="localTempSwap"/>
-    </defaultCache>
- 
-    <cache name="myCache"
-           maxEntriesLocalHeap="10000"
-           maxEntriesLocalDisk="1000"
-           eternal="false"
-           diskSpoolBufferSizeMB="30"
-           timeToIdleSeconds="300"
-           timeToLiveSeconds="600"
-           memoryStoreEvictionPolicy="LFU"
-           transactionalMode="off">
-        <persistence strategy="localTempSwap"/>
-    </cache>
-
-</ehcache>
+<?xml version="1.0" encoding="UTF-8"?>    
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">  
+    <diskStore path="java.io.tmpdir"/>   
+    <defaultCache      
+            maxElementsInMemory="3000"      
+            eternal="false"      
+            timeToIdleSeconds="3600"      
+            timeToLiveSeconds="3600"      
+            overflowToDisk="true"      
+            diskPersistent="false"      
+            diskExpiryThreadIntervalSeconds="100"      
+            memoryStoreEvictionPolicy="LRU"      
+            />      
+    <cache name="serviceCache"      
+           maxElementsInMemory="3000"      
+           eternal="false"      
+           overflowToDisk="true"      
+           timeToIdleSeconds="3600"      
+           timeToLiveSeconds="3600"      
+           memoryStoreEvictionPolicy="LFU"      
+            />    
+</ehcache> 
