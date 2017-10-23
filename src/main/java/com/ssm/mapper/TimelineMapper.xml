@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
+    <mapper namespace="com.ssm.dao.ITimelineDao" >      
+
+        <sql id="base_timeline" >
+	      line_id,line_content,DATE_FORMAT(line_time,'%Y-%m-%d %h:%i:%S ') as line_time,line_year,line_month
+	    </sql>
+       <select id="preGetTimelineData" resultType="com.ssm.dto.Timeline" >
+            select 
+              <include refid="base_timeline"/>
+              from timelines order by line_time desc
+       </select> 
+       
+       
+      
+    </mapper>    
