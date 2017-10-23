@@ -209,7 +209,6 @@ pagesize(laypageId, pageSize).callback(function (newPageSize) {
 									<div class="content">
 										我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改</div>
 								</div>
-							
 
 							</li>
 							<li>

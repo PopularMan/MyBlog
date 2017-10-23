@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>不落阁 - 点点滴滴 - 时光轴</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/Logo_40.png" type="image/x-icon">
+    <title>徐老师博客-时光轴</title>
+   <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -72,97 +72,17 @@
                     <span class="child-nav-btn child-nav-btn-this">时光轴</span>
                     <span class="child-nav-btn">笔记墙</span>
                 </div>
-                                    <div class="timeline-box shadow">
-                    <div class="timeline-main">
+                  <div class="timeline-box shadow">
+                    <div class="timeline-main" id="timeLine">
                         <h1><i class="fa fa-clock-o"></i>时光轴<span> —— 记录我与开发的那些事</span></h1>
-                        <div class="timeline-line"></div>
-                        <div class="timeline-year">
-                            <h2><a class="yearToggle" href="javascript:;">2017年</a><i class="fa fa-caret-down fa-fw"></i></h2>
-                            <div class="timeline-month">
-                                <h3 class=" animated fadeInLeft"><a class="monthToggle" href="javascript:;">10月</a><i class="fa fa-caret-down fa-fw"></i></h3>
-                                <ul>
-                                  <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-10-13 16:19</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">今天把所有前端页面销毁,使用了人家的前端模板！最近太忙，没时间搞前端的东西了，总之。慢慢来吧</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                    <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-10-10 17:10</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">啊，啊，啊， 啊， 突然要我自己做个项目好多知识点不会！好烦，这个博客要暂停一段时间了</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                    <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-10-03 19:33</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">半夜心血来操-起来撸代码</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                     <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-10-04 22:33</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">今天比较忙，毕竟中秋</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                       <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-10-10 8:00</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">中秋过后第一天上班，状态不好！麻烦事一大推</div>
-                                        <div class="clear"></div>
-                                    </li>
+                        <div class="timeline-line" ></div>
+         
+                        
+                        
+                        
+                        
 
-                                </ul>
-                            </div>
-                            <div class="timeline-month">
-                                <h3 class=" animated fadeInLeft"><a class="monthToggle" href="javascript:;">9月</a><i class="fa fa-caret-down fa-fw"></i></h3>
-                                <ul>
-                                    <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-09-26  14:00</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">整体后端框架搭建完毕;前端准备使用纯Layui开发;</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                    <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-09-27  15:00</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">准备搭建前端页面</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                    <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-09-28 20:35</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">编写主页面Index,jsp</div>
-                                        <div class="clear"></div>
-                                    </li>
-                                     <li class=" ">
-                                        <div class="h4  animated fadeInLeft">
-                                            <p class="date">2017-09-29 20:00</p>
-                                        </div>
-                                        <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                        <div class="content animated fadeInRight">租了一台服务器，准备先搭建好FTP服务器</div>
-                                        <div class="clear"></div>
-                                    </li>
-             
-                                </ul>
-                            </div>
-                        </div>
+                        
                        
                         <h1 style="padding-top:4px;padding-bottom:2px;margin-top:40px;"><i class="fa fa-hourglass-end"></i>THE END</h1>
                     </div>
@@ -216,10 +136,68 @@
     <script src="${pageContext.request.contextPath}/resource/js/global.js"></script>
     <!-- 本页脚本 -->
     <script type="text/javascript">
-        layui.use('jquery', function () {
+        layui.use(['jquery','layer'], function () {
             var $ = layui.jquery;
-
+            var layer=layui.layer;
             $(function () {
+            
+                $.ajax({
+                	url:"getPreTimelineData",
+                	type:"GET",
+                	dataType:"json",
+                	async:false,
+                	success:function(data){
+                		if(data.success){
+                			 $.each(data.data,function(m,n){
+                				 console.log(n.line);
+                				 var str='<div class="timeline-year">'+
+                                         '<h2><a class="yearToggle" href="javascript:;">'+n.year+'年</a><i class="fa fa-caret-down fa-fw"></i></h2>';
+                			             //循环月份
+                			          var month=0;
+                                      $.each(n.line,function(j,k){
+                                    	  str+='<div class="timeline-month">';
+                                    	  if(month==0){
+                                    		  str+='<h3 class=" animated fadeInLeft">'+
+                                                   '<a class="monthToggle" href="javascript:;">'+k.line_month+'</a><i class="fa fa-caret-down fa-fw"></i></h3>';
+                                                   str+="<ul>"
+                                                   $.each(n.line,function(a,b){
+                                                	   if(b.line_month==k.line_month){
+                                                		   str+='<li class=""><div class="h4  animated fadeInLeft">'+
+                                                           '<p class="date">'+new Date(b.line_time).format("yyyy-MM-dd hh:mm:ss")+'</p> </div>'+
+              		                                     '<p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>'+
+              		                                     '<div class="content animated fadeInRight">'+b.line_content+'</div>'+
+              		                                      '<div class="clear"></div></li>';
+                                                	   }
+                                                   }); 
+                                                   str+="</ul>";
+                                                   month=k.line_month;
+                                    	  }else{
+                                    		  if(month!=k.line_month){
+			                                    		  str+='<h3 class=" animated fadeInLeft">'+
+			                                              '<a class="monthToggle" href="javascript:;">'+k.line_month+'</a><i class="fa fa-caret-down fa-fw"></i></h3>';
+			                                              str+="<ul>"
+			                                              $.each(n.line,function(a,b){
+			                                           	   if(b.line_month==k.line_month){
+			                                           		   str+='<li class=""><div class="h4  animated fadeInLeft">'+
+			                                                      '<p class="date">'+new Date(b.line_time).format("yyyy-MM-dd hh:mm:ss")+'</p> </div>'+
+			         		                                     '<p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>'+
+			         		                                     '<div class="content animated fadeInRight">'+b.line_content+'</div>'+
+			         		                                      '<div class="clear"></div></li>';
+			                                           	   }
+			                                              }); 
+			                                              str+="</ul>";
+			                                              month=k.line_month;
+			                                    	  }
+                                    	     }
+                			          });
+                                      str+="</div></div>"  
+                                    $("#timeLine").append(str);
+                			 });
+                		}else{
+                			layer.msg("内部异常");
+                		}
+                	}
+                });
                 $('.monthToggle').click(function () {
                     $(this).parent('h3').siblings('ul').slideToggle('slow');
                     $(this).siblings('i').toggleClass('fa-caret-down fa-caret-right');

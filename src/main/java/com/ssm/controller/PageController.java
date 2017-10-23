@@ -18,8 +18,7 @@ public class PageController {
 	   return path;
    }
    @RequestMapping("article/{id}")
-   public String articleDetail(@PathVariable("id") String id) {
-	   
+   public String articleDetail(@PathVariable("id") String id) {	   
 	   return "details";
    }
    @RequestMapping("blogDetail")
