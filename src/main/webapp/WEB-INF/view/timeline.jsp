@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>徐老师博客-时光轴</title>
+    <title>异朽阁-时光轴</title>
    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
                 <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
             </a>
             <!-- 不落阁 -->
-            <a class="blog-logo" href="index.jsp">MyBlog</a>
+            <a class="blog-logo" href="index.jsp">异朽阁</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                <li class="layui-nav-item ">

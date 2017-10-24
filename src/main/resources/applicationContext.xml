@@ -4,15 +4,12 @@
          xmlns:p="http://www.springframework.org/schema/p"    
         xmlns:context="http://www.springframework.org/schema/context"    
         xmlns:mvc="http://www.springframework.org/schema/mvc"   
-        xmlns:cache="http://www.springframework.org/schema/cache" 
         xsi:schemaLocation="http://www.springframework.org/schema/beans      
                             http://www.springframework.org/schema/beans/spring-beans-3.1.xsd      
                             http://www.springframework.org/schema/context      
                             http://www.springframework.org/schema/context/spring-context-3.1.xsd      
                             http://www.springframework.org/schema/mvc      
-                            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-                            http://www.springframework.org/schema/cache
-                            http://www.springframework.org/schema/cache/spring-cache-4.2.xsd">     
+                            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">     
         <!-- 使用注解式注入 -->    
         <context:annotation-config />     
 		<mvc:annotation-driven/>
@@ -35,18 +32,7 @@
        <!-- 上传文件 -->
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
        
-        <!--  缓存  属性-->  
-	    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">    
-	        <property name="configLocation"  value="classpath:spring-ehcache.xml"/>   
-	    </bean>   
-	      
-	    <!-- 支持缓存注解 -->  
-	    <cache:annotation-driven cache-manager="cacheManager" />  
-	      
-	    <!-- 默认是cacheManager -->  
-	    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">    
-	        <property name="cacheManager"  ref="cacheManagerFactory"/>    
-	    </bean>    
+  
        
        
     </beans>    

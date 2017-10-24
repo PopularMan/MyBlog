@@ -13,6 +13,13 @@ public class Blog {
 	    private String blog_author;
 	    private Timestamp blog_time;
 	    private int blog_eyes;
+	    private int blog_dz;
+		public int getBlog_dz() {
+			return blog_dz;
+		}
+		public void setBlog_dz(int blog_dz) {
+			this.blog_dz = blog_dz;
+		}
 		public String getBlog_id() {
 			return blog_id;
 		}

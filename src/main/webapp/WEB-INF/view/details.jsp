@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
-    <title>徐老师博客</title>
+    <title>异朽阁</title>
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -35,7 +35,7 @@
               </li>
             </ul>
             <!-- MyBlog -->
-            <a class="blog-logo" href="index"></a>
+            <a class="blog-logo" href="index">异朽阁</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                 <li class="layui-nav-item layui-this">
@@ -80,7 +80,7 @@
                             <span>浏览量：12</span>
                         </div>
                         <div class="article-detail-content">
-                            <p style="text-align:center;">
+                          <p style="text-align:center;">
                                 <strong><span style="font-size:18px;">小赌为快</span></strong>
                             </p>
                             <p style="text-align:center;">

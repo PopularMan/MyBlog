@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ssm.dto.Blog;
 import com.ssm.service.IBlogService;
@@ -16,14 +17,19 @@ import com.ssm.util.PageParam;
 import com.ssm.util.PageUtil;
 
 
-@Controller
 @RequestMapping("blog")
+@RestController
 public class BlogController {
 	private Logger log = Logger.getLogger("BlogController.class");
 	@Autowired
 	private IBlogService blogService;
+	/**
+	 * 后台新增博客
+	 * @param blog
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping(value="/Blog",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
-	@ResponseBody
 	public Boolean insertBlog(Blog blog,HttpServletRequest req){
 		if(null!=blog){
 			log.info("插入"+blog);
@@ -35,16 +41,25 @@ public class BlogController {
 		}
 		return false;
 	}
+	/**
+	 * 后台分页博客
+	 * @param pageNumber
+	 * @param limit
+	 * @return
+	 */
 	@RequestMapping(value="/Blog",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
-	@ResponseBody
 	public PageUtil getBlogs(Integer pageNumber,Integer limit){
 		if(pageNumber!=null || limit!=null){
 			log.info("查询分页博客"+pageNumber+limit);		
-		    PageParam param=new PageParam(pageNumber, limit);
+		    PageParam param=new PageParam(pageNumber,limit);
 		    return  blogService.getBlogs(param);
 		}
 		return null; 
 	}
+	/**
+	 * 前台流加载博客
+	 */
+	
 	
 
 	
