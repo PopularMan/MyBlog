@@ -8,7 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
+    <link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resource/images/logo.ico"
+	type="image/x-icon">
     <title>异朽阁</title>
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />

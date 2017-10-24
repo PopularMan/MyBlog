@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <title>异朽阁</title>
 <link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resource/images/xls.jpg"
+	href="${pageContext.request.contextPath}/resource/images/logo.ico"
 	type="image/x-icon">
 <!--Layui-->
 <link

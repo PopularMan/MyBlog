@@ -8,7 +8,9 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>异朽阁-时光轴</title>
-   <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.jpg" type="image/x-icon">
+   <link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resource/images/logo.ico"
+	type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->

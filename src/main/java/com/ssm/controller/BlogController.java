@@ -16,7 +16,11 @@ import com.ssm.util.ConstantValue;
 import com.ssm.util.PageParam;
 import com.ssm.util.PageUtil;
 
-
+/**
+ * 博客控制器
+ * @author 张超超
+ *
+ */
 @RequestMapping("blog")
 @RestController
 public class BlogController {

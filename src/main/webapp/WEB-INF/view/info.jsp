@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>异朽阁- 关于本站</title>
     <link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resource/images/xls.jpg"
+	href="${pageContext.request.contextPath}/resource/images/logo.ico"
+	type="image/x-icon">
 	type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
@@ -152,7 +153,7 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resource/images/messagewall.png" alt="留言墙" />
+                                    <img src="${pageContext.request.contextPath}/resource/images/blogging.png" alt="留言墙" />
                                 </div>
                                 <p class="aboutinfo-nickname">留言墙</p>
                                 <p class="aboutinfo-introduce">本页面可留言、吐槽、提问。欢迎灌水，杜绝广告！</p>
