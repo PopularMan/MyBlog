@@ -8,6 +8,7 @@ import com.ssm.util.PageUtil;
 
 public interface IBlogService {
 	Boolean insertBlog(Blog blog);
+	@SuppressWarnings("rawtypes")
 	PageUtil<Map> getBlogs(PageParam param);
     Blog selectBlog(String id);
 }
