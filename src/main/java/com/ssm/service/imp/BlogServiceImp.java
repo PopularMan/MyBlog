@@ -1,13 +1,10 @@
 package com.ssm.service.imp;
 
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.ssm.dao.IBlogDao;
@@ -38,6 +35,7 @@ public class BlogServiceImp implements IBlogService {
 		return false;
 		
 	}
+	@SuppressWarnings("rawtypes")
 	@Override
 	public PageUtil<Map> getBlogs(PageParam param) {
 		PageUtil<Map> utils=new PageUtil<>();

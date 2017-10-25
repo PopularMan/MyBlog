@@ -83,6 +83,11 @@
             <artifactId>spring-webmvc</artifactId>    
             <version>${srping.version}</version>    
         </dependency>    
+        <dependency>
+		   <groupId>org.aspectj</groupId>
+		   <artifactId>aspectjweaver</artifactId>
+		   <version>1.8.4</version>
+		  </dependency>
         <!-- spring框架包 end -->    
         <!-- mybatis框架包 start -->    
         <dependency>    
@@ -204,7 +209,7 @@
 	    <artifactId>jedis</artifactId>  
 	    <version>2.7.3</version>  
 	</dependency> 
-<!-- shiro-权限控制缓存 -->
+<!-- shiro-权限控制 -->
 	<dependency>  
             <groupId>org.apache.shiro</groupId>  
             <artifactId>shiro-core</artifactId>  
