@@ -14,22 +14,56 @@
       
     <!-- 缓存管理器 使用Ehcache实现 -->  
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
-        <property name="cacheManagerConfigFile" value="classpath:spring-ehcache.xml" />  
+        <property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml" />  
     </bean>  
-      
+    
+    
+    <!-- 配置进行授权和认证的 Realm，要新增一个java类来实现，下面会有，class=包名.类名，init-methood是初始化的方法 -->
+    <bean id="myRealm" class="com.ssm.shiro.ShiroRealmUtil"
+        init-method="setCredentialMatcher"></bean>
+     
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
         <!--认证管理器-->  
-        <property name="realm" ref="shiroSecurityRealm" />  
+        <property name="realm" ref="myRealm" />  
         <!-- 缓存管理器 -->  
         <property name="cacheManager" ref="cacheManager" />  
         <!-- rememberMe管理器 -->  
-        <property name="rememberMeManager" ref="rememberMeManager"/>  
+     <!--    <property name="rememberMeManager" ref="rememberMeManager"/>  --> 
     </bean>  
     
-    <!-- 会话ID生成器 -->  
+    
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
+    <bean id="lifecycleBeanPostProcessor" 
+        class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+     <!-- 配置 ShiroFilter bean: 该 bean 的 id 必须和 web.xml 文件中配置的 shiro filter 的 name 一致  -->
+     
+     
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 装配 securityManager -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 配置登陆页面 -->
+        <property name="loginUrl"  value="/admin/login"/>
+        <!-- 登陆成功后的一面 -->
+        <property name="successUrl" value="/admin/success"/>
+        <property name="unauthorizedUrl" value="/admin/unauthorized"/>
+        <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 配置登出: 使用 logout 过滤器 -->
+                /shiro-logout = logout
+                /shiro-* = anon
+                /user.jsp = roles[user]
+                /admin.jsp = roles[admin]
+                /** = authc
+            </value>
+        </property>
+    </bean> 
+    
+    
+  <!--   
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>  
   
-    <!-- 会话Cookie模板 -->  
+    会话Cookie模板  
     <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">  
         <constructor-arg value="sid"/>  
         <property name="httpOnly" value="true"/>  
@@ -39,69 +73,17 @@
     <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">    
         <constructor-arg value="rememberMe"/>    
         <property name="httpOnly" value="true"/>  
-        <property name="maxAge" value="2592000"/><!-- 30天 -->    
+        <property name="maxAge" value="2592000"/>30天    
     </bean>  
-    <!-- rememberMe管理器 -->  
+    rememberMe管理器  
     <bean id="rememberMeManager"  
         class="org.apache.shiro.web.mgt.CookieRememberMeManager">    
         <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('7gzYfKjTASKdsai43ds==')}"/>    
          <property name="cookie" ref="rememberMeCookie"/>  
-    </bean>  
-      
-    <!-- 会话DAO -->  
-    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">  
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>  
-        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>  
-    </bean>  
-    <!-- 会话验证调度器 -->  
-    <bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">  
-        <property name="sessionValidationInterval" value="3000000"/>  
-        <property name="sessionManager" ref="sessionManager"/>  
-    </bean>  
+    </bean>   -->
+
+ 
   
-    <!-- 会话管理器 -->  
-    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">  
-        <property name="globalSessionTimeout" value="3000000"/>  
-        <property name="deleteInvalidSessions" value="true"/>  
-        <property name="sessionValidationSchedulerEnabled" value="true"/>  
-        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>  
-        <property name="sessionDAO" ref="sessionDAO"/>  
-        <property name="sessionIdCookieEnabled" value="true"/>  
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>  
-    </bean>  
-      
-    <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">    
-        <property name="rememberMeParam" value="rememberMe"/>    
-    </bean>  
-      
-     <!-- 自定义过滤器 --> 
-    <bean id="sysUserFilter" class="com.ssm.shiro.SysUserFilter"/>  
-      
-    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
-        <property name="securityManager" ref="securityManager"/>  
-        <property name="loginUrl" value="/WEB-INF/view/admin/login"/>  
-        <property name="successUrl" value="/admin/main"/>  
-        <property name="filters">  
-            <util:map>  
-                <entry key="authc">  
-                    <bean class="org.apache.shiro.web.filter.authc.PassThruAuthenticationFilter"/>  
-                </entry>  
-                <entry key="sysUser" value-ref="sysUserFilter"/>  
-            </util:map>  
-        </property>  
-        <property name="filterChainDefinitions">  
-            <value>  
-                /resource/** = anon  
-                /login.jsp = anon  
-                /admin/login.action = anon  
-                /admin/logout.action = logout  
-                /** = user,sysUser <!-- 表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->  
-                <!-- /** = authc  表示访问该地址用户必须身份验证通过-->  
-            </value>  
-        </property>  
-    </bean>  
-      
-    <!-- Post processor that automatically invokes init() and destroy() methods -->  
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
+  
       
 </beans>  

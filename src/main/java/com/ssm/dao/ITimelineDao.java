@@ -10,4 +10,5 @@ import com.ssm.dto.User;
 @Repository
 public interface ITimelineDao {
    List<Timeline> preGetTimelineData();
+   
 }

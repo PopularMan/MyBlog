@@ -165,18 +165,22 @@ body {
     height: 64px;
     position: fixed;
     top: 0;
-    background-color: #393D49;
+    background-color: #2F4056 !important;
     border-bottom: 1px solid #5FB878;
 }
 
     .blog-nav .layui-nav {
         position: absolute;
         top: 0;
-        left: 15%;
-        width: 85%;
+        left: 25%;
+        width: 75%;
         background: none;
         display: none;
         text-align: center;
+       
+    } 
+    .blog-nav .layui-nav li{
+     z-index: 100px;
     }
 
         .blog-nav .layui-nav .layui-nav-item {
@@ -229,7 +233,14 @@ body {
         font-weight: bold;
         font-family: KaiTi;
         display: inline-block;
-        z-index: 10;
+        z-index: -1;
+    }  
+    .blog-nav .blog-logo  img{
+      background-size: cover;
+      height:70px;
+      background-position: center;
+      position: relative;
+      top:-5px;
     }
 
     .blog-nav .blog-navicon {

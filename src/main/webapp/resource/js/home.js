@@ -50,8 +50,12 @@ layui.use(['flow','jquery'], function () {
 	            next(lis.join(''), page < res.count);    
 	          });
 	          },500);
+        	
+        	
+        	
         }
       });
+    
     function playAnnouncement(interval) {
         var index = 0;
         var $announcement = $('.home-tips-container>span');

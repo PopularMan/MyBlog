@@ -14,12 +14,17 @@ public class PageController {
 	
    @Autowired private IBlogService blogService;
    @RequestMapping("{path}")
-   public String pageConvert(@PathVariable("path") String path) {
-	   return path;
+   public String pathPre(@PathVariable("path") String path) {	   
+	   return "view/"+path;
    }
    @RequestMapping("article/{id}")
    public String articleDetail(@PathVariable("id") String id) {	   
-	   return "details";
+	   return "view/details";
+   }
+   @RequestMapping("admin/{path}")
+   public String adminPath(@PathVariable("path") String path) {	
+	   System.out.println("999");
+	   return "admin/"+path;
    }
    @RequestMapping("blogDetail")
    public ModelAndView PersonBlogDetail(String id) {

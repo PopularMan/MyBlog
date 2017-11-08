@@ -30,7 +30,12 @@
 <link
 	href="${pageContext.request.contextPath}/resource/css/animate.min.css"
 	rel="stylesheet" />
+	
+<style>
+
+</style>
 </head>
+
 <body>
 	<!-- 导航 -->
 	<nav class="blog-nav layui-header" style="position: relative;">
@@ -45,17 +50,17 @@
 				 </a></li>
 			</ul>
 			<!-- MyBlog -->
-			<a class="blog-logo" href="index">异朽阁</a>
+			<a class="blog-logo" href="javascript:void(0)"><img src="resource/images/logo.png"  /></a>
 			<!-- 导航菜单 -->
-			<ul class="layui-nav" lay-filter="nav">
+			<ul class="layui-nav layui-bg-cyan" lay-filter="nav" >
 				<li class="layui-nav-item layui-this"><a href="index.jsp"><i
 						class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
 				<li class="layui-nav-item"><a href="article"><i
-						class="fa fa-file-text fa-fw"></i>&nbsp;文章总览</a></li>
+						class="fa fa-download fa-fw"></i>&nbsp;资源下载</a></li>
 				<li class="layui-nav-item"><a href="timeline"><i
-						class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a></li>
+						class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
 				<li class="layui-nav-item"><a href="info"><i
-						class="fa fa-info fa-fw"></i>&nbsp;留下脚印</a></li>
+						class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
 
 			</ul>
 			<!-- 手机和平板的导航开关 -->
@@ -109,19 +114,16 @@
 					<div class="blogerinfo blog-module shadow">
 
 						<div class="blog-module-title">博主简介</div>
-						<div class="blogerinfo-figure">
-							<img src="resource/images/xls.jpg" style="border-radius: 200px"
-								alt="徐老师" />
-						</div>
-						<p class="blogerinfo-nickname ">徐老师</p>
+				
+						<p class="blogerinfo-nickname ">YXG</p>
 						<p class="blogerinfo-introduce">一枚90后程序员，JAVA开发工程师</p>
 						<p class="blogerinfo-location">
 							<i class="fa fa-location-arrow"></i>&nbsp;河南 - 信阳
 						</p>
 						<hr />
 						<div class="blogerinfo-contact">
-							<a target="_blank" title="QQ交流"
-								href="javascript:layer.msg('启动QQ会话窗口')"><i
+							<a  title="QQ交流"
+								href="javascript:void(0)" onclick="PlayJsAdPopWin()" ><i
 								class="fa fa-qq fa-2x"></i></a> <a target="_blank" title="给我写信"
 								href="javascript:layer.msg('启动邮我窗口')"><i
 								class="fa fa-envelope fa-2x"></i></a> <a target="_blank"
@@ -132,6 +134,17 @@
 						</div>
 					</div>
 					<div></div>
+					<!-- 分类导航 -->
+				   <div class="article-category shadow">
+                        <div class="article-category-title">分类导航</div>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">ASP.NET MVC</a>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">SQL Server</a>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Entity Framework</a>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Web前端</a>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">C#基础</a>
+                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">杂文随笔</a>
+                        <div class="clear"></div>
+                    </div>
 					<!--占位-->
 					<div class="blog-module shadow">
 						<div class="blog-module-title">热文排行</div>
@@ -173,10 +186,10 @@
 	<footer class="blog-footer">
 		<p>
 			<span>Copyright</span><span>&copy;</span><span>2017</span><a
-				href="http://www.cczblog.cn">徐老师</a><span>Design By Zc</span>
+				href="http://www.cczblog.cn">YXG</a><span>Design By Zc</span>
 		</p>
 		<p>
-			<a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备16029915号-1</a>
+			<a href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备17043612号-1</a>
 		</p>
 	</footer>
 	<!--侧边导航-->
@@ -219,7 +232,17 @@
 	<script src="${pageContext.request.contextPath}/resource/js/global.js"></script>
 	<!-- 本页脚本 -->
 	<script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
-
+   
+   <script>
+      var qq_chat = true;
+	   function PlayJsAdPopWin() {
+	   if (qq_chat) {
+	   popwin = window.location.href = 'tencent://message/?uin=1255780376&Site=www.cczblog.cn&Menu=yes'
+	   }
+	 };       
+   </script>
+   
+     
 
 </body>
 </html>

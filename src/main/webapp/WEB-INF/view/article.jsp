@@ -23,41 +23,34 @@
 <body>
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
-        <div class="blog-container">
-             <ul> 
-             <!-- QQ互联登陆 -->
-             <li class="layui-nav-item"> 
-                <a href="javascript:;" id="loginbtn" class="blog-user"><i class="fa fa-qq"></i></a>
-                <a href="javascript:;" id="loginout" class="blog-user layui-hide">
-                  <img src="${pageContext.request.contextPath}/resource/images/xls.jpg" alt="徐老师" title="徐老师" />&nbsp;A CXY
-               </a>
-              </li>
-            </ul>
-            <a href="javascript:;" class="blog-user layui-hide">
-                <img src="${pageContext.request.contextPath}/resource/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
-            </a>
-            <!--MyBlog -->
-            <a class="blog-logo" href="index.jsp">异朽阁</a>
-            <!-- 导航菜单 -->
-            <ul class="layui-nav" lay-filter="nav">
-               <li class="layui-nav-item ">
-                    <a href="../index.jsp"><i class="fa fa-home fa-fw"></i>&nbsp;博客首页</a>
-                </li>
-                <li class="layui-nav-item layui-this">
-                    <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;开发时光</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="info"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
-                </li>
-            </ul>
-            <!-- 手机和平板的导航开关 -->
-            <a class="blog-navicon" href="javascript:;">
-                <i class="fa fa-navicon"></i>
-            </a>
-        </div>
+      		<div class="blog-container">
+			<ul>
+				<!-- QQ互联登陆 -->
+				 <li class="layui-nav-item"><a href="QQLogin" class="blog-user"><i
+						class="fa fa-qq"></i></a> <a href="loginOut" id="loginout"
+					class="blog-user layui-hide"> <img src="${user.avatarUrl}"
+						title="${user.nickName}" />&nbsp;${user.nickName}
+				 </a></li>
+			</ul>
+			<!-- MyBlog -->
+			<a class="blog-logo" href="index">异朽阁</a>
+			<!-- 导航菜单 -->
+			<ul class="layui-nav layui-bg-cyan" lay-filter="nav">
+				<li class="layui-nav-item layui-this"><a href="index.jsp"><i
+						class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
+				<li class="layui-nav-item"><a href="article"><i
+						class="fa fa-download fa-fw"></i>&nbsp;资源下载</a></li>
+				<li class="layui-nav-item"><a href="timeline"><i
+						class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
+				<li class="layui-nav-item"><a href="info"><i
+						class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
+
+			</ul>
+			<!-- 手机和平板的导航开关 -->
+			<a class="blog-navicon" href="javascript:;"> <i
+				class="fa fa-navicon"></i>
+			</a>
+		</div>
     </nav>
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
@@ -256,11 +249,16 @@
             </div>
         </div>
     </div>
-    <!-- 底部 -->
-    <footer class="blog-footer">
-        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">不落阁</a><span>Design By LY</span></p>
-        <p><a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备16029915号-1</a></p>
-    </footer>
+ 	<!-- 底部 -->
+	<footer class="blog-footer">
+		<p>
+			<span>Copyright</span><span>&copy;</span><span>2017</span><a
+				href="http://www.cczblog.cn">YXG</a><span>Design By Zc</span>
+		</p>
+		<p>
+			<a href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备17043612号-1</a>
+		</p>
+	</footer>
     <!--侧边导航-->
     <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
         <li class="layui-nav-item">
