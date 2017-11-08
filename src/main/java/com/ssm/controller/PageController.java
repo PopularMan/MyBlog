@@ -21,10 +21,10 @@ public class PageController {
    public String articleDetail(@PathVariable("id") String id) {	   
 	   return "view/details";
    }
-   @RequestMapping("admin/{path}")
-   public String adminPath(@PathVariable("path") String path) {	
+   @RequestMapping("admin/login")
+   public String adminPath() {	
 	   System.out.println("999");
-	   return "admin/"+path;
+	   return "login";
    }
    @RequestMapping("blogDetail")
    public ModelAndView PersonBlogDetail(String id) {

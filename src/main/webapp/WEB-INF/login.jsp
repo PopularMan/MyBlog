@@ -145,8 +145,23 @@
 	    });
 	    var open = 0;
 	    layui.use('layer', function () {
-			var msgalert = '默认账号:' + truelogin + '<br/> 默认密码:' + truepwd;
-    		var index = layer.alert(msgalert, { icon: 6, time: 3000, offset: 't', closeBtn: 0, title: '友情提示', btn: [], anim: 2, shade:0});  
+		
+			var index= layer.open({
+			         type: 1
+			        ,title: "测试号" //不显示标题栏
+			        ,closeBtn: false
+			        ,area: '300px;'
+			        ,shade: 0.8
+			        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+			        ,btn: ['我知道了']
+			        ,btnAlign: 'c'
+			        ,moveType: 1 //拖拽模式，0或者1
+			        ,content: "<p style='font-size:14px;color:black'>默认账号: admin <br/> 默认密码:123456</p>"
+			         ,success: function(layero){
+			           
+			          
+			        }
+			      });
 			layer.style(index, {
 				color: '#777'
 			}); 
@@ -186,48 +201,23 @@
 					var url = "";
 					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
 						url = "Ajax/Login";
+						
+						$.ajax({
+							url:"../adm/shiro-login",
+							data:{ username: login, userpass: pwd},
+							success:function(res){
+								
+							}
+						});
 					}else{
 						url = "Ajax/LoginFalse";
 					}
 					
-					
-	                AjaxPost(url, JsonData,
-	                                function () {
-	                                    //ajax加载中
-	                                },
-	                                function (data) {
-	                                    //ajax返回 
-	                                    //认证完成
-	                                    setTimeout(function () {
-	                                        $('.authent').show().animate({ right: 90 }, {
-	                                            easing: 'easeOutQuint',
-	                                            duration: 600,
-	                                            queue: false
-	                                        });
-	                                        $('.authent').animate({ opacity: 0 }, {
-	                                            duration: 200,
-	                                            queue: false
-	                                        }).addClass('visible');
-	                                        $('.login').removeClass('testtwo'); //平移特效
-	                                    }, 2000);
-	                                    setTimeout(function () {
-	                                        $('.authent').hide();
-	                                        $('.login').removeClass('test');
-	                                        if (data.Status == 'ok') {
-	                                            //登录成功
-	                                            $('.login div').fadeOut(100);
-	                                            $('.success').fadeIn(1000);
-	                                            $('.success').html(data.Text);
-												//跳转操作
-												
-	                                        } else {
-	                                            AjaxErro(data);
-	                                        }
-	                                    }, 2400);
-	                                })
 	            }
-	        })
-	    })
+	        });
+	     
+	       
+	    });
 	    var fullscreen = function () {
 	        elem = document.body;
 	        if (elem.webkitRequestFullScreen) {
@@ -240,20 +230,7 @@
 	            //浏览器不支持全屏API或已被禁用  
 	        }
 	    }  
-		if(ajaxmockjax == 1){
-			$.mockjax({  
-				url: 'Ajax/Login',  
-				status: 200,  
-				responseTime: 50,          
-				responseText: {"Status":"ok","Text":"登录成功<br /><br />欢迎回来"}  
-			}); 
-			$.mockjax({  
-				url: 'Ajax/LoginFalse',  
-				status: 200,  
-				responseTime: 50,          
-				responseText: {"Status":"Erro","Erro":"账号名或密码或验证码有误"}
-			});   
-		}
+
     </script>
 
 

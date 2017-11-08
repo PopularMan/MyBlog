@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/adm")
 public class ShiroController {
 	//登录认证
     @RequestMapping("/shiro-login")
