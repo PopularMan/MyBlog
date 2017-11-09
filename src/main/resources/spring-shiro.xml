@@ -50,11 +50,9 @@
         <property name="filterChainDefinitions">
             <value>
                 <!-- 配置登出: 使用 logout 过滤器 -->
-                /shiro-logout = logout
-                /shiro-* = anon
-                /user.jsp = roles[user]
-                /admin.jsp = roles[admin]
-                /** = authc
+                /resource/** = anon
+               
+                /admin/**=authc  <!-- 标识admin目录下的文件 需要登录才能使用 -->
             </value>
         </property>
     </bean> 

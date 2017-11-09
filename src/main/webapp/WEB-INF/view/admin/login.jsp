@@ -82,6 +82,9 @@
     <script type="text/javascript" src="../resource/js/Treatment.js"></script>
     <script type="text/javascript" src="../resource/js/jquery.mockjax.js"></script>
 	<script type="text/javascript">
+	
+	
+	    console.log("如何感到高兴，你就拍拍手，阿哈");
 		var canGetCookie = 0;//是否支持存储Cookie 0 不支持 1 支持
 		var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
 		//默认账号密码
@@ -177,8 +180,27 @@
 	            } else if (code == '' || code.length != 4) {
 	                ErroAlert('输入验证码');
 	            } else {
+	            	//此处做为ajax内部判断
+	            	  //登录
+	                var JsonData = { login: login, pwd: pwd, code: code };
+					
+					var url = "";
+					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
+						url = "Ajax/Login";
+						
+						$.ajax({
+							url:"../adm/shiro-login",
+							data:{ username: login, password: pwd},
+							success:function(res){
+								window.location.href="success";
+							}
+						});
+					}else{
+						url = "login";
+					}
+					
 	                //认证中..
-	                fullscreen();
+	                //fullscreen();
 	                $('.login').addClass('test'); //倾斜特效
 	                setTimeout(function () {
 	                    $('.login').addClass('testtwo'); //平移特效
@@ -195,24 +217,7 @@
 	                    }).addClass('visible');
 	                }, 500);
 
-	                //登录
-	                var JsonData = { login: login, pwd: pwd, code: code };
-					//此处做为ajax内部判断
-					var url = "";
-					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
-						url = "Ajax/Login";
-						
-						$.ajax({
-							url:"../adm/shiro-login",
-							data:{ username: login, userpass: pwd},
-							success:function(res){
-								
-							}
-						});
-					}else{
-						url = "Ajax/LoginFalse";
-					}
-					
+	              
 	            }
 	        });
 	     

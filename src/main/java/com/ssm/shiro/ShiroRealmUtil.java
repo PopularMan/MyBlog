@@ -28,14 +28,16 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		
 		Object principal = principalCollection.getPrimaryPrincipal();//获取登录的用户名
 		
-		
-		 if("admin".equals(principal)){               //两个if根据判断赋予登录用户权限
+		System.out.println("用户名"+principal);
+		 if("123456".equals(principal)){               //两个if根据判断赋予登录用户权限
 	            info.addRole("admin");
+	            
+	            System.out.println("----");
 	     }
 	     if("user".equals(principal)){
 	            info.addRole("list");
 	     }
-	        
+	     System.out.println("------000-");
 	     info.addRole("user");
 	        
 	     return info;
@@ -71,10 +73,10 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 	}
 	//init-method 配置. 
     public void setCredentialMatcher(){
-        HashedCredentialsMatcher  credentialsMatcher = new HashedCredentialsMatcher();    
+       /* HashedCredentialsMatcher  credentialsMatcher = new HashedCredentialsMatcher();    
         credentialsMatcher.setHashAlgorithmName("MD5");//MD5算法加密
         credentialsMatcher.setHashIterations(1024);//1024次循环加密      
-        setCredentialsMatcher(credentialsMatcher);
+        setCredentialsMatcher(credentialsMatcher);*/
     }
     public static void main(String[] args) {
         String saltSource = "abcdef";    

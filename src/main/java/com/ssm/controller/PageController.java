@@ -14,29 +14,19 @@ public class PageController {
 	
    @Autowired private IBlogService blogService;
    @RequestMapping("{path}")
-   public String pathPre(@PathVariable("path") String path) {	   
+   public String pathPre(@PathVariable("path") String path) {	
+	   System.out.println("路径"+path);
 	   return "view/"+path;
    }
    @RequestMapping("article/{id}")
    public String articleDetail(@PathVariable("id") String id) {	   
-	   return "view/details";
+	   return "details";
    }
    @RequestMapping("admin/login")
-   public String adminPath() {	
+   public String adminPath(String path) {	
 	   System.out.println("999");
-	   return "login";
+	   return "view/admin/login";
    }
-   @RequestMapping("blogDetail")
-   public ModelAndView PersonBlogDetail(String id) {
-	   ModelAndView model=new ModelAndView();
-	   if(id!=null){
-		   Blog blog=blogService.selectBlog(id);  
-		   model.addObject("blog", blog);
-		   model.setViewName("PersonBlogDetail");
-	   }else{
-		   model.setViewName("PersonBlogDetail");
-	   }
-	   return model;
-   }
+   
    
 }
