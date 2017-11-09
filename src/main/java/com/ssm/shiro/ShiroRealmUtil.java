@@ -42,15 +42,16 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 	        
 	     return info;
 	}
+	
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		 //1. token 中获取登录的 username! 注意不需要获取password.
         Object principal = token.getPrincipal();
         
-        
+    	System.out.println("用户名"+principal);
       //2. 利用 username 查询数据库得到用户的信息. 
-        User user=userdao.selectUser(principal.toString());
+        User user=userdao.selectUser("D7DFDACBF75921362E68A51A4AF18BE5");
         if(user!=null){
             pass=user.getOpenid();
         }
