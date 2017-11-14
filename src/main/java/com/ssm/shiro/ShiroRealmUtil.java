@@ -4,6 +4,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -15,12 +16,15 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ssm.dao.IAdminDao;
 import com.ssm.dao.IUserDao;
+import com.ssm.dto.ActiveUser;
+import com.ssm.dto.Admin;
 import com.ssm.dto.User;
+import com.ssm.service.IAdminService;
 public class ShiroRealmUtil extends AuthorizingRealm{
 	@Autowired
-	private IUserDao userdao;
-	private String pass;
+	private IAdminService adminService;
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -45,48 +49,62 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 	
 
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg) throws AuthenticationException {
 		 //1. token 中获取登录的 username! 注意不需要获取password.
-        Object principal = token.getPrincipal();
+        
+		UsernamePasswordToken token=(UsernamePasswordToken) arg;
+		Object principal = token.getPrincipal();
         
     	System.out.println("用户名"+principal);
-      //2. 利用 username 查询数据库得到用户的信息. 
-        User user=userdao.selectUser("D7DFDACBF75921362E68A51A4AF18BE5");
-        if(user!=null){
-            pass=user.getOpenid();
-        }
-        String credentials = pass;
+    	System.out.println("密码"+token.getCredentials().toString());
+        Admin admin=null;
         
-        //3.设置盐值 ，（加密的调料，让加密出来的东西更具安全性，一般是通过数据库查询出来的。 简单的说，就是把密码根据特定的东西而进行动态加密，如果别人不知道你的盐值，就解不出你的密码）
-        String source = "abcdefg";
-        ByteSource credentialsSalt = new Md5Hash(source);
+    	// 第二步：根据用户输入的userCode从数据库查询
+		try {
+			admin = adminService.selectAdmin(principal.toString());
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		// 如果查询不到返回null
+		if(admin==null){//
+			return null;
+		}
+		//数据库查询到的密码
+	    String password="5816ade412f44f509ab8fcc3aec19885";
+    	//3.获取盐值 
+        String salt = admin.getSalt();
+        
+        
+    	//activeUser就是用户身份信息
+		ActiveUser activeUser = new ActiveUser();
+		
+		activeUser.setUserid(admin.getId().toString());
+		activeUser.setUsercode(admin.getUsercode());
+		activeUser.setUsername(admin.getName());
+        //ByteSource credentialsSalt = new Md5Hash(source);
         //当前 Realm 的name
         String realmName = getName();
-        
-        
         //返回值实例化
         SimpleAuthenticationInfo info = 
-                new SimpleAuthenticationInfo(principal, credentials, 
-                        credentialsSalt, realmName);
-        
-        
-		return info;
+                    new SimpleAuthenticationInfo(principal, password, ByteSource.Util.bytes(salt),getName());
+    	
+    	
+            return info;
+
 	}
-	//init-method 配置. 
-    public void setCredentialMatcher(){
-       /* HashedCredentialsMatcher  credentialsMatcher = new HashedCredentialsMatcher();    
-        credentialsMatcher.setHashAlgorithmName("MD5");//MD5算法加密
-        credentialsMatcher.setHashIterations(1024);//1024次循环加密      
-        setCredentialsMatcher(credentialsMatcher);*/
-    }
+
     public static void main(String[] args) {
-        String saltSource = "abcdef";    
+    	
+        String saltSource = "zcc";    
         String hashAlgorithmName = "MD5";
-        String credentials = "passwor";
+        String credentials = "123456";
         Object salt = new Md5Hash(saltSource);
         int hashIterations = 1024;            
         Object result = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
         System.out.println(result);
+       // System.out.println(new  Md5Hash("123456", "abcdefg",10).toString());
     }
 
 }

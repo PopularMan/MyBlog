@@ -1,18 +1,15 @@
 package com.ssm.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.ssm.dto.Blog;
-import com.ssm.service.IBlogService;
 @Controller
 public class PageController {
 	
-   @Autowired private IBlogService blogService;
    @RequestMapping("{path}")
    public String pathPre(@PathVariable("path") String path) {	
 	   System.out.println("路径"+path);
@@ -22,10 +19,17 @@ public class PageController {
    public String articleDetail(@PathVariable("id") String id) {	   
 	   return "details";
    }
-   @RequestMapping("admin/login")
-   public String adminPath(String path) {	
-	   System.out.println("999");
-	   return "view/admin/login";
+   @RequestMapping("admin/{page}")
+   public String adminPath(@PathVariable("page")String page,HttpServletRequest request) throws Exception {
+      
+	   return "view/admin/"+page;
+   }
+   @RequestMapping("user/{page}")
+   public String adminUser(@PathVariable("page")String page,HttpServletRequest request) throws Exception {
+       if(StringUtils.isBlank(page)) {
+    	   return "view/user/index";
+       }
+	   return "view/user/"+page;
    }
    
    

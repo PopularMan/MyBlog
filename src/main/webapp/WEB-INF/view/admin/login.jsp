@@ -28,7 +28,7 @@
 	      <div class='icon'>
 	        <img alt="" src='../resource/img/user_icon_copy.png'>
 	      </div>
-	      <input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="123456"/>
+	      <input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="admin"/>
 	        <div class='validation'>
 	          <img alt="" src='../resource/img/tick.png'>
 	        </div>
@@ -89,7 +89,7 @@
 		var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
 		//默认账号密码
 		
-		var truelogin = "123456";
+		var truelogin = "admin";
 		var truepwd = "123456";
 		
 		var CodeVal = 0;
@@ -184,38 +184,44 @@
 	            	  //登录
 	                var JsonData = { login: login, pwd: pwd, code: code };
 					
-					var url = "";
-					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
-						url = "Ajax/Login";
+					
+					if(JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
+						 $('.login').addClass('test'); //倾斜特效
+			                setTimeout(function () {
+			                    $('.login').addClass('testtwo'); //平移特效
+			                }, 300);
+			                setTimeout(function () {
+			                    $('.authent').show().animate({ right: -320 }, {
+			                        easing: 'easeOutQuint',
+			                        duration: 600,
+			                        queue: false
+			                    });
+			                    $('.authent').animate({ opacity: 1 }, {
+			                        duration: 200,
+			                        queue: false
+			                    }).addClass('visible');
+			                }, 500);
 						
 						$.ajax({
 							url:"../adm/shiro-login",
 							data:{ username: login, password: pwd},
-							success:function(res){
-								window.location.href="success";
+							async:false,
+							success:function(code){
+								if(code=="success"){
+									layer.msg("登录成功");
+									 setTimeout(function () {
+						                    window.location.href="../user/index"
+						             }, 300);
+								}
 							}
 						});
 					}else{
-						url = "login";
+						//url = "login";
 					}
 					
 	                //认证中..
 	                //fullscreen();
-	                $('.login').addClass('test'); //倾斜特效
-	                setTimeout(function () {
-	                    $('.login').addClass('testtwo'); //平移特效
-	                }, 300);
-	                setTimeout(function () {
-	                    $('.authent').show().animate({ right: -320 }, {
-	                        easing: 'easeOutQuint',
-	                        duration: 600,
-	                        queue: false
-	                    });
-	                    $('.authent').animate({ opacity: 1 }, {
-	                        duration: 200,
-	                        queue: false
-	                    }).addClass('visible');
-	                }, 500);
+	               
 
 	              
 	            }

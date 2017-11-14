@@ -1,7 +1,11 @@
 package com.ssm.dto;
 
 import java.sql.Timestamp;
-
+/**
+ * 前台QQ用户登录表
+ * @author lenovo
+ *
+ */
 public class User {
 	private String userid;
 	private String openid;

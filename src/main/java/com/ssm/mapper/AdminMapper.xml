@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>    
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
-    <mapper namespace="com.ssm.dto.Admin" >      
+    <mapper namespace="com.ssm.dao.IAdminDao" >      
        
-        <sql id="base_admimn" >
-	    
+        <sql id="base_admin" >
+	       userid id,usercode,username name,password pass,avatar,loginip ,lastlogintime,loginaddress,registertime,salt,locked
 	    </sql>
        
        
+       
+        <select id="selectAdmin" resultType="com.ssm.dto.Admin" parameterType="String">
+           
+          select  <include refid="base_admin"/> from sys_admins where username=#{username}
+        
+        </select>
     </mapper>    

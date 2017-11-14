@@ -1,6 +1,9 @@
 package com.ssm.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -8,8 +11,10 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/adm")
@@ -18,9 +23,12 @@ public class ShiroController {
 	//private SecurityManager securityManager;
 	//登录认证
     @RequestMapping("/shiro-login")
+    @ResponseBody
     public String login(@RequestParam("username") String username, 
             @RequestParam("password") String password){
 		//SecurityUtils.setSecurityManager(securityManager);
+    	
+    	System.out.println("进入方法");
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);        
         try {
@@ -28,10 +36,14 @@ public class ShiroController {
             subject.login(token);
         }catch (AuthenticationException ae) {
             System.out.println("登陆失败: " + ae.getMessage());
-            return "view/admin/login";
+            return "error";
         }
-        
-        
-        return "/admin/success";
+        return "success";
     }
+    @RequestMapping(value = "/logout")  
+    public String logout(HttpServletRequest request, HttpServletResponse response,ModelMap map){  
+        Subject currentUser = SecurityUtils.getSubject();  
+        currentUser.logout();  
+        return "login.jsp";  
+    }  
 }
