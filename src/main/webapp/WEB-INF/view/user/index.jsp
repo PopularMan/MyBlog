@@ -122,9 +122,10 @@ layui.use(['element','layer'], function(){
 							  ,content:res //支持传入html
 							  ,id: m+1
 							}); 
+						  element.tabChange("contentTab",m+1);
 					 }
 				  });
-				   
+				
 				  layer.close(load);
 			  },500)
 		  }
