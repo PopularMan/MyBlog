@@ -31,7 +31,7 @@
 	<bean id="credentialsMatcher"
 		class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
 		<property name="hashAlgorithmName" value="MD5" />
-		<property name="hashIterations" value="1024" />
+		<property name="hashIterations" value="1" />
 	</bean>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
         <!--认证管理器-->  
@@ -62,14 +62,16 @@
             <value>
                 <!-- 配置登出: 使用 logout 过滤器 -->
               
-                /resource/** = anon
+                /resource/lay/** = anon
                 /resource/js/** = anon
                 /resource/css/** = anon
                 /resource/img/** = anon
-                /loginout/**=anon
-                
+                 /resource/** = anon
+                /admin/logout=logout
+                /admin/shiro-login=anon
                 /user/**=authc
                 /admin/**=authc  <!-- 标识admin目录下的文件 需要登录才能使用 -->
+                
             </value>
         </property>
     </bean> 

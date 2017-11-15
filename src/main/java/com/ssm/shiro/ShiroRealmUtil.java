@@ -55,8 +55,7 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		UsernamePasswordToken token=(UsernamePasswordToken) arg;
 		Object principal = token.getPrincipal();
         
-    	System.out.println("用户名"+principal);
-    	System.out.println("密码"+token.getCredentials().toString());
+    	
         Admin admin=null;
         
     	// 第二步：根据用户输入的userCode从数据库查询
@@ -72,23 +71,15 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 			return null;
 		}
 		//数据库查询到的密码
-	    String password="5816ade412f44f509ab8fcc3aec19885";
+	    String password=admin.getPass();
     	//3.获取盐值 
         String salt = admin.getSalt();
         
-        
-    	//activeUser就是用户身份信息
-		ActiveUser activeUser = new ActiveUser();
-		
-		activeUser.setUserid(admin.getId().toString());
-		activeUser.setUsercode(admin.getUsercode());
-		activeUser.setUsername(admin.getName());
-        //ByteSource credentialsSalt = new Md5Hash(source);
-        //当前 Realm 的name
+    
         String realmName = getName();
         //返回值实例化
         SimpleAuthenticationInfo info = 
-                    new SimpleAuthenticationInfo(principal, password, ByteSource.Util.bytes(salt),getName());
+                    new SimpleAuthenticationInfo(principal, password, ByteSource.Util.bytes(salt),realmName);
     	
     	
             return info;
@@ -97,13 +88,26 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 
     public static void main(String[] args) {
     	
-        String saltSource = "zcc";    
-        String hashAlgorithmName = "MD5";
-        String credentials = "123456";
-        Object salt = new Md5Hash(saltSource);
-        int hashIterations = 1024;            
-        Object result = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
-        System.out.println(result);
+    	 //模拟用户输入的密码
+        String source="123456";
+
+        //加入我们的盐salt
+        String salt="zcc";
+
+        //密码11111经过散列1次得到的密码:f3694f162729b7d0254c6e40260bf15c
+        int hashIterations=1;
+
+
+        //构造方法中：
+        //第一个参数：明文，原始密码
+        //第二个参数：盐，通过使用随机数
+        //第三个参数：散列的次数，比如散列两次，相当 于md5(md5(''))
+        Md5Hash md5Hash=new Md5Hash(source,salt,hashIterations);
+
+        String password_md5=md5Hash.toString();
+
+        System.out.println(password_md5);
+        
        // System.out.println(new  Md5Hash("123456", "abcdefg",10).toString());
     }
 

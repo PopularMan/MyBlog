@@ -21,7 +21,7 @@
 <h1>登录界面</h1>
 <div class='login'>
 	  <div class='login_title'>
-	    <span>博客管理员登录</span>
+	    <span>异朽阁后台管理系统</span>
 	  </div>
 	  <div class='login_fields'>
 	    <div class='login_fields__user'>
@@ -51,14 +51,17 @@
           <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
 	      </div>
 	    </div>
-	    <div class='login_fields__submit'>
+	    <div class='login_fields__submit' style="padding-left:10px;">
 	      <input type='button' value='登录'>
 	    </div>
 	  </div>
 	  <div class='success'>
 	  </div>
 	  <div class='disclaimer'>
-	    <p>异朽阁后台管理系统<a href="http://www.mycodes.net/" target="_blank">-xls</a></p>
+	  
+	    <p>默认账号: admin</p>
+	    <p>默认密码:123456</p>
+	  
 	  </div>
 	</div>
 	<div class='authent'>
@@ -149,25 +152,7 @@
 	    var open = 0;
 	    layui.use('layer', function () {
 		
-			var index= layer.open({
-			         type: 1
-			        ,title: "测试号" //不显示标题栏
-			        ,closeBtn: false
-			        ,area: '300px;'
-			        ,shade: 0.8
-			        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-			        ,btn: ['我知道了']
-			        ,btnAlign: 'c'
-			        ,moveType: 1 //拖拽模式，0或者1
-			        ,content: "<p style='font-size:14px;color:black'>默认账号: admin <br/> 默认密码:123456</p>"
-			         ,success: function(layero){
-			           
-			          
-			        }
-			      });
-			layer.style(index, {
-				color: '#777'
-			}); 
+
 	        //非空验证
 	        $('input[type="button"]').click(function () {
 	            var login = $('input[name="login"]').val();
@@ -201,22 +186,29 @@
 			                        queue: false
 			                    }).addClass('visible');
 			                }, 500);
-						
-						$.ajax({
-							url:"../adm/shiro-login",
-							data:{ username: login, password: pwd},
-							async:false,
-							success:function(code){
-								if(code=="success"){
-									layer.msg("登录成功");
-									 setTimeout(function () {
-						                    window.location.href="../user/index"
-						             }, 300);
-								}
-							}
-						});
+						    setTimeout(function(){
+									$.ajax({
+										url:"../admin/shiro-login",
+										data:{ username: login, password: pwd},
+										async:false,
+										success:function(code){
+											if(code=="success"){
+												layer.msg("认证成功");
+												 
+											}else{
+												layer.msg("认证失败");
+												
+											}
+											setTimeout(function () {
+							                    window.location.href="../user/index"
+							             }, 300);
+										}
+									});
+						      },2000);
+			
 					}else{
-						//url = "login";
+						
+						ErroAlert("验证码错误");
 					}
 					
 	                //认证中..

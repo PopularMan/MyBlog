@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/adm")
 public class ShiroController {
 	//@Autowired
 	//private SecurityManager securityManager;
 	//登录认证
-    @RequestMapping("/shiro-login")
+    @RequestMapping("admin/shiro-login")
     @ResponseBody
     public String login(@RequestParam("username") String username, 
             @RequestParam("password") String password){
@@ -40,10 +39,9 @@ public class ShiroController {
         }
         return "success";
     }
-    @RequestMapping(value = "/logout")  
-    public String logout(HttpServletRequest request, HttpServletResponse response,ModelMap map){  
-        Subject currentUser = SecurityUtils.getSubject();  
-        currentUser.logout();  
-        return "login.jsp";  
+    @RequestMapping(value = "admin/logout")  
+    public String logout(HttpServletRequest request, HttpServletResponse response){  
+    	
+        return "view/admin/login";  
     }  
 }
