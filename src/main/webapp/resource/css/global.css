@@ -8,7 +8,13 @@
 
 /*全局样式*/
 body {
-    background: #eee;
+    background-image: url("../images/bodybg.jpg");
+    background-position: center 50%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    
     color: #444;
 }
 
@@ -478,8 +484,13 @@ body {
     }
 
         .article > .article-left > img {
+            transition: all 0.5s;
             width: 100%;
             height: auto;
+        }
+         .article > .article-left > img:hover{
+            transform: scale(1.1);
+            box-shadow: #3d3d3d 0px 5px 10px 0px ,#3d3d3d 0px 10px 20px 0px ;
         }
 
     .article > .article-right {
