@@ -104,7 +104,7 @@ public class QQLoginController {
 
 	}
 
-	@RequestMapping("loginOut")
+	@RequestMapping("InvalidQQlogin")
 	public String loginOut(HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		session.invalidate();
 		return "redirect:" + req.getHeader("Referer");

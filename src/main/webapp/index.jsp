@@ -44,7 +44,7 @@
 			<ul>
 				<!-- QQ互联登陆 -->
 				 <li class="layui-nav-item"><a href="QQLogin" class="blog-user"><i
-						class="fa fa-qq"></i></a> <a href="loginOut" id="loginout"
+						class="fa fa-qq"></i></a> <a href="InvalidQQlogin" id="loginout"
 					class="blog-user layui-hide"> <img src="${user.avatarUrl}"
 						title="${user.nickName}" />&nbsp;${user.nickName}
 				 </a></li>
