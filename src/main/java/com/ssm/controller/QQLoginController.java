@@ -26,6 +26,7 @@ import com.qq.connect.oauth.Oauth;
 import com.ssm.dto.User;
 import com.ssm.service.IUserService;
 import com.ssm.util.AddressUtils;
+import com.ssm.util.MailUtil;
 /**
  * QQ登录处理
  * @author lenovo
@@ -50,7 +51,7 @@ public class QQLoginController {
 
 	@RequestMapping("callback")
 	public String callback(HttpServletRequest req, HttpServletResponse res, HttpSession session)
-			throws QQConnectException {
+			throws Exception {
 		AccessToken accessTokenObj = (new Oauth()).getAccessTokenByRequest(req);
 		String accessToken = null, openID = null;
 		long tokenExpireIn = 0L;
@@ -92,6 +93,8 @@ public class QQLoginController {
 				int result = userService.insertOrUpdateUser(user);
 				if (result > 0) {
 					session.setAttribute("user", user);
+					//邮件发送
+					MailUtil.sendMail("新用户登录", user);
 				}
 			} else {
 				System.out.println("请求非法");
