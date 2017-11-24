@@ -14,8 +14,9 @@
   <div class="layui-header">
     <div class="layui-logo">Manger Console</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
+    <a href=""  class="hiddenmenu" ><i class="fa fa-th-large" style="color:white;"></i></a>
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"></li>
       <li class="layui-nav-item"><a href="">商品管理</a></li>
       <li class="layui-nav-item"><a href="">用户</a></li>
       <li class="layui-nav-item">

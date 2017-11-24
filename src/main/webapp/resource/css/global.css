@@ -1141,3 +1141,18 @@ body {
     }
 }
 <!--ÕÅ³¬³¬-->
+<!--ºóÌ¨-->
+.hiddenmenu{
+	position: absolute;
+	left:190px;
+	display:block;
+	width: 20px;
+	height: 20px;
+	margin: 15px 15px 0 0;
+	font-size: 17px;
+	text-align: center;
+	padding: 5px 5px;
+	color: #fff;
+	background-color: #1AA094;
+	
+}
