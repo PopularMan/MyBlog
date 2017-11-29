@@ -4,29 +4,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>YXG-Manger-Console</title>
+<title>异朽阁后台</title>
 <%@ include file="/WEB-INF/view/layui.jsp"%>
+<style>
+.menubar{
+    position:absolute!important;
+    left:210px;
+	width: 20px;
+	height: 20px;
+	margin: 15px 15px 0 0;
+	font-size: 17px;
+	text-align: center;
+	padding: 5px 5px;
+	color: #fff;
+	background-color: #1AA094
+}
+</style>
 </head>
 
 
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
-    <div class="layui-logo">Manger Console</div>
+    <div class="layui-logo">异朽阁后台管理</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
-    <a href=""  class="hiddenmenu" ><i class="fa fa-th-large" style="color:white;"></i></a>
+    <a href="#"  class="menubar"><i class="fa fa-th-large" style="color:white;"></i></a>
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
-        </dl>
-      </li>
+      <li class="layui-nav-item"><a href="">不知道</a></li>
+      <li class="layui-nav-item"><a href="">不知道</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
@@ -49,7 +54,7 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">博客板块</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">文章一栏</a></dd>
+            <dd><a href="javascript:;"><i class="fa fa-home"></i>&nbsp;文章一栏</a></dd>
             <dd><a href="javascript:;">留言二栏</a></dd>
             <dd><a href="javascript:;">时光三栏</a></dd>
             <dd><a href="javascript:;">信息四栏</a></dd>
@@ -71,10 +76,14 @@
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div style="padding: 5px;height:100%">
-        <div class="layui-tab layui-tab-brief"  lay-filter="contentTab">
-		  <ul class="layui-tab-title" id="contentTab">
-		 
+    <div style="padding: 0px 3px;height:100%">
+        <div class="layui-tab layui-tab-brief"  lay-filter="contentTab" lay-allowclose="true">
+		  <ul class="layui-tab-title" id="contentTb">
+		       <li class="layui-this">网站设置</li>
+			    <li>用户管理</li>
+			    <li>权限分配</li>
+			    <li>商品管理</li>
+			    <li>订单管理</li>
 		  </ul>
 		  <div class="layui-tab-content"></div>
 		</div>      
@@ -100,9 +109,10 @@ layui.use(['element','layer'], function(){
 			  icon: 16
 			  ,shade: 0.4
 		   });
-		  title=$(this).text();
+		  title=$(this).html();
+		  
 		  var flag=false;
-		  $("#contentTab li").each(function(k,v){
+		  $("#contentTb li").each(function(k,v){
 			  if($(v).attr("lay-id")==eval(m+1)){
 				 
 				  flag=true;
@@ -112,23 +122,31 @@ layui.use(['element','layer'], function(){
 			  element.tabChange("contentTab",m+1);
 			  layer.close(load);
 		  }else{
+			     //新增一个Tab项
+		      element.tabAdd('contentTab', {
+		        title: '新选项'+ (Math.random()*1000|0) //用于演示
+		        ,content: '内容'+ (Math.random()*1000|0)
+		        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+		      })
 			  //判断layID 是否存在
-			  setTimeout(function(){
+	/* 		  setTimeout(function(){
 				  $.get({
 					 url:"u_blog",
 					 dataType:"html",
+					 async:false,
 					 success:function(res){
+						 
 						 element.tabAdd('contentTab', {
 							   title: title
 							  ,content:res //支持传入html
 							  ,id: m+1
 							}); 
-						  element.tabChange("contentTab",m+1);
+						 // element.tabChange("contentTab",m+1);
 					 }
 				  });
-				
 				  layer.close(load);
-			  },500)
+				
+			  },500) */
 		  }
 
 	  });

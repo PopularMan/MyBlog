@@ -14,10 +14,25 @@
 </head>
 <body>
 
+
+<blockquote class="layui-elem-quote news_search">
+		<div class="layui-inline">
+		    <div class="layui-input-inline">
+		    	<input value="" placeholder="请输入关键字" class="layui-input search_input" type="text">
+		    </div>
+		    <a class="layui-btn search_btn">查询</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn linksAdd_btn" style="background-color:#5FB878">添加链接</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+		</div>
+		<div class="layui-inline">
+			<div class="layui-form-mid layui-word-aux">本页面刷新后除新添加的链接外所有操作无效，关闭页面所有数据重置</div>
+		</div>
+	</blockquote>
 <table id="blogTable"></table>
-
-
-
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/plug/layui/layui.all.js"></script>
 <script type="text/html" id="checkboxTpl">
@@ -52,7 +67,7 @@ layui.use(['layer','table'], function(){
       ,{field:'blog_eyes', title:'阅读量',align:"center",}
       ,{field:'blog_state', title:'置顶',width:80,align:"center", templet: '#checkboxTpl'}
       ,{field:'blog_time', title:'发表时间', align:"center",templet: '#'}
-      ,{title:'操作', align:'center',width:200,toolbar: '#barDemo'}
+      ,{title:'操作', align:'center',width:200,toolbar: '#barDemo',fixed: 'right'}
     ]]
     ,page: true
   });

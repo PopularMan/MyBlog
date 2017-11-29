@@ -1,0 +1,16 @@
+body{
+	
+	font-size:14px;
+	font-family:"微软雅黑";
+}
+.layui-nav .layui-nav-item > a {
+    color: #fff;
+}
+.layui-header{
+	background-color: black;font-family: "微软雅黑";
+	border-bottom: 2px solid #009688;
+}
+<!--张超超-->
+.layui-logo{
+	font-family: bold;
+}
