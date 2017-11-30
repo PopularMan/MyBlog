@@ -38,7 +38,7 @@ public class BlogServiceImp implements IBlogService {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public PageUtil<Map> getBlogs(PageParam param) {
-		PageUtil<Map> utils=new PageUtil<>();
+		PageUtil<Map> utils=new PageUtil<Map>();
 		try {
 			utils.setCount(blogDao.getBlogsCount());
 			utils.setData(blogDao.getBlogs(param));

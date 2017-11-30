@@ -42,7 +42,7 @@ public class UploadController {
 		    imagePath=imagePath.replaceAll("\\\\", "/");
 		    map1.put("src",imagePath);
 		    map.put("data", map1);
-		} catch (IllegalStateException | IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			map.put("code", 1);

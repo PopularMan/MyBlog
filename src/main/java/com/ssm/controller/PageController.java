@@ -21,7 +21,6 @@ public class PageController {
    }
    @RequestMapping("admin/{page}")
    public String adminPath(@PathVariable("page")String page,HttpServletRequest request) throws Exception {
-      
 	   return "view/admin/"+page;
    }
    @RequestMapping("user/{page}")
