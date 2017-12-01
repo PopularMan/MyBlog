@@ -9,6 +9,7 @@
 
  .layui-icon {
             margin-top: 6px !important;
+	        margin-right: 2px!important;
  }
 </style>
 </head>
@@ -20,34 +21,50 @@
 		    <div class="layui-input-inline">
 		    	<input value="" placeholder="请输入关键字" class="layui-input search_input" type="text">
 		    </div>
-		    <a class="layui-btn search_btn">查询</a>
+		    <a class="layui-btn search_btn"><i class="layui-icon">&#xe615;</i>查询</a>
 		</div>
 		<div class="layui-inline">
-			<a class="layui-btn linksAdd_btn" style="background-color:#5FB878">添加链接</a>
+			<a class="layui-btn addblog" style="background-color:#5FB878"> <i class="layui-icon">&#xe608;</i>添加文章</a>
 		</div>
 		<div class="layui-inline">
-			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+			<a class="layui-btn layui-btn-danger batchDel"><i class="layui-icon">&#xe640;</i>批量删除</a>
 		</div>
-		<div class="layui-inline">
-			<div class="layui-form-mid layui-word-aux">本页面刷新后除新添加的链接外所有操作无效，关闭页面所有数据重置</div>
-		</div>
+
 	</blockquote>
 <table id="blogTable"></table>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/plug/layui/layui.all.js"></script>
 <script type="text/html" id="checkboxTpl">
-   <input type="checkbox" name="yyy" lay-skin="switch" lay-text="置|顶" {{ d.blog_state == 1 ? 'checked' : '' }}>
+   <input type="checkbox" name="yyy" lay-skin="switch" lay-text="置|顶" {{ d.blog_state == 1 ? "checked" : "" }}>
 </script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe615;</i></a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
 </script>
 <script>
 layui.use(['layer','table'], function(){
   var table = layui.table;
   var layer=layui.layer;
   var $=layui.jquery;
+  //绑定事件
+	 $(".addblog").on("click",function(){
+
+             var index = layui.layer.open({
+                 title : "添加文章",
+                 type : 2,
+                 content : "add_blog",
+                 success : function(layero, index){
+                     setTimeout(function(){
+                         layui.layer.tips('这里是关闭窗口', '.layui-layer-setwin .layui-layer-close', {
+                             tips: 3
+                         });
+                     },500)
+                 }
+             });
+             layui.layer.full(index);
+	 })	;
+
   table.render({
     elem: '#blogTable'
     ,url:'../blog/Blog'
@@ -63,11 +80,11 @@ layui.use(['layer','table'], function(){
       //,{field:'blog_futitle', title:'副标题', templet: '#usernameTpl'}
       ,{field:'btype_name', title:'类型',align:"center", templet: '#usernameTpl'}    
       ,{field:'blog_author', title: '作者',align:"center", sort: true}
-      ,{field:'blog_dz', title:'点赞数',align:"center", templet: '#'}
+      //,{field:'blog_dz', title:'点赞数',align:"center", templet: '#'}
       ,{field:'blog_eyes', title:'阅读量',align:"center",}
       ,{field:'blog_state', title:'置顶',width:80,align:"center", templet: '#checkboxTpl'}
       ,{field:'blog_time', title:'发表时间', align:"center",templet: '#'}
-      ,{title:'操作', align:'center',width:200,toolbar: '#barDemo',fixed: 'right'}
+      ,{title:'操作', align:'center',width:200,toolbar: '#barDemo',}
     ]]
     ,page: true
   });

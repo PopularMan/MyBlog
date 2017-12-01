@@ -4,7 +4,7 @@ layui.use(['element', 'layer', 'util', 'form','carousel'], function () {
     var layer=layui.layer;
     var carousel = layui.carousel;
     $(function(){
-    	$(".menubar").on("click",function(){
+    	$("#menuBar").on("click",function(){
     		 var oClass=$(".layui-side").hasClass("mini");
     		 //alert(oClass)
     		 if(!oClass){

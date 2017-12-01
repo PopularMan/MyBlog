@@ -28,12 +28,13 @@
   <div class="layui-header">
     <div class="layui-logo">异朽阁后台管理</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
-    <a href="#"  class="menubar"><i class="fa fa-th-large" style="color:white;margin-top: 5px;"></i></a>
+    <a href="javascript:;" id="menuBar" class="iconfont hideMenu icon-menu1"></a>
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">不知道</a></li>
-      <li class="layui-nav-item"><a href="">不知道</a></li>
+      <li class="layui-nav-item"><a href="">前台入口</a></li>
+
     </ul>
     <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href=""><i class="fa fa-volume-up"></i>&nbsp;系统公告</a></li>
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="../resource/images/xls.jpg" class="layui-nav-img">
@@ -44,32 +45,39 @@
           <dd><a href="">安全设置</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退了</a></li>
+      <li class="layui-nav-item"><a href="">退出</a></li>
     </ul>
   </div>
   <div class="layui-side layui-bg-black">
+
     <div class="layui-side-scroll">
+      <div class="user-photo">
+        <a class="img" title="我的头像"><img style="width: 80px;height: 80px" class="layui-circle" src="../resource/images/xls.jpg"></a>
+        <p>你好！<span class="userName">管理员</span></p>
+      </div>
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test" id="ulmenu">
         <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;" data-url="">博客板块</a>
+          <a class="" href="javascript:;" data-url=""><i class="fa fa-home"></i>&nbsp;博客板块</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;" data-url="u_blog"><i class="fa fa-home"></i>&nbsp;文章一栏</a></dd>
-            <dd><a href="javascript:;" data-url="">留言二栏</a></dd>
-            <dd><a href="javascript:;" data-url="">时光三栏</a></dd>
-            <dd><a href="javascript:;" data-url="">信息四栏</a></dd>
+            <dd><a href="javascript:;" data-url="u_blog"><i class="fa fa-th-large"></i>&nbsp;文章一栏</a></dd>
+            <dd><a href="javascript:;" data-url="add_blog"><i class="layui-icon">&#xe68e;</i> 留言二栏</a></dd>
+            <dd><a href="javascript:;" data-url=""><i class="layui-icon">&#xe60c;</i> 时光三栏</a></dd>
+            <dd><a href="javascript:;" data-url=""><i class="layui-icon">&#xe60c;</i> 信息四栏</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;">权限板块</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">列表一</a></dd>
-            <dd><a href="javascript:;">列表二</a></dd>
-            <dd><a href="">超链接</a></dd>
-          </dl>
+          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
         </li>
-        <li class="layui-nav-item"><a href="">技术板块</a></li>
-        <li class="layui-nav-item"><a href="">网站板块</a></li>
+        <li class="layui-nav-item">
+          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -118,7 +126,6 @@ layui.use(['element','layer'], function(){
               var flag=false;
               $("#contentTb li").each(function(k,v){
                   if($(v).attr("lay-id")==eval(m+1)){
-
                       flag=true;
                   }
               });
