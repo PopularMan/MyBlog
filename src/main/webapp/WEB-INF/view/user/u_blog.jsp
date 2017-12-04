@@ -17,6 +17,16 @@
 
 
 <blockquote class="layui-elem-quote news_search">
+	<form class="layui-form">
+		<div class="layui-inline">
+			<label class="layui-form-label">分类查询</label>
+			<div class="layui-input-block">
+				<select name="interest" lay-filter="aihao">
+					<option value="0">写作</option>
+					<option value="1">阅读</option>
+				</select>
+			</div>
+		</div>
 		<div class="layui-inline">
 		    <div class="layui-input-inline">
 		    	<input value="" placeholder="请输入关键字" class="layui-input search_input" type="text">
@@ -29,8 +39,12 @@
 		<div class="layui-inline">
 			<a class="layui-btn layui-btn-danger batchDel"><i class="layui-icon">&#xe640;</i>批量删除</a>
 		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe638;</i>查看评论</a>
+		</div>
 
 	</blockquote>
+</form>
 <table id="blogTable"></table>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/plug/layui/layui.all.js"></script>
@@ -43,9 +57,10 @@
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
 </script>
 <script>
-layui.use(['layer','table'], function(){
+layui.use(['layer','table','form'], function(){
   var table = layui.table;
   var layer=layui.layer;
+  var form =layui.form;
   var $=layui.jquery;
   //绑定事件
 	 $(".addblog").on("click",function(){
