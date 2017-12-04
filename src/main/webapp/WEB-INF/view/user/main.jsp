@@ -17,10 +17,9 @@
 <div class="layui-fluid">
 
 	<blockquote class="layui-elem-quote explain">
-		<p>本模板基于Layui实现</p>
-		<p>本模板基于Layui实现</p>
-		<p>本模板基于Layui实现</p>
-		<p>本模板基于Layui实现</p>
+		<p>本系统前端基于Layui实现,后端使用普遍的Spring+SpringMvc+MyBatis+Shiro权限框架,使用maven构建,IDEA开发,使用GIT做版本管理工具,码云做远程仓库</p>
+		<p></p>
+		<p>本系统仅供交流学习，欢迎讨论交流！码云地址<a href="https://gitee.com/xiaochaozcc/MavenSSM" style="color:blue" target="_blank">git@gitee.com:xiaochaozcc/MavenSSM.git</a></p>
 	</blockquote>
 
 
@@ -29,6 +28,7 @@
 			<fieldset class="layui-elem-field">
 				<legend>服务器信息</legend>
 				<div class="layui-field-box">
+					<blockquote class="layui-elem-quote title">系统基本参数</blockquote>
 					<table class="layui-table" lay-skin="line">
 						<tbody>
 						<tr>

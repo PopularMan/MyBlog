@@ -60,24 +60,28 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;" data-url=""><i class="fa fa-home"></i>&nbsp;博客板块</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;" data-url="u_blog"><i class="fa fa-th-large"></i>&nbsp;文章一栏</a></dd>
-            <dd><a href="javascript:;" data-url="add_blog"><i class="layui-icon">&#xe68e;</i> 留言二栏</a></dd>
-            <dd><a href="javascript:;" data-url=""><i class="layui-icon">&#xe60c;</i> 时光三栏</a></dd>
-            <dd><a href="javascript:;" data-url=""><i class="layui-icon">&#xe60c;</i> 信息四栏</a></dd>
+            <dd><a href="javascript:;" data-url="u_blog"><i class="layui-icon">&#xe602;</i>&nbsp;文章管理</a></dd>
+            <dd><a href="javascript:;" data-url="u_msg"><i class="layui-icon">&#xe602;</i>&nbsp;留言管理</a></dd>
+            <dd><a href="javascript:;" data-url="u_timeline"><i class="layui-icon">&#xe602;</i>&nbsp;时光轴管理</a></dd>
+            <dd><a href="javascript:;" data-url="u_website"><i class="layui-icon">&#xe602;</i>&nbsp;网站管理</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+          <a href="javascript:;"><i class="layui-icon">&#xe609;</i>&nbsp;权限板块</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;" data-url="u_user"><i class="layui-icon">&#xe602;</i>&nbsp;用户管理</a></dd>
+            <dd><a href="javascript:;" data-url="u_role"><i class="layui-icon">&#xe602;</i>&nbsp;角色管理</a></dd>
+            <dd><a href="javascript:;" data-url="u_permission"><i class="layui-icon">&#xe602;</i>&nbsp;权限管理</a></dd>
+          </dl>
+
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+          <a href="javascript:;" data-url="u_api"><i class="layui-icon">&#xe609;</i>&nbsp;接口管理</a>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
+          <a href="javascript:;" data-url="u_log"><i class="layui-icon">&#xe609;</i>&nbsp;登录日志</a>
         </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;"><i class="layui-icon">&#xe68e;</i>权限板块</a>
-        </li>
+
       </ul>
     </div>
   </div>
