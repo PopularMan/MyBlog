@@ -34,7 +34,7 @@
 
     </ul>
     <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item"><a href=""><i class="fa fa-volume-up"></i>&nbsp;系统公告</a></li>
+      <li class="layui-nav-item"><a href="javascript:void(0)" class="xtgg"><i class="fa fa-volume-up"></i>&nbsp;系统公告</a></li>
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="../resource/images/xls.jpg" class="layui-nav-img">
@@ -109,6 +109,30 @@ layui.use(['element','layer'], function(){
   var element = layui.element;
   var layer=layui.layer;
   var $=layui.jquery;
+  //绑定事件
+  $(".xtgg").on("click",function(){
+       layer.open({
+           type: 1,
+           title:"<p style='color: #000000;'>系统公告</p>",
+           content:"<p style='padding:8px;'>&nbsp;&nbsp;拥有双面的不仅是人生，还有 layui。一面极简，一面丰盈。极简是视觉所见的外在，是开发所念的简易。丰盈是倾情雕琢的内在，是信手拈来的承诺。一切本应如此，简而全，双重体验。</p>",
+           area: ['300px', '450px'],
+           shade: [0.8, '#000000'],
+           anim: 2,
+           fixed:true,
+           btn:['我知道了','没看明白'],
+           btnAlign: 'c',
+           yes: function(index, layero){
+             //按钮【按钮三】的回调
+               layer.msg("yes")
+            },
+           btn2:function(index, layero){
+                //按钮【按钮一】的回调
+               layer.msg("yes")
+            }
+
+
+       });
+  });
   var title="";
     element.tabAdd('contentTab', {
         title: "<i class='fa fa-home'></i>&nbsp;首页"

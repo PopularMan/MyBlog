@@ -45,11 +45,11 @@
 
 	</blockquote>
 </form>
-<table id="blogTable"></table>
+<table id="blogTable" class="layui-table" lay-filter="blogtab"></table>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/plug/layui/layui.all.js"></script>
 <script type="text/html" id="checkboxTpl">
-   <input type="checkbox" name="yyy" lay-skin="switch" lay-text="置|顶" {{ d.blog_state == 1 ? "checked" : "" }}>
+   <input type="checkbox"  lay-filter="zd" lay-skin="switch" lay-text="置|顶" {{ d.blog_state == 1 ? "checked" : "" }}>
 </script>
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe615;</i></a>
@@ -90,19 +90,46 @@ layui.use(['layer','table','form'], function(){
     ,limits:[5,10,15]
     ,cols: [[
        
-      {type: 'checkbox'}
-      ,{field:'blog_title', title:'标题',  unresize: true, sort: true}
+      {type: 'checkbox',width:"10%",}
+      ,{field:'blog_title', title:'标题',width:"15%",  unresize: true, sort: true}
       //,{field:'blog_futitle', title:'副标题', templet: '#usernameTpl'}
-      ,{field:'btype_name', title:'类型',align:"center", templet: '#usernameTpl'}    
-      ,{field:'blog_author', title: '作者',align:"center", sort: true}
+      ,{field:'btype_name', title:'类型',width:"10%",align:"center", templet: '#usernameTpl'}
+      ,{field:'blog_author', title: '作者',width:"10%",align:"center", sort: true}
       //,{field:'blog_dz', title:'点赞数',align:"center", templet: '#'}
-      ,{field:'blog_eyes', title:'阅读量',align:"center",}
-      ,{field:'blog_state', title:'置顶',width:80,align:"center", templet: '#checkboxTpl'}
-      ,{field:'blog_time', title:'发表时间', align:"center",templet: '#'}
-      ,{title:'操作', align:'center',width:200,toolbar: '#barDemo',}
+      ,{field:'blog_eyes', title:'阅读量',width:"10%",align:"center",}
+      ,{field:'blog_state', title:'置顶',width:"15%",align:"center", templet: '#checkboxTpl'}
+      ,{field:'blog_time', title:'发表时间', width:"15%", align:"center",templet: '#'}
+      ,{title:'操作', align:'center',width:"15%", toolbar: '#barDemo',}
     ]]
     ,page: true
   });
+    //监听工具条
+    table.on('tool(blogtab)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'detail'){
+            layer.msg('ID：'+ data.blog_id + ' 的查看操作');
+        } else if(obj.event === 'del'){
+            layer.confirm('真的删除行么', function(index){
+                obj.del();
+                layer.close(index);
+            });
+        } else if(obj.event === 'edit'){
+            layer.alert('编辑行：<br>'+ JSON.stringify(data))
+        }
+    });
+    //表单元素监听
+    form.on('switch(zd)', function(obj){
+        var index=layer.msg('正在修改状态', {
+            icon : 16,
+            shade :[0.8, '#000000'],
+            time : 0,
+            skin : 'layui-layer-molv'
+        });
+        setTimeout(function(){
+            layer.close(index);
+            layer.alert("修改成功",{icon:6});
+		},1000);
+    });
 });
 
 </script>
