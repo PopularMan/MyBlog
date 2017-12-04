@@ -42,14 +42,14 @@
 		<div class="layui-inline">
 			<a class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe638;</i>查看评论</a>
 		</div>
-
+	</form>
 	</blockquote>
-</form>
+
 <table id="blogTable" class="layui-table" lay-filter="blogtab"></table>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/plug/layui/layui.all.js"></script>
 <script type="text/html" id="checkboxTpl">
-   <input type="checkbox"  lay-filter="zd" lay-skin="switch" lay-text="置|顶" {{ d.blog_state == 1 ? "checked" : "" }}>
+   <input type="checkbox"  lay-filter="zd" lay-skin="switch" lay-text="置|顶" {{ d.blog_state ==1 ? 'checked' : "" }}>
 </script>
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail"><i class="layui-icon">&#xe615;</i></a>
