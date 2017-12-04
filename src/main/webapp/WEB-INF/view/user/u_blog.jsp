@@ -11,6 +11,10 @@
             margin-top: 6px !important;
 	        margin-right: 2px!important;
  }
+	.layui-table{
+		color:black!important;
+		font:14px Helvetica Neue,Helvetica,PingFang SC,微软雅黑,Tahoma,Arial,sans-serif;
+	}
 </style>
 </head>
 <body>
@@ -110,8 +114,19 @@ layui.use(['layer','table','form'], function(){
             layer.msg('ID：'+ data.blog_id + ' 的查看操作');
         } else if(obj.event === 'del'){
             layer.confirm('真的删除行么', function(index){
-                obj.del();
-                layer.close(index);
+                var index=layer.msg('正在删除博客', {
+                    icon : 16,
+                    shade :[0.8, '#000000'],
+                    time : 0,
+                    skin : 'layui-layer-molv'
+                });
+                setTimeout(function(){
+                    obj.del();
+                    layer.close(index);
+                    layer.alert("删除成功",{icon:6});
+                },1000);
+
+
             });
         } else if(obj.event === 'edit'){
             layer.alert('编辑行：<br>'+ JSON.stringify(data))
