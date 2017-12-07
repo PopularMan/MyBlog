@@ -16,11 +16,13 @@ public class PageController {
 	   return "view/"+path;
    }
    @RequestMapping("article/{id}")
-   public String articleDetail(@PathVariable("id") String id) {	   
-	   return "details";
+   public String articleDetail(@PathVariable("id") String id) {
+       System.out.printf("0000");
+       return "view/details";
    }
    @RequestMapping("admin/{page}")
    public String adminPath(@PathVariable("page")String page,HttpServletRequest request) throws Exception {
+
 	   return "view/admin/"+page;
    }
    @RequestMapping("user/{page}")

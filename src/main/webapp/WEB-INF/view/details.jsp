@@ -22,6 +22,8 @@
     <link href="${pageContext.request.contextPath}/resource/css/prettify.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resource/css/detail.css" rel="stylesheet" />
+
+
 </head>
 <body>
     <!-- 导航 -->
@@ -79,103 +81,7 @@
                             <span>浏览量：12</span>
                         </div>
                         <div class="article-detail-content">
-                          <p style="text-align:center;">
-                                <strong><span style="font-size:18px;">小赌为快</span></strong>
-                            </p>
-                            <p style="text-align:center;">
-                                <strong>
-                                    <span style="font-size:18px;">
-                                        <br />
-                                    </span>
-                                </strong>
-                            </p>
-                            <p style="text-align:center;">
-                                <img src="http://www.lyblogs.cn/kindeditor/attached/image/20170318/20170318175743_4625.gif" width="100%" height="auto" title="pagesize演示" alt="pagesize演示" />
-                            </p>
-                            <p style="text-align:left;">
-                                <br />
-                            </p>
-                            <hr />
-                            <p>
-                                <br />
-                            </p>
-                            <div style="text-align:center;">
-                                &nbsp; &nbsp; <span style="color:#EE33EE;">前言</span>：如果你没使用过layui框架或是laypage模块，那么请忽略这篇文章！
-                            </div>
-                            <hr />
-                            <p>
-                                <br />
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;pagesize.js是博主写的一个基于laypage的layui扩展模块。扩展了laypage目前未有的一个页容量控制功能！
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;由于目前layui的分页laypage模块并没有控制页容量的功能（layui 2.0不知道会不会有），所以我针对我自己的后台管理系统制作了这样一个功能！
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; 起初想着自己用，就简简单单的写了个方法，后来想着layui2.0发布日期还不知道，不如把这个方法做成模块分享！
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; pageszie.js采用layui定义模块的方法定义，所以你可以以layui加载其他模块的方式加载它，<span style="color:#EE33EE;">前提</span>是你把pagesize.js放在/layui/lay/modules/目录下面。
-                            </p>
-                            <p>
-                                <br />
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; 加载方法如下：
-                            </p>
-<pre class="prettyprint linenums lang-js">layui.use('pagesize',function(){
-    var pagesize = layui.pagesize();
-});</pre>
-                            <p>
-                                &nbsp;&nbsp; &nbsp; 它主要提供两个功能，一个是原有的laypage上渲染一段控制页容量的html代码，另一个是点击确定的时候返回所确定的新的页容量。
-                            </p>
-                            <p>
-                                <br />
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; 使用方法如下：
-                            </p>
-<pre class="prettyprint linenums lang-js">//注意，这个方法须在laypage(seetiongs)方法执行之后，也就是laypage渲染之后！否则可能会出现意外
-pagesize(laypageId, pageSize).callback(function (newPageSize) {
-    //这个回调函数是在指定新的页容量后触发
-    //并返回新的页容量
-    //你可以在这里使用新的页容量重新获取分页数据！
-});</pre>
-                            &nbsp;&nbsp; &nbsp;<span style="color:#EE33EE;">参数说明</span>：
-                            <p>
-                                &nbsp; &nbsp; <span style="color:#337FE5;"><strong>laypageId</strong></span>：laypage容器元素的id属性，同于laypage(settings)的cont属性，由于作之前没看laypage的cont属性还可以传dom或jquery对象，所以这里只支持元素id属性！
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:#337FE5;">pageSize</span></strong>：当前页容量，用于将当前页容量显示在界面上！
-                            </p>
-                            <p>
-                                <br />
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;该功能是我后台分页的时候扩展的一个功能，但我又想将它分享出来，于是做成了layui扩展模块。<br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;由于它起初针对我个人后台的分页定制的扩展功能，所以我只测试了我分页的写法是能实现的，并不知道大家的分页写法是否能用！<br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;如不能用，请参考我后台的分页写法！<br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;后台暂时没有源码，没时间整理，所以请自行到后台查看！
-                            </p>
-                            <hr />
-                            <p>
-                                <br />
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; 点赞不落阁：<a href="http://fly.layui.com/case/2017/" target="_blank"><span style="color:#337FE5;">点击前往</span></a>&nbsp; &nbsp; 完整演示请看后台：<span><a href="http://www.lyblogs.cn/admin" target="_blank"><span style="color:#337FE5;">点击前往</span></a></span>&nbsp; &nbsp; pagesize.js下载地址：<a href="https://pan.baidu.com/s/1kVK8UhT" target="_blank"><span style="color:#337FE5;">点击前往</span></a>
-                            </p>
-                            <hr />
-                            &nbsp; &nbsp; 出自：不落阁
-                            <p>
-                                &nbsp; &nbsp; 地址：<a href="http://www.lyblogs.cn" target="_blank">www.lyblogs.cn</a>
-                            </p>
-                            <p>
-                                &nbsp; &nbsp; 转载请注明出处！<img src="http://www.lyblogs.cn/kindeditor/plugins/emoticons/images/0.gif" border="0" alt="" />
-                            </p>
-                            <p>
-                                <br />
-                            </p>
+                            <pre lay-lang="PHP">adad<br></pre><p><br><br>sda <br></p>
                         </div>
                     </div>
                     <!-- 评论区域 -->

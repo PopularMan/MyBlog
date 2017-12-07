@@ -74,7 +74,7 @@ body {
         float: right;
     }
 
-/* С��Ļ��ƽ�壬���ڵ��� 768px�� */
+pre{padding: 10px 15px;margin: 10px 0;font-size: 12;border-left: 6px solid #009688;background-color: #f8f8f8;font-family: Courier New;overflow: auto;line-height: 20px}
 @media (min-width: 768px) {
     .blog-container {
         width: 738px;
