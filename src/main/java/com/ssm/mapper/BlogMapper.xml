@@ -15,7 +15,7 @@
                  b.blog_state,
                  b.blog_article,
                  b.blog_author,
-                 DATE_FORMAT(b.blog_time,'%y-%m-%d %h:%i ') as blog_time,
+                 DATE_FORMAT(b.blog_time,'%y-%m-%d  ') as blog_time,
                  b.blog_eyes,
                  b.blog_dz
                   from blogs b INNER JOIN blog_type t on t.btype_id = b.blog_type

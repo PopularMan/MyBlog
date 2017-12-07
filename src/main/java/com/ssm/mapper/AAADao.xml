@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.AAADao">
+  <resultMap id="BaseResultMap" type="com.ssm.dto.Aaa">
+    <id column="stu_id" jdbcType="INTEGER" property="stu_id" />
+    <result column="stu_no" jdbcType="VARCHAR" property="stu_no" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stu_name" />
+    <result column="stu_sex" jdbcType="VARCHAR" property="stu_sex" />
+    <result column="stu_class" jdbcType="VARCHAR" property="stu_class" />
+    <result column="stu_teacher" jdbcType="VARCHAR" property="stu_teacher" />
+    <result column="stu_year" jdbcType="VARCHAR" property="stu_year" />
+    <result column="stu_month" jdbcType="VARCHAR" property="stu_month" />
+    <result column="stu_day" jdbcType="VARCHAR" property="stu_day" />
+    <result column="stu_eduction" jdbcType="VARCHAR" property="stu_eduction" />
+    <result column="stu_idnumber" jdbcType="INTEGER" property="stu_idnumber" />
+    <result column="stu_graschool" jdbcType="VARCHAR" property="stu_graschool" />
+    <result column="stu_major" jdbcType="VARCHAR" property="stu_major" />
+    <result column="stu_telphone" jdbcType="INTEGER" property="stu_telphone" />
+    <result column="stu_qqnumber" jdbcType="INTEGER" property="stu_qqnumber" />
+    <result column="stu_homenumber" jdbcType="INTEGER" property="stu_homenumber" />
+    <result column="stu_addresscity" jdbcType="VARCHAR" property="stu_addresscity" />
+    <result column="stu_addresscitydetail" jdbcType="VARCHAR" property="stu_addresscitydetail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    stu_id, stu_no, stu_name, stu_sex, stu_class, stu_teacher, stu_year, stu_month, stu_day, 
+    stu_eduction, stu_idnumber, stu_graschool, stu_major, stu_telphone, stu_qqnumber, 
+    stu_homenumber, stu_addresscity, stu_addresscitydetail
+  </sql>
+  <select id="selectByExample" parameterType="com.ssm.dto.AaaExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from aaa
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from aaa
+    where stu_id = #{stu_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from aaa
+    where stu_id = #{stu_id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ssm.dto.AaaExample">
+    delete from aaa
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ssm.dto.Aaa">
+    <selectKey keyProperty="stu_id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into aaa (stu_no, stu_name, stu_sex, 
+      stu_class, stu_teacher, stu_year, 
+      stu_month, stu_day, stu_eduction, 
+      stu_idnumber, stu_graschool, stu_major, 
+      stu_telphone, stu_qqnumber, stu_homenumber, 
+      stu_addresscity, stu_addresscitydetail)
+    values (#{stu_no,jdbcType=VARCHAR}, #{stu_name,jdbcType=VARCHAR}, #{stu_sex,jdbcType=VARCHAR}, 
+      #{stu_class,jdbcType=VARCHAR}, #{stu_teacher,jdbcType=VARCHAR}, #{stu_year,jdbcType=VARCHAR}, 
+      #{stu_month,jdbcType=VARCHAR}, #{stu_day,jdbcType=VARCHAR}, #{stu_eduction,jdbcType=VARCHAR}, 
+      #{stu_idnumber,jdbcType=INTEGER}, #{stu_graschool,jdbcType=VARCHAR}, #{stu_major,jdbcType=VARCHAR}, 
+      #{stu_telphone,jdbcType=INTEGER}, #{stu_qqnumber,jdbcType=INTEGER}, #{stu_homenumber,jdbcType=INTEGER}, 
+      #{stu_addresscity,jdbcType=VARCHAR}, #{stu_addresscitydetail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.dto.Aaa">
+    <selectKey keyProperty="stu_id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into aaa
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stu_no != null">
+        stu_no,
+      </if>
+      <if test="stu_name != null">
+        stu_name,
+      </if>
+      <if test="stu_sex != null">
+        stu_sex,
+      </if>
+      <if test="stu_class != null">
+        stu_class,
+      </if>
+      <if test="stu_teacher != null">
+        stu_teacher,
+      </if>
+      <if test="stu_year != null">
+        stu_year,
+      </if>
+      <if test="stu_month != null">
+        stu_month,
+      </if>
+      <if test="stu_day != null">
+        stu_day,
+      </if>
+      <if test="stu_eduction != null">
+        stu_eduction,
+      </if>
+      <if test="stu_idnumber != null">
+        stu_idnumber,
+      </if>
+      <if test="stu_graschool != null">
+        stu_graschool,
+      </if>
+      <if test="stu_major != null">
+        stu_major,
+      </if>
+      <if test="stu_telphone != null">
+        stu_telphone,
+      </if>
+      <if test="stu_qqnumber != null">
+        stu_qqnumber,
+      </if>
+      <if test="stu_homenumber != null">
+        stu_homenumber,
+      </if>
+      <if test="stu_addresscity != null">
+        stu_addresscity,
+      </if>
+      <if test="stu_addresscitydetail != null">
+        stu_addresscitydetail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stu_no != null">
+        #{stu_no,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_name != null">
+        #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_sex != null">
+        #{stu_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_class != null">
+        #{stu_class,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_teacher != null">
+        #{stu_teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_year != null">
+        #{stu_year,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_month != null">
+        #{stu_month,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_day != null">
+        #{stu_day,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_eduction != null">
+        #{stu_eduction,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_idnumber != null">
+        #{stu_idnumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_graschool != null">
+        #{stu_graschool,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_major != null">
+        #{stu_major,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_telphone != null">
+        #{stu_telphone,jdbcType=INTEGER},
+      </if>
+      <if test="stu_qqnumber != null">
+        #{stu_qqnumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_homenumber != null">
+        #{stu_homenumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_addresscity != null">
+        #{stu_addresscity,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_addresscitydetail != null">
+        #{stu_addresscitydetail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ssm.dto.AaaExample" resultType="java.lang.Long">
+    select count(*) from aaa
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update aaa
+    <set>
+      <if test="record.stu_id != null">
+        stu_id = #{record.stu_id,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu_no != null">
+        stu_no = #{record.stu_no,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_name != null">
+        stu_name = #{record.stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_sex != null">
+        stu_sex = #{record.stu_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_class != null">
+        stu_class = #{record.stu_class,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_teacher != null">
+        stu_teacher = #{record.stu_teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_year != null">
+        stu_year = #{record.stu_year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_month != null">
+        stu_month = #{record.stu_month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_day != null">
+        stu_day = #{record.stu_day,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_eduction != null">
+        stu_eduction = #{record.stu_eduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_idnumber != null">
+        stu_idnumber = #{record.stu_idnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu_graschool != null">
+        stu_graschool = #{record.stu_graschool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_major != null">
+        stu_major = #{record.stu_major,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_telphone != null">
+        stu_telphone = #{record.stu_telphone,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu_qqnumber != null">
+        stu_qqnumber = #{record.stu_qqnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu_homenumber != null">
+        stu_homenumber = #{record.stu_homenumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu_addresscity != null">
+        stu_addresscity = #{record.stu_addresscity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stu_addresscitydetail != null">
+        stu_addresscitydetail = #{record.stu_addresscitydetail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update aaa
+    set stu_id = #{record.stu_id,jdbcType=INTEGER},
+      stu_no = #{record.stu_no,jdbcType=VARCHAR},
+      stu_name = #{record.stu_name,jdbcType=VARCHAR},
+      stu_sex = #{record.stu_sex,jdbcType=VARCHAR},
+      stu_class = #{record.stu_class,jdbcType=VARCHAR},
+      stu_teacher = #{record.stu_teacher,jdbcType=VARCHAR},
+      stu_year = #{record.stu_year,jdbcType=VARCHAR},
+      stu_month = #{record.stu_month,jdbcType=VARCHAR},
+      stu_day = #{record.stu_day,jdbcType=VARCHAR},
+      stu_eduction = #{record.stu_eduction,jdbcType=VARCHAR},
+      stu_idnumber = #{record.stu_idnumber,jdbcType=INTEGER},
+      stu_graschool = #{record.stu_graschool,jdbcType=VARCHAR},
+      stu_major = #{record.stu_major,jdbcType=VARCHAR},
+      stu_telphone = #{record.stu_telphone,jdbcType=INTEGER},
+      stu_qqnumber = #{record.stu_qqnumber,jdbcType=INTEGER},
+      stu_homenumber = #{record.stu_homenumber,jdbcType=INTEGER},
+      stu_addresscity = #{record.stu_addresscity,jdbcType=VARCHAR},
+      stu_addresscitydetail = #{record.stu_addresscitydetail,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.dto.Aaa">
+    update aaa
+    <set>
+      <if test="stu_no != null">
+        stu_no = #{stu_no,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_name != null">
+        stu_name = #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_sex != null">
+        stu_sex = #{stu_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_class != null">
+        stu_class = #{stu_class,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_teacher != null">
+        stu_teacher = #{stu_teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_year != null">
+        stu_year = #{stu_year,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_month != null">
+        stu_month = #{stu_month,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_day != null">
+        stu_day = #{stu_day,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_eduction != null">
+        stu_eduction = #{stu_eduction,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_idnumber != null">
+        stu_idnumber = #{stu_idnumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_graschool != null">
+        stu_graschool = #{stu_graschool,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_major != null">
+        stu_major = #{stu_major,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_telphone != null">
+        stu_telphone = #{stu_telphone,jdbcType=INTEGER},
+      </if>
+      <if test="stu_qqnumber != null">
+        stu_qqnumber = #{stu_qqnumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_homenumber != null">
+        stu_homenumber = #{stu_homenumber,jdbcType=INTEGER},
+      </if>
+      <if test="stu_addresscity != null">
+        stu_addresscity = #{stu_addresscity,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_addresscitydetail != null">
+        stu_addresscitydetail = #{stu_addresscitydetail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stu_id = #{stu_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.dto.Aaa">
+    update aaa
+    set stu_no = #{stu_no,jdbcType=VARCHAR},
+      stu_name = #{stu_name,jdbcType=VARCHAR},
+      stu_sex = #{stu_sex,jdbcType=VARCHAR},
+      stu_class = #{stu_class,jdbcType=VARCHAR},
+      stu_teacher = #{stu_teacher,jdbcType=VARCHAR},
+      stu_year = #{stu_year,jdbcType=VARCHAR},
+      stu_month = #{stu_month,jdbcType=VARCHAR},
+      stu_day = #{stu_day,jdbcType=VARCHAR},
+      stu_eduction = #{stu_eduction,jdbcType=VARCHAR},
+      stu_idnumber = #{stu_idnumber,jdbcType=INTEGER},
+      stu_graschool = #{stu_graschool,jdbcType=VARCHAR},
+      stu_major = #{stu_major,jdbcType=VARCHAR},
+      stu_telphone = #{stu_telphone,jdbcType=INTEGER},
+      stu_qqnumber = #{stu_qqnumber,jdbcType=INTEGER},
+      stu_homenumber = #{stu_homenumber,jdbcType=INTEGER},
+      stu_addresscity = #{stu_addresscity,jdbcType=VARCHAR},
+      stu_addresscitydetail = #{stu_addresscitydetail,jdbcType=VARCHAR}
+    where stu_id = #{stu_id,jdbcType=INTEGER}
+  </update>
+</mapper>
