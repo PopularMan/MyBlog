@@ -102,14 +102,6 @@
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
        
       <!-- shiro配置 -->
-      
-      
-      
-       <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-          depends-on="lifecycleBeanPostProcessor"/>
-	    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-	        <property name="securityManager" ref="securityManager"/>
-	    </bean>
 	  <import resource="classpath:spring-shiro.xml"/>
        
        
