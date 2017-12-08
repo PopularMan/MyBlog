@@ -60,6 +60,7 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;" data-url=""><i class="fa fa-home"></i>&nbsp;博客板块</a>
           <dl class="layui-nav-child">
+            <dd><a href="javascript:;" data-url="u_stu"><i class="layui-icon">&#xe613;</i>&nbsp;学生信息</a></dd>
             <dd><a href="javascript:;" data-url="u_blog"><i class="layui-icon">&#xe602;</i>&nbsp;文章管理</a></dd>
             <dd><a href="javascript:;" data-url="u_msg"><i class="layui-icon">&#xe602;</i>&nbsp;留言管理</a></dd>
             <dd><a href="javascript:;" data-url="u_timeline"><i class="layui-icon">&#xe602;</i>&nbsp;时光轴管理</a></dd>
@@ -67,13 +68,7 @@
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a href="javascript:;"><i class="layui-icon">&#xe609;</i>&nbsp;权限板块</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;" data-url="u_user"><i class="layui-icon">&#xe602;</i>&nbsp;用户管理</a></dd>
-            <dd><a href="javascript:;" data-url="u_role"><i class="layui-icon">&#xe602;</i>&nbsp;角色管理</a></dd>
-            <dd><a href="javascript:;" data-url="u_permission"><i class="layui-icon">&#xe602;</i>&nbsp;权限管理</a></dd>
-          </dl>
-
+          <a href="u_pers"><i class="layui-icon">&#xe609;</i>&nbsp;权限管理</a>
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;" data-url="u_api"><i class="layui-icon">&#xe609;</i>&nbsp;接口管理</a>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.IStuDao">
+  <resultMap id="BaseResultMap" type="com.ssm.dto.Stus">
+    <id column="stu_id" jdbcType="INTEGER" property="stu_id" />
+    <result column="stu_no" jdbcType="VARCHAR" property="stu_no" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stu_name" />
+    <result column="stu_sex" jdbcType="VARCHAR" property="stu_sex" />
+    <result column="stu_class" jdbcType="VARCHAR" property="stu_class" />
+    <result column="stu_teacher" jdbcType="VARCHAR" property="stu_teacher" />
+    <result column="stu_year" jdbcType="VARCHAR" property="stu_year" />
+    <result column="stu_month" jdbcType="VARCHAR" property="stu_month" />
+    <result column="stu_day" jdbcType="VARCHAR" property="stu_day" />
+    <result column="stu_eduction" jdbcType="VARCHAR" property="stu_eduction" />
+    <result column="stu_idnumber" jdbcType="VARCHAR" property="stu_idnumber" />
+    <result column="stu_graschool" jdbcType="VARCHAR" property="stu_graschool" />
+    <result column="stu_major" jdbcType="VARCHAR" property="stu_major" />
+    <result column="stu_telphone" jdbcType="VARCHAR" property="stu_telphone" />
+    <result column="stu_qqnumber" jdbcType="VARCHAR" property="stu_qqnumber" />
+    <result column="stu_homenumber" jdbcType="VARCHAR" property="stu_homenumber" />
+    <result column="stu_addresscity" jdbcType="VARCHAR" property="stu_addresscity" />
+    <result column="stu_addresscitydetail" jdbcType="VARCHAR" property="stu_addresscitydetail" />
+    <result column="stu_type" jdbcType="VARCHAR" property="stu_type" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    stu_id, stu_no, stu_name, stu_sex, stu_class, stu_teacher, stu_year, stu_month, stu_day, 
+    stu_eduction, stu_idnumber, stu_graschool, stu_major, stu_telphone, stu_qqnumber, 
+    stu_homenumber, stu_addresscity, stu_addresscitydetail, stu_type
+  </sql>
+  <select id="selectStuList" parameterType="com.ssm.util.PageParam" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stus where 1=1
+    <if test="param.name!= null and param.name!='' ">
+      and stu_name like CONCAT('%','${param.name}','%' ) or
+      stu_sex like CONCAT('%','${param.name}','%' )  OR
+      stu_addresscitydetail  like CONCAT('%','${param.name}','%' ) or
+      stu_type like CONCAT('%','${param.name}','%' )
+    </if>
+    <if test="param.type!= null and param.type!='' ">
+      and stu_type = #{param.type}
+    </if>
+    limit ${startIndex},${limit}
+  </select>
+  <select id="selectStuListCount" parameterType="com.ssm.util.PageParam" resultType="Integer">
+    select   count(*)
+     from stus where 1=1
+    <if test="param.name!= null and param.name!='' ">
+      and stu_name like CONCAT('%','${param.name}','%' ) or
+      stu_sex like CONCAT('%','${param.name}','%' )  OR
+      stu_addresscitydetail  like CONCAT('%','${param.name}','%' ) or
+      stu_type like CONCAT('%','${param.name}','%' )
+
+    </if>
+    <if test="param.type!= null and param.type!='' ">
+      and stu_type = #{param.type}
+    </if>
+  </select>
+
+</mapper>

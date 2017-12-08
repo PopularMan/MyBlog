@@ -90,7 +90,7 @@
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<button class="layui-btn" lay-filter="go" lay-submit><i class="layui-icon">&#xe609;</i>立即发布</button>
+					<button class="layui-btn" id="pullBlog" lay-filter="go" lay-submit><i class="layui-icon">&#xe609;</i>立即发布</button>
 				</div>
 			</form>
 		</div>
@@ -144,8 +144,7 @@
             var futitle=$("#futitle").val();
             var time=$("#blog_time").val();
             var status=$("#status").val();
-             var  content=layedit.getContent(edit);
-            layer.msg(content);
+			var  content=layedit.getContent(edit);
             $.ajax({
                 url:"../blog/saveBlog",
                 type:"POST",
@@ -158,12 +157,16 @@
                     }else{
                         layer.alert("发表失败",{icon: 5});
                     }
-
                 },
-                error:function(){
-                    layer.alert("系统异常",{icon: 5});
+                error:function( XMLHttpRequest, textStatus, errorThrown) {
+                            layer.close(index1);
+							if(XMLHttpRequest.status=413){
+                                layer.tips('您未拥有相关权限,如有需要请联系管理员!', '#pullBlog');
+							}else{
+                                layer.alert("系统异常",{icon: 5});
+							}
                 }
-            })
+             });
 
             return false;
 

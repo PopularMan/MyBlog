@@ -20,9 +20,10 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver
         if(exception instanceof AuthorizationException){
             response.setStatus(413);//无权限异常  主要用于ajax请求返回
             response.addHeader("Error-Json", "{code:413,msg:'nopermission',script:''}");
-            response.setContentType("text/html;charset=utf-8");
+            response.setContentType("text/html;charset=utf-8");;
             if("XMLHttpRequest".equals(requestType)){
-                return new ModelAndView();
+                ModelAndView model=new ModelAndView();
+                return  model;
             }
             return new ModelAndView("redirect:/html/413.html");
         }

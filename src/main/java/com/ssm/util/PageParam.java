@@ -1,13 +1,28 @@
 package com.ssm.util;
 
+import java.util.Map;
+
 public class PageParam {
 	  private Integer pageNumber;
 	  private Integer limit;
 	  private Integer startIndex;
- 	public Integer getPageNumber() {
+	  private Map<String,Object> param;
+
+	public Map<String, Object> getParam()
+	{
+		return param;
+	}
+
+	public void setParam(Map<String, Object> param)
+	{
+		this.param = param;
+	}
+
+	public Integer getPageNumber() {
  		
 		return pageNumber;
-	}
+
+	  }
 	public void setPageNumber(Integer pageNumber) {
 		this.pageNumber = pageNumber;
 	}
