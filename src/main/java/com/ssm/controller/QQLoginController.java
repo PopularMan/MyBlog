@@ -1,22 +1,5 @@
 package com.ssm.controller;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.RandomUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.qq.connect.QQConnectException;
 import com.qq.connect.api.OpenID;
 import com.qq.connect.api.qzone.UserInfo;
@@ -27,6 +10,18 @@ import com.ssm.dto.User;
 import com.ssm.service.IUserService;
 import com.ssm.util.AddressUtils;
 import com.ssm.util.MailUtil;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.sql.Timestamp;
+import java.util.UUID;
 /**
  * QQ登录处理
  * @author lenovo
@@ -91,10 +86,13 @@ public class QQLoginController {
 				String uuid = UUID.randomUUID().toString();
 				user.setUserid(uuid);
 				int result = userService.insertOrUpdateUser(user);
-				if (result > 0) {
+				//result为2时，新增一位用户
+				if (result >0) {
 					session.setAttribute("user", user);
-					//邮件发送
-					MailUtil.sendMail("新用户登录", user);
+					if(result==2){
+						//邮件发送
+						MailUtil.sendMail("新用户登录", user);
+					}
 				}
 			} else {
 				System.out.println("请求非法");

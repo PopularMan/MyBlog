@@ -1,9 +1,6 @@
 package com.ssm.dto;
 
-import java.util.Iterator;
 import java.util.List;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * 用户身份信息，存入session 由于tomcat将session会序列化在本地硬盘上，所以使用Serializable接口
@@ -15,10 +12,29 @@ public class ActiveUser implements java.io.Serializable {
 	private String userid;//用户id（主键）
 	private String usercode;// 用户账号
 	private String username;// 用户名称
+    private String avatar;//头像
 
-/*	private List<SysPermission> menus;// 菜单
-	private List<SysPermission> permissions;// 权限
-*/
+	public String getAvatar()
+	{
+		return avatar;
+	}
+
+	public void setAvatar(String avatar)
+	{
+		this.avatar = avatar;
+	}
+
+	public List<Sys_Pers> getPermissions()
+	{
+		return permissions;
+	}
+
+	public void setPermissions(List<Sys_Pers> permissions)
+	{
+		this.permissions = permissions;
+	}
+
+	private List<Sys_Pers> permissions;// 权限
 	public String getUsername() {
 		return username;
 	}

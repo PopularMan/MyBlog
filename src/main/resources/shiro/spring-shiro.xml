@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:util="http://www.springframework.org/schema/util"  
+       xmlns:aop="http://www.springframework.org/schema/aop"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd  
+       http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">  
+      
+      
+    <!-- 缓存管理器 使用Ehcache实现 -->  
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
+        <property name="cacheManagerConfigFile" value="classpath:shiro/shiro-ehcache.xml" />
+    </bean>  
+    
+    
+    <!-- 配置进行授权和认证的 Realm，要新增一个java类来实现，下面会有，class=包名.类名，init-methood是初始化的方法 -->
+    <bean id="myRealm" class="com.ssm.shiro.ShiroRealmUtil">
+      <!-- 将凭证匹配器设置到realm中，realm按照凭证匹配器的要求进行散列 -->
+	    <property name="credentialsMatcher" ref="credentialsMatcher"/> 
+	    
+	    
+    </bean>
+     
+     
+	     <!-- 凭证匹配器 -->
+	<bean id="credentialsMatcher"
+		class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<property name="hashAlgorithmName" value="MD5" />
+		<property name="hashIterations" value="520" />
+	</bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+        <!--认证管理器-->  
+        <property name="realm" ref="myRealm" />  
+        <!-- 缓存管理器 -->  
+        <property name="cacheManager" ref="cacheManager" />  
+        <!-- rememberMe管理器 -->  
+     <!--    <property name="rememberMeManager" ref="rememberMeManager"/>  --> 
+    </bean>  
+    
+    
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
+    <bean id="lifecycleBeanPostProcessor" 
+        class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+     <!-- 配置 ShiroFilter bean: 该 bean 的 id 必须和 web.xml 文件中配置的 shiro filter 的 name 一致  -->
+     
+     
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 装配 securityManager -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 配置登陆页面 -->
+        <property name="loginUrl"  value="/admin/login"/>
+        <!-- 登陆成功后的一面 -->
+        <property name="successUrl" value="/user/index"/>
+        <property name="unauthorizedUrl" value="/admin/unauthorized"/>
+        <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 配置登出: 使用 logout 过滤器 -->
+              
+                /resource/lay/** = anon
+                /resource/js/** = anon
+                /resource/css/** = anon
+                /resource/img/** = anon
+                /resource/** = anon
+                /admin/logout=logout
+                /admin/shiro-login=anon
+                /user/**=authc
+                /admin/**=authc  <!-- 标识admin目录下的文件 需要登录才能使用 -->
+                
+            </value>
+        </property>
+    </bean> 
+    
+    
+  <!--   
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>  
+  
+    会话Cookie模板  
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">  
+        <constructor-arg value="sid"/>  
+        <property name="httpOnly" value="true"/>  
+        <property name="maxAge" value="-1"/>  
+    </bean>  
+      
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">    
+        <constructor-arg value="rememberMe"/>    
+        <property name="httpOnly" value="true"/>  
+        <property name="maxAge" value="2592000"/>30天    
+    </bean>  
+    rememberMe管理器  
+    <bean id="rememberMeManager"  
+        class="org.apache.shiro.web.mgt.CookieRememberMeManager">    
+        <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('7gzYfKjTASKdsai43ds==')}"/>    
+         <property name="cookie" ref="rememberMeCookie"/>  
+    </bean>   -->
+
+ 
+  
+  
+      
+</beans>  

@@ -21,7 +21,6 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 
 		Admin admin = (Admin)principalCollection.getPrimaryPrincipal();//获取登录的用户名
 		System.out.println(admin.getName()+"22222");
-
 		info.addStringPermission("user:addBlo");
 		return info;
 	}
@@ -74,7 +73,7 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		String salt="zcc";
 
 		//密码11111经过散列1次得到的密码:f3694f162729b7d0254c6e40260bf15c
-		int hashIterations=1;
+		int hashIterations=520;
 
 
 		//构造方法中：

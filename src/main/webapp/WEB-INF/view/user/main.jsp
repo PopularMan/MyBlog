@@ -19,7 +19,7 @@
 	<blockquote class="layui-elem-quote explain">
 		<p>本系统前端基于Layui实现,后端使用普遍的Spring+SpringMvc+MyBatis+Shiro权限框架,使用maven构建,IDEA开发,使用GIT做版本管理工具,码云做远程仓库</p>
 		<p></p>
-		<p>本系统仅供交流学习，欢迎讨论交流！码云地址<a href="https://gitee.com/xiaochaozcc/MavenSSM" style="color:blue" target="_blank">git@gitee.com:xiaochaozcc/MavenSSM.git</a></p>
+		<p>本系统仅供交流学习，欢迎讨论交流！<i class="fa fa-git"></i>码云地址<a href="https://gitee.com/xiaochaozcc/MavenSSM" style="color:blue" target="_blank">git@gitee.com:xiaochaozcc/MavenSSM.git</a></p>
 	</blockquote>
 
 

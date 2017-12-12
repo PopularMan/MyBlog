@@ -161,7 +161,9 @@
                 error:function( XMLHttpRequest, textStatus, errorThrown) {
                             layer.close(index1);
 							if(XMLHttpRequest.status=413){
-                                layer.tips('您未拥有相关权限,如有需要请联系管理员!', '#pullBlog');
+                                layer.tips('您未拥有相关权限,如有需要请联系管理员!', '#pullBlog',{
+                                    tips: [2, '#009688']
+								});
 							}else{
                                 layer.alert("系统异常",{icon: 5});
 							}
