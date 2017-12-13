@@ -53,7 +53,7 @@
 			<a class="blog-logo" href="javascript:void(0)"><img src="resource/images/logo.png"  /></a>
 			<!-- 导航菜单 -->
 			<ul class="layui-nav layui-bg-cyan" lay-filter="nav" >
-				<li class="layui-nav-item layui-this"><a href="index.jsp"><i
+				<li class="layui-nav-item layui-this"><a href="tree.jsp"><i
 						class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
 				<li class="layui-nav-item"><a href="article"><i
 						class="fa fa-download fa-fw"></i>&nbsp;资源下载</a></li>

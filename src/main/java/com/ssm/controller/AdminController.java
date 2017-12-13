@@ -3,6 +3,7 @@ package com.ssm.controller;
 import com.ssm.dto.Admin;
 import com.ssm.dto.Sys_Pers;
 import com.ssm.dto.Sys_Role;
+import com.ssm.dto.TreeBean;
 import com.ssm.service.IAdminService;
 import com.ssm.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-
+/**
+ *@Author By Zcc
+ *@Description 权限管理控制器
+ *@Date: 10:16 2017/12/13
+ *@WebSite:www.cczblog.cn
+ */
 @Controller
 @RequestMapping("/user")
 public class AdminController
@@ -77,6 +83,16 @@ public class AdminController
         }
         return util;
     }
-
+    /**
+     *@Author By Zcc
+     *@Description 权限封装
+     *@Date: 10:16 2017/12/13
+     *@WebSite:www.cczblog.cn
+     */
+    @RequestMapping(value="/persTreeUtil",method = RequestMethod.GET)
+    @ResponseBody
+    public List<TreeBean> persTreeUtil(){
+          return adminService.persTreeUtil();
+    }
 
 }

@@ -2,6 +2,7 @@ package com.ssm.controller;
 
 import com.ssm.dto.Blog;
 import com.ssm.service.IBlogService;
+import com.ssm.util.JsonUtils;
 import com.ssm.util.PageParam;
 import com.ssm.util.PageUtil;
 import org.apache.log4j.Logger;
@@ -75,7 +76,25 @@ public class BlogController {
 	/**
 	 * 前台流加载博客
 	 */
-
+	@RequestMapping("/json")
+    public String TestTree(){
+		StringBuffer str=new StringBuffer();
+		str.append("[{title:'节点1',value:'jd1',checked:false,disabled:false,data:[" +
+				"     {title:'节点1.1',value:'jd1.1',checked:false,disabled:false,data:[]}" +
+				"    ,{title:'节点1.2',value:'jd1.2',checked:false,disabled:false,data:[]}" +
+				"    ,{title:'节点1.3',value:'jd1.3',checked:false,disabled:false,data:[]}" +
+				"    ,{title:'节点1.4',value:'jd1.4',checked:false,disabled:false,data:[]}" +
+				"]},{title:'节点2',value:'jd2',checked:false,disabled:false,data:[" +
+				"     {title:'节点2.1',value:'jd2.1',checked:false,disabled:false,data:[]}" +
+				"    ,{title:'节点2.2',value:'jd2.2',checked:false,disabled:false,data:[" +
+				"           {title:'节点2.2.1',value:'jd2.2.1',checked:true,disabled:false,data:[]}" +
+				"           ,{title:'节点2.2.2',value:'jd2.2.2',checked:false,disabled:false,data:[]}" +
+				"           ,{title:'节点2.2.3',value:'jd2.2.3',checked:false,disabled:false,data:[]}" +
+				"           ,{title:'节点2.2.4',value:'jd2.2.4',checked:false,disabled:false,data:[]}" +
+				"]}" +
+				"]");
+    	return JsonUtils.string2json( str.toString());
+	}
 
 
 

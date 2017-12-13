@@ -2,6 +2,7 @@ package com.ssm.shiro;
 
 import com.ssm.dto.Admin;
 import com.ssm.service.IAdminService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -32,8 +33,6 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 
 		UsernamePasswordToken token=(UsernamePasswordToken) arg;
 		Object principal = token.getPrincipal();
-
-
 		Admin admin=null;
 
 		// 第二步：根据用户输入的userCode从数据库查询
@@ -58,12 +57,15 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		//返回值实例化
 		SimpleAuthenticationInfo info =
 				new SimpleAuthenticationInfo(admin, password, ByteSource.Util.bytes(salt),realmName);
-
-
 		return info;
 
 	}
 
+	//清除缓存
+	public void clearCached() {
+		PrincipalCollection principals = SecurityUtils.getSubject().getPrincipals();
+		super.clearCache(principals);
+	}
 	public static void main(String[] args) {
 
 		//模拟用户输入的密码

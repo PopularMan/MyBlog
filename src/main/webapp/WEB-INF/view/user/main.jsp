@@ -21,8 +21,6 @@
 		<p></p>
 		<p>本系统仅供交流学习，欢迎讨论交流！<i class="fa fa-git"></i>码云地址<a href="https://gitee.com/xiaochaozcc/MavenSSM" style="color:blue" target="_blank">git@gitee.com:xiaochaozcc/MavenSSM.git</a></p>
 	</blockquote>
-
-
 	<div class="layui-row layui-col-space10">
 		<div class="layui-col-md6 layui-col-xs6">
 			<fieldset class="layui-elem-field">
