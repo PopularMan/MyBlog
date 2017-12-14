@@ -13,4 +13,5 @@ public interface IAdminDao {
    List<Sys_Role> selectAllRoles();
    List<Sys_Pers>  selectAllPers();
    List<Admin> selectAllAdmins();
+   void saveAdmin(Admin admin);//新增管理员
 }

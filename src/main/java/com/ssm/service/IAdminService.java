@@ -13,4 +13,5 @@ public interface IAdminService {
    List<Sys_Role> selectRoles(Integer adminid);
    List<Sys_Pers> selectPers(Integer roleid);
    List<TreeBean> persTreeUtil();
+   String saveAdmin(Admin admin);
 }

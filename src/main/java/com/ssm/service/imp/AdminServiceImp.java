@@ -13,7 +13,12 @@ import com.ssm.service.IAdminService;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *@Author By Zcc
+ *@Description  权限管理业务 包括 用户 角色 权限
+ *@Date: 11:03 2017/12/14
+ *@WebSite:www.cczblog.cn
+ */
 @Service
 public class AdminServiceImp implements IAdminService {
     @Autowired private IAdminDao adminDao;
@@ -110,6 +115,12 @@ public class AdminServiceImp implements IAdminService {
 			}
 		}
 		return parentList;
+	}
+
+	@Override
+	public String saveAdmin(Admin admin)
+	{
+		return null;
 	}
 
 }

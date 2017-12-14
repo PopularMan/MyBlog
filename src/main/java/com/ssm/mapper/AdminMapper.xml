@@ -27,7 +27,11 @@
           select  <include refid="base_admin"/> from sys_admins where username=#{username} and locked=0
         
         </select>
+        <insert id="saveAdmin" parameterType="com.ssm.dto.Admin" useGeneratedKeys="true" keyProperty="id">
+            insert into  <include refid="base_admin"/>
+            values(#{id},#{usercode},#{name},#{pass},#{avatar},#{loginip},#{lastlogintime},#{loginaddress},#{registertime},#{salt},#{locked})
 
+        </insert>
         <!--查询所有管理员-->
         <select id="selectAllAdmins" resultType="com.ssm.dto.Admin" >
             select  <include refid="base_admin"/> from sys_admins

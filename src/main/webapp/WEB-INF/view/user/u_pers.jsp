@@ -259,11 +259,10 @@
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">默认头像</label>
-            <div class="layui-input-inline">
+            <div class="layui-input-block">
                 <button type="button" class="layui-btn layui-btn-primary" id="uploadImg"><i class="layui-icon"></i>上传图片</button>
                 <input type="checkbox" name="aaa" title="默认头像" lay-skin="primary" >
             </div>
-
         </div>
 
     </form>
