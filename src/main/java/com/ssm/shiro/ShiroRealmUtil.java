@@ -1,5 +1,6 @@
 package com.ssm.shiro;
 
+import com.ssm.dto.ActiveUser;
 import com.ssm.dto.Admin;
 import com.ssm.service.IAdminService;
 import org.apache.shiro.SecurityUtils;
@@ -51,12 +52,15 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		String password=admin.getPass();
 		//3.获取盐值
 		String salt = admin.getSalt();
-
-
+		ActiveUser activeUser=new ActiveUser();
+		activeUser.setAvatar(admin.getAvatar());
+		activeUser.setUsercode(admin.getUsercode());
+		activeUser.setUserid(admin.getId());
+		activeUser.setUsername(admin.getName());
 		String realmName = getName();
 		//返回值实例化
 		SimpleAuthenticationInfo info =
-				new SimpleAuthenticationInfo(admin, password, ByteSource.Util.bytes(salt),realmName);
+				new SimpleAuthenticationInfo(activeUser, password, ByteSource.Util.bytes(salt),realmName);
 		return info;
 
 	}
@@ -69,7 +73,7 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 	public static void main(String[] args) {
 
 		//模拟用户输入的密码
-		String source="123456";
+		String source="sys";
 
 		//加入我们的盐salt
 		String salt="zcc";

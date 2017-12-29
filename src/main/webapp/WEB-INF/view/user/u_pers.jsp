@@ -116,6 +116,11 @@
 </script>
 
 <script>
+    function tipSalt(obj){
+        layer.tips('自定义盐会根据你输入的盐值生成加密密码', obj,{
+            tips: [2, '#009688']
+        });
+    }
     layui.use(['code','layer','table','form','element'],function(){
        var code=layui.code;
        var layer=layui.layer;
@@ -196,6 +201,7 @@
                 });
             }
         });
+
         $(function(){
             form.render();
             //按钮绑定事件
@@ -203,24 +209,50 @@
                 layer.open({
                     type: 1
                     ,title: "添加管理员"
-                    ,closeBtn: false
-                    ,area:['500px','400px']
+                    ,closeBtn: true
+                    ,area:['400px','400px']
                     ,shade: 0.6
                     ,skin: 'layui-layer-molv'
-                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                    ,btn: ['火速围观', '残忍拒绝']
+                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹
                     ,btnAlign: 'c'
                     ,moveType: 1 //拖拽模式，0或者1
                     ,content: $("#addUserHtml")
                     ,success: function(layero){
-                        form.render();
-                        var btn = layero.find('.layui-layer-btn');
-                        btn.find('.layui-layer-btn0').attr({
-                            href: 'http://www.layui.com/'
-                            ,target: '_blank'
-                        });
                     }
                 });
+            });
+
+            //监听提交
+            form.on('submit(saveadmin)', function(data){
+                layer.alert(JSON.stringify(data.field), {
+                    title: '最终的提交信息'
+                });
+                var load=layer.msg("正在添加用户。。。", {
+                    icon: 16
+                    ,shade: 0.4
+                });
+                setTimeout(function(){
+                    layer.close(load);
+                    $.ajax({
+                        url:"insertAdmin",
+                        type:"post",
+                        data:data.field,
+                        success:function(res){
+                            if(res.success){
+
+                                layer.msg("添加成功");
+                                table.reload("persTable");
+                            }else{
+                                layer.msg("添加失败")
+                            }
+                        },
+                        error:function(){
+                            layer.msg("内部异常");
+                        }
+                    })
+                },500);
+
+                return false;
             });
         });
     });
@@ -232,36 +264,42 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户编号:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="text" name="usercode" required lay-verify="required" lay-verType="tips" placeholder="请输入编号" autocomplete="off" class="layui-input">
             </div>
 
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">用户名</label>
+            <label class="layui-form-label">用户名:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="text" name="name" required lay-verify="required" lay-verType="tips" placeholder="请输入用户名" autocomplete="off" class="layui-input">
             </div>
 
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">用户密码</label>
+            <label class="layui-form-label">用户密码:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="pass" required lay-verify="required" lay-verType="tips" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
 
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">重复密码</label>
+            <label class="layui-form-label">重复密码:</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" id="repeatpass" required lay-verify="required" lay-verType="tips" placeholder="请再次输入密码" autocomplete="off" class="layui-input">
             </div>
 
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">默认头像</label>
+            <label class="layui-form-label">自定义盐</label>
+            <div class="layui-input-inline">
+                <input type="text" name="salt" required lay-verify="required" placeholder="" lay-verType="tips"  onfocus="tipSalt(this)"  class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
             <div class="layui-input-block">
-                <button type="button" class="layui-btn layui-btn-primary" id="uploadImg"><i class="layui-icon"></i>上传图片</button>
-                <input type="checkbox" name="aaa" title="默认头像" lay-skin="primary" >
+                <button class="layui-btn layui-btn-sm" lay-submit  lay-filter="saveadmin">确定</button>
+                <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">重置</button>
             </div>
         </div>
 

@@ -74,9 +74,12 @@
                 
             </value>
         </property>
-    </bean> 
-    
-    
+    </bean>
+
+    <bean id="formAuthenticationFilter" class="com.ssm.shiro.CustomFormAuthenticationFilter">
+        <property name="usernameParam" value="username" />
+        <property name="passwordParam" value="password" />
+    </bean>
   <!--   
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>  
   

@@ -53,7 +53,7 @@
     <div class="layui-side-scroll">
       <div class="user-photo">
         <a class="img" title="我的头像"><img style="width: 80px;height: 80px" class="layui-circle" src="../resource/images/xls.jpg"></a>
-        <p>你好！<span class="userName">管理员</span></p>
+        <p>你好！<span class="userName">${activeUser}</span></p>
       </div>
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test" id="ulmenu">

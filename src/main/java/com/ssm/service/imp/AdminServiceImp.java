@@ -3,7 +3,10 @@ package com.ssm.service.imp;
 import com.ssm.dto.Sys_Pers;
 import com.ssm.dto.Sys_Role;
 import com.ssm.dto.TreeBean;
+import com.ssm.util.ConstantValue;
+import com.ssm.util.ResponseResult;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -118,9 +121,46 @@ public class AdminServiceImp implements IAdminService {
 	}
 
 	@Override
-	public String saveAdmin(Admin admin)
+	public ResponseResult saveAdmin(Admin admin)
 	{
-		return null;
+		ResponseResult res=new ResponseResult();
+		res.setSuccess(false);
+		if(null!=admin){
+			admin.setId(ConstantValue.uuidToString());
+			admin.setAvatar("images/xls.jpg");
+           //判断颜值 是否为空
+			if(admin.getSalt().isEmpty()){
+				admin.setSalt(ConstantValue.RandomID());
+			}
+			admin.setRegistertime(ConstantValue.getNowTimeString());
+			String salt=admin.getSalt();
+			String pass=admin.getPass();
+			//加密次数
+			int hashIterations=520;
+			//构造方法中：
+			//第一个参数：明文，原始密码
+			//第二个参数：盐，通过使用随机数
+			//第三个参数：散列的次数，比如散列两次，相当 于md5(md5(''));
+			Md5Hash md5Hash=new Md5Hash(pass,salt,hashIterations);
+			//得到加密后的密码
+			String password_md5=md5Hash.toString();
+            admin.setPass(password_md5);
+            admin.setLocked("0");
+            try{
+				adminDao.saveAdmin(admin);
+				res.setSuccess(true);
+				res.setMessage("success");
+				res.setErrorcode("200");
+				res.setData(null);
+			}catch (Exception e){
+				res.setSuccess(false);
+				res.setMessage("fail");
+				res.setErrorcode("500");
+				res.setData(null);
+			}
+			return res;
+		}
+		return res;
 	}
 
 }

@@ -4,6 +4,7 @@ import com.ssm.dto.Admin;
 import com.ssm.dto.Sys_Pers;
 import com.ssm.dto.Sys_Role;
 import com.ssm.dto.TreeBean;
+import com.ssm.util.ResponseResult;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface IAdminService {
    List<Sys_Role> selectRoles(Integer adminid);
    List<Sys_Pers> selectPers(Integer roleid);
    List<TreeBean> persTreeUtil();
-   String saveAdmin(Admin admin);
+   ResponseResult saveAdmin(Admin admin);
 }

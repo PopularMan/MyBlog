@@ -6,6 +6,7 @@ import com.ssm.dto.Sys_Role;
 import com.ssm.dto.TreeBean;
 import com.ssm.service.IAdminService;
 import com.ssm.util.PageUtil;
+import com.ssm.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -93,6 +94,11 @@ public class AdminController
     @ResponseBody
     public List<TreeBean> persTreeUtil(){
           return adminService.persTreeUtil();
+    }
+    @RequestMapping(value="/insertAdmin",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseResult insertAdmin(Admin admin){
+        return adminService.saveAdmin(admin);
     }
 
 }

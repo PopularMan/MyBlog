@@ -7,17 +7,14 @@ package com.ssm.dto;
  *
  */
 public class Admin {
-	private Integer id;
+	private String id;
 	private String usercode;
-
 	public String getUsercode() {
 		return usercode;
 	}
-
 	public void setUsercode(String usercode) {
 		this.usercode = usercode;
 	}
-
 	private String name;
 	private String pass;
 	private String avatar;
@@ -45,11 +42,11 @@ public class Admin {
 	private String salt;
 	private String locked;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
