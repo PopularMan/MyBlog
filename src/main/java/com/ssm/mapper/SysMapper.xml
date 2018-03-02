@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
+    <mapper namespace="com.ssm.dao.ISysDao" >
+
+        <sql id="base_admin" >
+	       userid id,usercode,username name,password pass,avatar,loginip ,lastlogintime,loginaddress,registertime,salt,locked
+	    </sql>
+        <sql id="base_role" >
+           role_id,role_code,role_name,role_description,date_format(role_createtime,'%Y-%m-%d') as  role_createtime
+        </sql>
+        <sql id="base_permission" >
+            sys_permission.id,
+            sys_permission.name,
+            sys_permission.icon,
+            sys_permission.type,
+            sys_permission.url,
+            sys_permission.percode,
+            sys_permission.parentid,
+            sys_permission.level,
+            sys_permission.sortstring,
+            sys_permission.available
+        </sql>
+       
+        <select id="selectAdmin" resultType="com.ssm.dto.Admin" parameterType="String">
+           
+          select <include refid="base_admin"/> from sys_admins where username=#{username} and locked=0
+        
+        </select>
+        <insert id="saveAdmin" parameterType="com.ssm.dto.Admin" useGeneratedKeys="true" keyProperty="id">
+            insert into sys_admins (userid ,usercode,username ,password ,avatar,loginip ,lastlogintime,loginaddress,registertime,salt,locked)
+            values(#{id},#{usercode},#{name},#{pass},#{avatar},#{loginip},#{lastlogintime},#{loginaddress},#{registertime},#{salt},#{locked})
+
+        </insert>
+        <!--新增角色-->
+        <insert id="saveRole" parameterType="com.ssm.dto.Sys_Role" useGeneratedKeys="true" keyProperty="role_id">
+            insert into sys_roles VALUES (0,#{role_code},#{role_name},#{role_description},#{role_createtime})
+        </insert>
+        <!--新增权限-->
+        <insert id="savePermission" parameterType="com.ssm.dto.Sys_Pers" useGeneratedKeys="true" keyProperty="id">
+            insert into sys_permission values(0,#{name},#{type},#{icon},#{url},#{percode},#{parentid},#{level},#{sortstring},#{available})
+
+            </insert>
+
+        <select id="selectPerById" parameterType="Integer" resultType="com.ssm.dto.Sys_Pers">
+            select  <include refid="base_permission"/> from sys_permission where id=#{id}
+
+        </select>
+        <!--查询所有管理员-->
+        <select id="selectAllAdmins" resultType="com.ssm.dto.Admin" >
+            select  <include refid="base_admin"/> from sys_admins
+        </select>
+
+
+
+        <!--查询所有角色-->
+        <select id="selectAllRoles" resultType="map" >
+            select  <include refid="base_role"/> from sys_roles
+        </select>
+        <!--查询所有权限-->
+        <select id="selectAllPers" resultType="com.ssm.dto.Sys_Pers" >
+            select  <include refid="base_permission"/> from sys_permission
+        </select>
+
+        <!--查询用户拥有的角色-->
+        <select id="selectRolesByAdminId" resultType="map" parameterType="String" >
+            select  role_id,role_code,role_name,role_description,date_format(role_createtime,'%Y-%m-%d') as  role_createtime from sys_roles
+            where role_id in(select role_id from sys_admin_role where admin_id=#{adminid})
+        </select>
+
+        <!--查询角色所拥有的权限-->
+        <select id="selectPersByRoleId" resultType="com.ssm.dto.Sys_Pers" parameterType="Integer" >
+            select  <include refid="base_permission"/> from sys_permission
+            where id in(select role_permission from sys_role_permission where role_id=#{roleid})
+        </select>
+        <!--查询子权限-->
+        <select id="selectPersSons" resultType="com.ssm.dto.Sys_Pers" parameterType="Integer" >
+            select  <include refid="base_permission"/> from sys_permission
+            where  sys_permission.parentid=#{parentid}
+        </select>
+
+         <select id="selectPersByAdminid" parameterType="string" resultType="com.ssm.dto.Sys_Pers">
+               SELECT
+                sys_permission.id,
+                sys_permission.`name`,
+                sys_permission.type,
+                sys_permission.icon,
+                sys_permission.url,
+                sys_permission.percode,
+                sys_permission.parentid,
+                sys_permission.level,
+                sys_permission.sortstring,
+                sys_permission.available
+                FROM
+                sys_permission
+                WHERE sys_permission.available=1 and  sys_permission.id in (select role_permission FROM sys_role_permission where role_id in(select role_id from sys_admin_role where admin_id=#{adminid}))
+         </select>
+        <update id="updateAdmin" parameterType="com.ssm.dto.Admin">
+            update sys_admins set usercode=#{usercode},username=#{name},password=#{pass},avatar=#{avatar},loginip=#{loginip} ,lastlogintime=#{lastlogintime},loginaddress=#{loginaddress}
+            ,registertime=#{registertime},salt=#{salt},locked=#{locked} where userid=#{id}
+
+        </update>
+        <select id="selectMenusByAdminid" parameterType="string" resultType="com.ssm.dto.Sys_Pers">
+            SELECT
+            sys_permission.id,
+            sys_permission.`name`,
+            sys_permission.type,
+            sys_permission.icon,
+            sys_permission.url,
+            sys_permission.percode,
+            sys_permission.parentid,
+            sys_permission.level,
+            sys_permission.sortstring,
+            sys_permission.available
+            FROM
+            sys_permission
+            WHERE sys_permission.available=1 and  sys_permission.id in (select role_permission FROM sys_role_permission where role_id in(select role_id from sys_admin_role where admin_id=#{adminid}))
+            and sys_permission.type="menu"
+        </select>
+        <update id="updatePermission" parameterType="com.ssm.dto.Sys_Pers">
+            update sys_permission set icon=#{icon}, name=#{name} ,type=#{type},url=#{url},percode=#{percode},parentid=#{parentid},level=#{level},sortstring=#{sortstring},available=#{available}
+            where id=#{id}
+        </update>
+         <!--删除单个权限 触发器删除对应中间表-->
+         <delete id="delPermission" parameterType="Integer">
+             DELETE  from sys_permission where id=#{id}
+         </delete>
+        <!--删除单个用户的角色-->
+          <delete id="deleteRolesByAdminid" parameterType="String">
+           DELETE   from sys_admin_role where admin_id=#{adminid}
+          </delete>
+        <!--用户分配角色-->
+        <insert id="insertAdminRoles" parameterType="map">
+           INSERT  into sys_admin_role VALUES (#{adminid},#{roleid})
+        </insert>
+        <!--修改用户状态-->
+        <update id="updateAdminState" parameterType="map">
+            update sys_admins set locked=#{state} where userid =#{userid}
+        </update>
+        <!--删除单个角色的权限-->
+
+        <delete id="deletePersByRoleid" parameterType="Integer">
+            DELETE   from sys_role_permission where role_id=#{roleid}
+        </delete>
+        <!--角色分配权限-->
+        <insert id="insertRolePers" parameterType="map">
+            INSERT  into sys_role_permission VALUES (#{roleid},#{menuid})
+        </insert>
+
+      <!--登陆日志记录-->
+       <insert id="insertLogs" parameterType="com.ssm.dto.Logs">
+           insert into sys_logs values(0,#{sys_loginame},#{sys_logintime},#{sys_logaddress},#{sys_logip},#{sys_czrz})
+       </insert>
+      <select id="selectLogs" parameterType="com.ssm.util.PageParam" resultType="map">
+           select sys_logid,sys_loginame,DATE_FORMAT(sys_logintime,'%y-%m-%d  %h:%m:%s') as sys_logintime,sys_logaddress,sys_logip,sys_czrz from sys_logs
+           order by sys_logintime  DESC
+           limit ${startIndex},${limit}
+      </select>
+        <select id="selectLogsCounts"  resultType="Integer">
+            select count(*) from sys_logs
+        </select>
+      <delete id="delLogs" parameterType="List">
+           delete from sys_logs where sys_logid in
+          <foreach collection="list" item ="id" open="(" separator="," close=")">
+              #{id}
+          </foreach>
+      </delete>
+    </mapper>    

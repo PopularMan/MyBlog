@@ -1,12 +1,4 @@
-/*
 
-@Name：不落阁整站模板源码 
-@Author：Absolutely 
-@Site：http://www.lyblogs.cn
-
-*/
-
-/*博主信息*/
 .blogerinfo {
     text-align: center;
     padding: 0 15px;
@@ -20,9 +12,9 @@
 
 }
 
-    .blogerinfo-figure img {
-        border-radius: 50px;
-    }
+.blogerinfo-figure img {
+    border-radius: 50px;
+}
 
 .blogerinfo-nickname {
     font-size: 32px;
@@ -46,9 +38,9 @@
     padding-top: 5px;
 }
 
-    .blogerinfo-contact > a {
-        padding: 0 10px;
-    }
+.blogerinfo-contact > a {
+    padding: 0 10px;
+}
 /*博主信息END*/
 
 /*友情链接*/

@@ -1,9 +1,19 @@
 package com.ssm.dto;
 
-public class Sys_Pers
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.List;
+
+@Table
+public class Sys_Pers implements java.io.Serializable
 {
+    @Column
     private Integer id;
+    @Column
     private String name;
+    @Column
     private String icon;
 
     public String getIcon()
@@ -15,14 +25,32 @@ public class Sys_Pers
     {
         this.icon = icon;
     }
-
+    @Column
     private String type;
+    @Column
     private String url;
+    @Column
     private String percode;
+    @Column
     private Integer parentid;
-    private String parentids;
+    @Column
+    private Integer level;
+    @Column
     private Integer sortstring;
+    @Column
     private Integer available;
+
+    public List<Sys_Pers> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Sys_Pers> children) {
+        this.children = children;
+    }
+
+    @Transient
+    private List<Sys_Pers> children=new ArrayList<Sys_Pers>(0);
+
 
     public Integer getId()
     {
@@ -84,14 +112,12 @@ public class Sys_Pers
         this.parentid = parentid;
     }
 
-    public String getParentids()
-    {
-        return parentids;
+    public Integer getLevel() {
+        return level;
     }
 
-    public void setParentids(String parentids)
-    {
-        this.parentids = parentids;
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
     public Integer getSortstring()

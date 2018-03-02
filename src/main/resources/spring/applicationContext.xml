@@ -95,10 +95,12 @@
 		     <aop:pointcut expression="execution(* com.ssm.service.imp.*.*(..))" id="pointcut"/>
 		     <aop:advisor advice-ref="daoAdvice" pointcut-ref="pointcut"/>
 		</aop:config>
-    
-        
 
-       <!-- 上传文件 -->
+
+
+
+
+	<!-- 上传文件 -->
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
        
       <!-- shiro配置 -->

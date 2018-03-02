@@ -4,39 +4,82 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; Charset=utf-8">
-<meta http-equiv="Content-Language" content="zh-CN">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<title>异朽阁</title>
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resource/images/logo.ico"
-	type="image/x-icon">
-<!--Layui-->
-<link
-	href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css"
-	rel="stylesheet" />
-<!--font-awesome-->
-<link
-	href="${pageContext.request.contextPath}/resource/plug/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" />
-<!--全局样式表-->
-<link href="${pageContext.request.contextPath}/resource/css/global.css"
-	rel="stylesheet" />
-<!-- 本页样式表 -->
-<link href="${pageContext.request.contextPath}/resource/css/home.css"
-	rel="stylesheet" />
-<!-- 本页样式表 -->
-<link
-	href="${pageContext.request.contextPath}/resource/css/animate.min.css"
-	rel="stylesheet" />
-	
-<style>
+	<meta name="baidu-site-verification" content="bqPeYnoA4P" />
+	<meta name="KEYWords" contect="博客;异朽阁;个人博客;JAVA" />
+	<meta name="DEscription" contect="java个人技术博客"/>
+	<meta name="Author" contect="张超超"/>
+	<meta http-equiv="Content-Type" content="text/html; Charset=utf-8">
+	<meta http-equiv="Content-Language" content="zh-CN">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<title>异朽阁</title>
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/images/xls.ico" type="image/x-icon">
+	<!--Layui-->
+	<link href="${pageContext.request.contextPath}/resource/plug/layui/css/layui.css" rel="stylesheet" />
+	<!--font-awesome-->
+	<link href="${pageContext.request.contextPath}/resource/plug/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<!--全局样式表-->
+	<link href="${pageContext.request.contextPath}/resource/css/global.css" rel="stylesheet" />
+	<!-- 本页样式表 -->
+	<link href="${pageContext.request.contextPath}/resource/css/home.css" rel="stylesheet" />
+	<!-- 本页样式表 -->
+	<link href="${pageContext.request.contextPath}/resource/css/animate.min.css" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resource/plug/btncss/set_8.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resource/css/skin.css" rel="stylesheet" />
+	<style>
+	.set_8_button4.outline {
+		color: #333;
+		overflow: hidden;
+		position: relative;
+		width: 80px;
+		margin-left: 5px;
+		margin-top: 8px;
+	}
+	.layui-badge {
+		height: 18px;
+		line-height: 20px;
+		margin-left: 10px
+	}
 
 </style>
 </head>
 
-<body>
+<body style="background: url('resource/images/skin2.jpg')">
+
+
+<!--贼罩层和皮肤-->
+<div class="overflay"></div>
+<div class="skin">
+	<div class="pic">
+		<div class="one">
+			<a href="#">
+				<div class="mask"></div>
+				<img src="resource/images/skin1-1.jpg" alt="壁纸1" width="194" height="123" ></a>
+			<a href="#"><img src="resource/images/skin2-2.jpg" alt="壁纸2" width="97" height="59"></a>
+			<a href="#"><img src="resource/images/skin3-3.jpg" alt="壁纸3" width="97" height="59"></a>
+		</div>
+		<div class="two">
+
+			<a href="#"><img src="resource/images/skin4-4.jpg" alt="壁纸4" width="97" height="60"></a>
+			<a href="#"><img src="resource/images/skin5-5.jpg" alt="壁纸5" width="97" height="60"></a>
+			<a href="#"><img src="resource/images/skin6-6.jpg" alt="壁纸6" width="97" height="60"></a>
+
+
+		</div>
+		<div class="three">
+
+
+			<a href="#"><img src="resource/images/skin7-7.jpg" alt="壁纸7" width="97" height="59"></a>
+			<a href="#"><img src="resource/images/skin8-8.jpg" alt="壁纸8" width="97" height="59"></a>
+			<a href="#"><img src="resource/images/skin9-9.jpg" alt="壁纸9" width="194" height="123"></a>
+		</div>
+		<div class="four">
+			<a href="#"><img src="resource/images/skin10-10.jpg" alt="壁纸10" width="97" height="60"></a>
+			<a href="#"><img src="resource/images/skin11-11.jpg" alt="壁纸11" width="97" height="60"></a>
+			<a href="#"><img src="resource/images/skin12-12.jpg" alt="壁纸12" width="97" height="60"></a>
+
+		</div>
+	</div>
+</div>
 	<!-- 导航 -->
 	<nav class="blog-nav layui-header" style="position: relative;">
 
@@ -53,10 +96,10 @@
 			<a class="blog-logo" href="javascript:void(0)"><img src="resource/images/logo.png"  /></a>
 			<!-- 导航菜单 -->
 			<ul class="layui-nav layui-bg-cyan" lay-filter="nav" >
-				<li class="layui-nav-item layui-this"><a href="tree.jsp"><i
+				<li class="layui-nav-item layui-this"><a href="https://www.cczblog.cn"><i
 						class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
-				<li class="layui-nav-item"><a href="article"><i
-						class="fa fa-download fa-fw"></i>&nbsp;资源下载</a></li>
+				<li class="layui-nav-item"><a href="#" id="choose"><i
+						class="fa  fa-picture-o fa-fw"></i>&nbsp;壁纸切换</a></li>
 				<li class="layui-nav-item"><a href="timeline"><i
 						class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
 				<li class="layui-nav-item"><a href="info"><i
@@ -76,32 +119,42 @@
 		<div class="blog-container">
 			<div class="blog-main">
 				<!-- 轮播 -->
-				<div class="layui-carousel" id="test10" style="margin-bottom: 5px;">
-					<div carousel-item="">
-						<div>
-							<img src="resource/images/img1.png"
-								style="text-align: center; background-position: center">
+				<div id="flash">
+
+					<!--轮播图!-->
+					<div class="scroll">
+						<div class="imgList">
+							<img src="resource/images/flash1.jpg" alt="">
+							<img src="resource/images/flash2.jpg" alt="">
+							<img src="resource/images/flash3.jpg" alt="">
+							<img src="resource/images/flash4.jpg" alt="">
+							<img src="resource/images/flash5.jpg" alt="">
+							<img src="resource/images/flash6.jpg" alt="">
 						</div>
-						<div>
-							<img src="resource/images/img2.png"
-								style="text-align: center; background-position: center">
-						</div>
-						<div>
-							<img src="resource/images/img3.png"
-								style="text-align: center; background-position: center">
-						</div>
+						<!--左右切换按钮！-->
+						<a href="javascript:void(0)" class="prev"></a>
+						<a href="javascript:void(0)" class="next"></a>
 					</div>
+
+					<!--按钮部门!-->
+					<div class="btn">
+						<span class="active"></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+
 				</div>
 				<!-- 网站公告提示 -->
 				<div class="home-tips shadow">
 					<i style="float: left; line-height: 17px;" class="fa fa-volume-up"></i>
 					<div class="home-tips-container">
-						<span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作，为大家准备了游客专用账号！</span>
-						<span style="color: red">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span> <span
-							style="color: red">如果你觉得网站做得还不错，来Fly社区点个赞吧！<a
-							href="http://fly.layui.com/case/2017/" target="_blank"
-							style="color: #01AAED">点我前往</a></span> <span style="color: #009688">MyBlog&nbsp;——
-							&nbsp;一个.JAVA程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
+						<span style="color: #009688">博客后台正在开发,后续放出</span>
+						<span style="color: red">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
+						<span style="color: red">如果你觉得网站做得还不错，来Fly社区点个赞吧！<a href="http://fly.layui.com/case/2017/" target="_blank" style="color: #01AAED">点我前往</a></span>
+						<span style="color: #009688">MyBlog&nbsp;——&nbsp;一个.JAVA程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
 					</div>
 				</div>
 				<!--左边文章列表-->
@@ -135,36 +188,15 @@
 					</div>
 					<div></div>
 					<!-- 分类导航 -->
-				   <div class="article-category shadow">
-                        <div class="article-category-title">分类导航</div>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">ASP.NET MVC</a>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">SQL Server</a>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Entity Framework</a>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Web前端</a>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">C#基础</a>
-                        <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">杂文随笔</a>
-                        <div class="clear"></div>
+				   <div class="article-category shadow" id="blogtype">
+					   <div class="article-category-title">分类导航</div>
+					   <div class="clear"></div>
                     </div>
 					<!--占位-->
 					<div class="blog-module shadow">
 						<div class="blog-module-title">热文排行</div>
-						<ul class="fa-ul blog-module-ul">
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">Web安全之跨站请求伪造CSRF</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">ASP.NET MVC 防范跨站请求伪造（CSRF）</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">常用正则表达式</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">EF CodeFirst数据迁移常用指令</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">浅谈.NET Framework基元类型</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">C#基础知识回顾-扩展方法</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">一步步制作时光轴（一）（HTML篇）</a></li>
-							<li><i class="fa-li fa fa-hand-o-right"></i><a
-								href="detail.html">一步步制作时光轴（二）（CSS篇）</a></li>
+						<ul class="fa-ul blog-module-ul" id="blogsrank">
+
 						</ul>
 					</div>
 
@@ -196,30 +228,18 @@
 	<ul
 		class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide"
 		lay-filter="nav">
-		<li class="layui-nav-item layui-this"><a href="index"><i
-				class="fa fa-home fa-fw"></i>&nbsp;网站首页</a></li>
-		<li class="layui-nav-item"><a href="article"><i
-				class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a></li>
-		<li class="layui-nav-item"><a href="resource"><i
-				class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a></li>
+		<li class="layui-nav-item layui-this"><a href="index.jsp"><i
+				class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
+		<li class="layui-nav-item"><a href="#" id="choosexs"><i
+				class="fa  fa-picture-o fa-fw"></i>&nbsp;壁纸切换</a></li>
 		<li class="layui-nav-item"><a href="timeline"><i
-				class="fa fa-road fa-fw"></i>&nbsp;开发时光</a></li>
-		<li class="layui-nav-item"><a href="about"><i
-				class="fa fa-info fa-fw"></i>&nbsp;关于本站</a></li>
+				class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
+		<li class="layui-nav-item"><a href="info"><i
+				class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
 	</ul>
-	<!--分享窗体-->
-	<div class="blog-share layui-hide">
-		<div class="blog-share-body">
-			<div style="width: 200px; height: 100%;">
-				<div class="bdsharebuttonbox">
-					<a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> <a
-						class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a
-						class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a
-						class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+
 	<!--遮罩-->
 	<div class="blog-mask animated layui-hide"></div>
 	<script>
@@ -231,13 +251,13 @@
 	<!-- 全局脚本 -->
 	<script src="${pageContext.request.contextPath}/resource/js/global.js"></script>
 	<!-- 本页脚本 -->
-	<script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+	<script src="${pageContext.request.contextPath}/resource/js/blog.js"></script>
    
    <script>
       var qq_chat = true;
 	   function PlayJsAdPopWin() {
 	   if (qq_chat) {
-	   popwin = window.location.href = 'tencent://message/?uin=1255780376&Site=www.cczblog.cn&Menu=yes'
+	     popwin = window.location.href = 'tencent://message/?uin=1255780376&Site=www.cczblog.cn&Menu=yes'
 	   }
 	 };       
    </script>

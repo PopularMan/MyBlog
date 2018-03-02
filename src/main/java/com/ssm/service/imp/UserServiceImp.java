@@ -1,24 +1,15 @@
 package com.ssm.service.imp;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
+import com.ssm.dao.IUserDao;
+import com.ssm.dto.User;
+import com.ssm.service.IUserService;
+import com.ssm.util.ConstantValue;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.ssm.dao.IBlogDao;
-import com.ssm.dao.IUserDao;
-import com.ssm.dto.Blog;
-import com.ssm.dto.User;
-import com.ssm.service.IBlogService;
-import com.ssm.service.IUserService;
-import com.ssm.util.PageParam;
-import com.ssm.util.PageUtil;
+import java.sql.Timestamp;
 @Service("userService")
 public class UserServiceImp implements IUserService {
 	private Logger log=Logger.getLogger(UserServiceImp.class);
@@ -33,16 +24,25 @@ public class UserServiceImp implements IUserService {
 	    		//更新最后登录时间
 	    		log.info("更新用户");
 	    		u.setLastloginTime(new Timestamp(System.currentTimeMillis()));
-	    		userDao.updateUser(u);
+	    		userDao.updateUser(user);
 	    		return 1;
 	    	}else {
-	    		log.info("插入新用户");
+	    		log.info("插入新用户"); 
+	    		user.setUserid(ConstantValue.uuidToString());
 	    	    userDao.insertUser(user);
 	    	    return 2;
 	    	}    	
 	    }
 	    log.error("用户为空");
 		return 0;
+	}
+
+	@Override
+	public User selectUser(String openid) {
+		if(!StringUtils.isBlank(openid)){
+			return userDao.selectUser(openid);
+		}
+		return null;
 	}
 
 }

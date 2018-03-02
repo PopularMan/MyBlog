@@ -1,0 +1,34 @@
+.layui-header {
+    background-color: pink !important;
+    color: black !important;
+}
+.layui-bg-black {
+    background-color: pink !important;
+}
+.layui-nav-tree .layui-nav-item {
+    display: block;
+    width: 100%;
+    line-height: 45px;
+    background: pink;
+    color: black !important;
+}
+.layui-nav-itemed .layui-nav-child {
+    display: block;
+    padding: 0;
+    background-color: #FFD2D2;
+    color: black !important;
+}
+.layui-nav .layui-nav-item > a {
+    color: black !important;
+}
+.layui-nav .layui-nav-item > a:hover {
+    background-color: #FFD2D2 !important;
+}
+.layui-circle {
+    border: 5px solid #FFD2D2;
+}
+.layui-tab-title .layui-this {
+    background-color: #f2f2f2;
+    color: pink !important;
+    border-radius: 5px;
+}

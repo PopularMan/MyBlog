@@ -1,0 +1,33 @@
+.layui-header {
+    background-color: #666699 !important;
+}
+.layui-bg-black {
+    background-color: #666699 !important ;
+}
+.layui-nav-tree .layui-nav-item {
+    display: block;
+    width: 100%;
+    line-height: 45px;
+    background: #666699 !important;
+}
+.layui-nav-itemed .layui-nav-child {
+    display: block;
+    padding: 0;
+    background-color: #9999CC !important;
+    color: black !important;
+}
+.layui-nav .layui-nav-item > a {
+    color: white !important;
+}
+.layui-nav .layui-nav-item > a:hover {
+    background-color: #9999CC !important;
+    color:black;
+}
+.layui-circle {
+    border: 5px solid #666699;
+}
+.layui-tab-title .layui-this {
+    background-color: #f2f2f2;
+    color: purple !important;
+    border-radius: 5px;
+}

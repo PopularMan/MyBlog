@@ -14,7 +14,17 @@ public class Blog {
 	    private Timestamp blog_time;
 	    private int blog_eyes;
 	    private int blog_dz;
-		public int getBlog_dz() {
+	    private String blog_tag;
+
+		public String getBlog_tag() {
+			return blog_tag;
+		}
+
+		public void setBlog_tag(String blog_tag) {
+			this.blog_tag = blog_tag;
+		}
+
+	public int getBlog_dz() {
 			return blog_dz;
 		}
 		public void setBlog_dz(int blog_dz) {

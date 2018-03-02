@@ -1,17 +1,15 @@
 package com.ssm.util;
 
+import me.hupeng.ipLocationService.IpLocationResult;
+import me.hupeng.ipLocationService.IpLocationService;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
 public class ConstantValue {
-	public static String tepmpImagePath="";
 	public static String uuidToString() {
 		return UUID.randomUUID().toString();
-		
-	}
-	public static String timeToString() {
-		return tepmpImagePath;
 		
 	}
 	//获取6位随机数字
@@ -23,6 +21,10 @@ public class ConstantValue {
 		SimpleDateFormat sdf=new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 		return sdf.format(new Date());
 	}
+	public static String NowTimeString(){
+		SimpleDateFormat sdf=new SimpleDateFormat("YYYYMMddHHmmss");
+		return sdf.format(new Date());
+	}
 	//获取UUID字符串 作为主键
 	public static String  RandomID(){
 		UUID uuid=UUID.randomUUID();
@@ -31,8 +33,15 @@ public class ConstantValue {
 		return uuidStr;
 	}
     public static  void main(String[] arg){
-		System.out.println(Random6());
-		System.out.println(RandomID());
+
+		System.out.println(NowTimeString());
 	}
+	public static String getCity(String ip){
+		IpLocationService locationService=new IpLocationService();
+		IpLocationResult ipLocationResult =locationService.getIpLocationResult(ip);
+		System.out.println(ipLocationResult.getCountry()+" " + ipLocationResult.getProvince()+" "+ipLocationResult.getCity() );
+		return ipLocationResult.getCountry()+"-"+ipLocationResult.getProvince()+"-"+ipLocationResult.getCity();
+	}
+
 
 }

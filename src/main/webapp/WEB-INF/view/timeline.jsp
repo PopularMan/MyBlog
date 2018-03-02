@@ -21,46 +21,80 @@
     <link href="${pageContext.request.contextPath}/resource/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resource/css/timeline.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resource/css/skin.css" rel="stylesheet" />
 </head>
 <body>
-    	<!-- 导航 -->
-	<nav class="blog-nav layui-header" style="position: relative;">
+<!--贼罩层和皮肤-->
+<div class="overflay"></div>
+<div class="skin">
+    <div class="pic">
+        <div class="one">
+            <a href="#">
+                <div class="mask"></div>
+                <img src="resource/images/skin1-1.jpg" alt="壁纸1" width="194" height="123" ></a>
+            <a href="#"><img src="resource/images/skin2-2.jpg" alt="壁纸2" width="97" height="59"></a>
+            <a href="#"><img src="resource/images/skin3-3.jpg" alt="壁纸3" width="97" height="59"></a>
+        </div>
+        <div class="two">
 
-		<div class="blog-container">
-			<ul>
-				<!-- QQ互联登陆 -->
-				 <li class="layui-nav-item"><a href="QQLogin" class="blog-user"><i
-						class="fa fa-qq"></i></a> <a href="loginOut" id="loginout"
-					class="blog-user layui-hide"> <img src="${user.avatarUrl}"
-						title="${user.nickName}" />&nbsp;${user.nickName}
-				 </a></li>
-			</ul>
-			<!-- MyBlog -->
-			<a class="blog-logo" href="javascript:void(0)"><img src="resource/images/logo.png" /></a>
-			<!-- 导航菜单 -->
-			<ul class="layui-nav layui-bg-cyan" lay-filter="nav" >
-				<li class="layui-nav-item layui-this"><a href="index.jsp"><i
-						class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
-				<li class="layui-nav-item"><a href="article"><i
-						class="fa fa-download fa-fw"></i>&nbsp;资源下载</a></li>
-				<li class="layui-nav-item"><a href="timeline"><i
-						class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
-				<li class="layui-nav-item"><a href="info"><i
-						class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
+            <a href="#"><img src="resource/images/skin4-4.jpg" alt="壁纸4" width="97" height="60"></a>
+            <a href="#"><img src="resource/images/skin5-5.jpg" alt="壁纸5" width="97" height="60"></a>
+            <a href="#"><img src="resource/images/skin6-6.jpg" alt="壁纸6" width="97" height="60"></a>
 
-			</ul>
-			<!-- 手机和平板的导航开关 -->
-			<a class="blog-navicon" href="javascript:;"> <i
-				class="fa fa-navicon"></i>
-			</a>
-		</div>
-	</nav>
+
+        </div>
+        <div class="three">
+
+
+            <a href="#"><img src="resource/images/skin7-7.jpg" alt="壁纸7" width="97" height="59"></a>
+            <a href="#"><img src="resource/images/skin8-8.jpg" alt="壁纸8" width="97" height="59"></a>
+            <a href="#"><img src="resource/images/skin9-9.jpg" alt="壁纸9" width="194" height="123"></a>
+        </div>
+        <div class="four">
+            <a href="#"><img src="resource/images/skin10-10.jpg" alt="壁纸10" width="97" height="60"></a>
+            <a href="#"><img src="resource/images/skin11-11.jpg" alt="壁纸11" width="97" height="60"></a>
+            <a href="#"><img src="resource/images/skin12-12.jpg" alt="壁纸12" width="97" height="60"></a>
+
+        </div>
+    </div>
+</div>
+<!-- 导航 -->
+<nav class="blog-nav layui-header" style="position: relative;">
+
+    <div class="blog-container">
+        <ul>
+            <!-- QQ互联登陆 -->
+            <li class="layui-nav-item"><a href="QQLogin" class="blog-user"><i
+                    class="fa fa-qq"></i></a> <a href="InvalidQQlogin" id="loginout"
+                                                 class="blog-user layui-hide"> <img src="${user.avatarUrl}"
+                                                                                    title="${user.nickName}" />&nbsp;${user.nickName}
+            </a></li>
+        </ul>
+        <!-- MyBlog -->
+        <a class="blog-logo" href="javascript:void(0)"><img src="resource/images/logo.png"  /></a>
+        <!-- 导航菜单 -->
+        <ul class="layui-nav layui-bg-cyan" lay-filter="nav" >
+            <li class="layui-nav-item "><a href="https://www.cczblog.cn"><i
+                    class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
+            <li class="layui-nav-item"><a href="#" id="choose"><i
+                    class="fa  fa-picture-o fa-fw"></i>&nbsp;壁纸切换</a></li>
+            <li class="layui-nav-item layui-this"><a href="timeline"><i
+                    class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
+            <li class="layui-nav-item"><a href="info"><i
+                    class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
+
+        </ul>
+        <!-- 手机和平板的导航开关 -->
+        <a class="blog-navicon" href="javascript:;"> <i
+                class="fa fa-navicon"></i>
+        </a>
+    </div>
+</nav>
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
         <div class="blog-container">
             <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
-                <a href="home.html" title="网站首页">网站首页</a>
-                <a href="timeline.html" title="点点滴滴">点点滴滴</a>
+                <a href="www.cczblog.cn" title="网站首页">网站首页</a>
                 <a><cite>时光轴</cite></a>
             </blockquote>
             <div class="blog-main">
@@ -90,44 +124,30 @@
 			<a href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备17043612号-1</a>
 		</p>
 	</footer>
-    <!--侧边导航-->
-    <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
-        <li class="layui-nav-item">
-            <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
-        </li>
-        <li class="layui-nav-item layui-this">
-            <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
-        </li>
-    </ul>
-    <!--分享窗体-->
-    <div class="blog-share layui-hide">
-        <div class="blog-share-body">
-            <div style="width: 200px;height:100%;">
-                <div class="bdsharebuttonbox">
-                    <a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--侧边导航-->
+<ul
+        class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide"
+        lay-filter="nav">
+    <li class="layui-nav-item layui-this"><a href="index.jsp"><i
+            class="fa fa-home fa-fw"></i>&nbsp;博客首页</a></li>
+    <li class="layui-nav-item"><a href="#" id="choosexs"><i
+            class="fa  fa-picture-o fa-fw"></i>&nbsp;壁纸切换</a></li>
+    <li class="layui-nav-item"><a href="timeline"><i
+            class="fa fa-clock-o fa-fw"></i>&nbsp;开发时光</a></li>
+    <li class="layui-nav-item"><a href="info"><i
+            class="fa fa-location-arrow fa-fw"></i>&nbsp;留下脚印</a></li>
+</ul>
     <!--遮罩-->
     <div class="blog-mask animated layui-hide"></div>
+    <script>
+        var user = "${user}";
+    </script>
     <!-- layui.js -->
     <script src="${pageContext.request.contextPath}/resource/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
     <script src="${pageContext.request.contextPath}/resource/js/global.js"></script>
     <!-- 本页脚本 -->
+
     <script type="text/javascript">
         layui.use(['jquery','layer'], function () {
             var $ = layui.jquery;

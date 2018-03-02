@@ -2,31 +2,45 @@ package com.ssm.shiro;
 
 import com.ssm.dto.ActiveUser;
 import com.ssm.dto.Admin;
-import com.ssm.service.IAdminService;
+import com.ssm.dto.Sys_Pers;
+import com.ssm.service.ISysService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Set;
+
 public class ShiroRealmUtil extends AuthorizingRealm{
 	@Autowired
-	private IAdminService adminService;
+	private ISysService sysService;
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-		System.out.println("授权方法");
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
-		Admin admin = (Admin)principalCollection.getPrimaryPrincipal();//获取登录的用户名
-		System.out.println(admin.getName()+"22222");
-		info.addStringPermission("user:addBlo");
+		ActiveUser activeUser = (ActiveUser)principalCollection.getPrimaryPrincipal();//获取登录
+		List<Sys_Pers> pers=sysService.selectPersByAdminid(activeUser.getUserid());
+		activeUser.setMenus(sysService.getPersTreeGrid(activeUser.getUserid()));
+		activeUser.setPermissions(pers);
+        for(Sys_Pers per : pers){
+			System.out.println(per.getPercode());
+        	info.addStringPermission(per.getPercode().equals("") || per.getPercode()==null?"--" : per.getPercode());
+		}
+		Set<String> list=info.getStringPermissions();
+		for(String s: list){
+			System.out.println(s);
+		}
 		return info;
 	}
-
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg) throws AuthenticationException {
@@ -38,7 +52,7 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 
 		// 第二步：根据用户输入的userCode从数据库查询
 		try {
-			admin = adminService.selectAdmin(principal.toString());
+			admin = sysService.selectAdmin(principal.toString());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -61,6 +75,10 @@ public class ShiroRealmUtil extends AuthorizingRealm{
 		//返回值实例化
 		SimpleAuthenticationInfo info =
 				new SimpleAuthenticationInfo(activeUser, password, ByteSource.Util.bytes(salt),realmName);
+		Subject currentUser = SecurityUtils.getSubject();
+		Session session = currentUser.getSession();
+		activeUser.setMenus(sysService.getPersTreeGrid(activeUser.getUserid()));
+		session.setAttribute("admin",activeUser);
 		return info;
 
 	}

@@ -6,31 +6,32 @@ layui.use(['element', 'layer', 'util', 'form','carousel'], function () {
     $(function(){
     	$("#menuBar").on("click",function(){
     		 var oClass=$(".layui-side").hasClass("mini");
-    		 //alert(oClass)
+
     		 if(!oClass){
     			 $(".layui-side").animate({
-        			 left:"-200px"
+        			 width:"50px"
         		 })
         		 $(".layui-body").animate({
-        			 left:"0"
+        			 left:"50"
         		 })
         		  $(".layui-footer").animate({
-        			 left:"0"
+        			 left:"50"
         		 })
-        		 $(".layui-side").addClass("mini");
+
     		 }else{
     			 $(".layui-side").animate({
-        			 left:"0"
+        			 width:"200px"
         		 })
         		  $(".layui-body").animate({
-        			 left:"200px"
+        			 left:"200"
         		 }) 
         	     $(".layui-footer").animate({
-        			 left:"200px"
+                     left:"200"
         		 })
-        		 $(".layui-side").removeClass("mini");
+
     		 }
-    		
+            $(".layui-side").toggleClass("mini");
+
     	});
     });
     

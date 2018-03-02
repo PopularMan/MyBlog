@@ -3,33 +3,17 @@ body{
 	font-size:14px;
 	font-family:"微软雅黑";
 }
-@font-face {font-family: "iconfont";
-	src: url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.eot?t=1499243955345'); /* IE9*/
-	src: url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.eot?t=1499243955345#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.woff?t=1499243955345') format('woff'), /* chrome, firefox */
-	url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.ttf?t=1499243955345') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-	url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.svg?t=1499243955345#iconfont') format('svg'); /* iOS 4.1- */
-}
 
-.iconfont {
-	font-family:"iconfont" !important;
-	font-size:16px;
-	font-style:normal;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-.icon-menu1::before {
 
-	content: "\e62a";
 
-}
+
 .hideMenu {
 	position: absolute;
-	left:210px;
-	width: 20px;
+	left: 210px;
+	width: 21px;
 	height: 20px;
-	margin: 15px 15px 0 0;
-	font-size: 17px;
+	margin: 16px 14px 0 0;
+	font-size: 18px;
 	text-align: center;
 	padding: 5px 5px;
 	color: #fff;
@@ -42,8 +26,8 @@ body{
     color: #fff;
 }
 .layui-tab-title .layui-this {
-	background-color: #1AA094;
-	color: #fff !important;
+	background-color: #f2f2f2;
+	color: #5FB878 !important;
 	border-radius: 5px;
 }
 .user-photo{
@@ -73,6 +57,12 @@ body{
 	background-color: black;font-family: "微软雅黑";
 	border-bottom: 2px solid #009688;
 }
+
+
+
+
+
+
 <!--张超超-->
 .layui-logo {
 		font-family: bold;

@@ -2,10 +2,8 @@
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >    
     <mapper namespace="com.ssm.dao.IBlogDao" >      
        <insert id="insertBlog" parameterType="com.ssm.dto.Blog" >
-       insert into blogs values(#{blog_id},#{blog_title},#{blog_futitle},#{blog_coverimage},#{blog_type},#{blog_state},#{blog_article},#{blog_author},#{blog_time},#{blog_eyes},#{blog_dz})
-       </insert>    
-       
-       
+       insert into blogs values(#{blog_id},#{blog_title},#{blog_futitle},#{blog_coverimage},#{blog_type},#{blog_state},#{blog_article},#{blog_author},#{blog_time},#{blog_eyes},#{blog_dz},#{blog_tag})
+       </insert>
        <select id="getBlogs" resultType="Map" parameterType="com.ssm.util.PageParam" >
          select  b.blog_id,
                  b.blog_title,
@@ -17,9 +15,18 @@
                  b.blog_author,
                  DATE_FORMAT(b.blog_time,'%y-%m-%d  ') as blog_time,
                  b.blog_eyes,
-                 b.blog_dz
+                 b.blog_dz,
+                 b.blog_tag
                   from blogs b INNER JOIN blog_type t on t.btype_id = b.blog_type
-                 order by b.blog_state desc,b.blog_time desc  limit ${startIndex},${limit}
+                  where 1=1
+                  <if test="param.condition!='' and param.condition!=null ">
+                    and b.blog_title LIKE CONCAT('%','${param.condition}','%' ) or b.blog_futitle LIKE CONCAT('%','${param.condition}','%' ) or
+                      b.blog_article LIKE CONCAT('%','${param.condition}','%' ) or  b.blog_author LIKE CONCAT('%','${param.condition}','%' )
+                  </if>
+                  <if test="param.typeid!='' and param.typeid!=null">
+                   and t.btype_id = ${param.typeid}
+                  </if>
+                 order by b.blog_time desc  limit ${startIndex},${limit}
        </select> 
         <select id="getBlogsCount" resultType="int" >
          select  count(*) from blogs 
@@ -27,6 +34,42 @@
          <select id="selectBlog" resultType="com.ssm.dto.Blog" parameterType="String" >
          select * from blogs where blog_id=#{id}
        </select> 
-       
-      
+       <!--批量删除博客-->
+       <delete id="deleteBlogs" parameterType="String">
+           DELETE  FROM  blogs where blog_id in
+           <foreach item="blogIds" collection="array" open="(" separator="," close=")">
+               #{blogIds}
+           </foreach>
+
+
+       </delete>
+     <update id="updateBlog" parameterType="com.ssm.dto.Blog">
+           update blogs set
+           blog_title=#{blog_title},blog_futitle=#{blog_futitle},blog_coverimage=#{blog_coverimage},blog_type=#{blog_type},blog_state=#{blog_state}
+           ,blog_article=#{blog_article},blog_author=#{blog_author},blog_eyes=#{blog_eyes},blog_time=#{blog_time},blog_tag=#{blog_tag} where blog_id=#{blog_id}
+
+
+     </update>
+
+    <select id="selectBlogComment" parameterType="string" resultType="map">
+
+        SELECT
+        users.userid,
+        users.nickName,
+        users.avatarUrl,
+        users.userlocation,
+        blogs_comment.comment_date,
+        blogs_comment.comment_content
+        FROM
+        blogs_comment ,
+        users
+        WHERE
+        blogs_comment.comment_userid = users.userid
+        and blogs_comment.comment_blogid=#{blogid}
+    </select>
+    <insert id="insertBlogComment" parameterType="map" >
+     INSERT INTO blogs_comment  VALUES (#{comment_id},#{comment_userid},#{comment_blogid},#{comment_content},#{comment_date},#{comment_state})
+
+    </insert>
+
     </mapper>    

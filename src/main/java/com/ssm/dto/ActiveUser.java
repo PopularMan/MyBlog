@@ -35,6 +35,16 @@ public class ActiveUser implements java.io.Serializable {
 	}
 
 	private List<Sys_Pers> permissions;// 权限
+	private List<Sys_Pers> menus;
+
+	public List<Sys_Pers> getMenus() {
+		return menus;
+	}
+
+	public void setMenus(List<Sys_Pers> menus) {
+		this.menus = menus;
+	}
+
 	public String getUsername() {
 		return username;
 	}
