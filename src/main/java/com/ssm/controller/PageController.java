@@ -51,6 +51,8 @@ public class PageController {
    public String adminUser(@PathVariable("page")String page,HttpServletRequest request) throws Exception {
        if(StringUtils.isBlank(page)) {
     	   return "view/sys/index";
+       }else if(page.equals("403")){
+           return "view/error/403";
        }
 	   return "view/sys/"+page;
    }
