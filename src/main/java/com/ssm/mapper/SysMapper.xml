@@ -151,7 +151,7 @@
            insert into sys_logs values(0,#{sys_loginame},#{sys_logintime},#{sys_logaddress},#{sys_logip},#{sys_czrz})
        </insert>
       <select id="selectLogs" parameterType="com.ssm.util.PageParam" resultType="map">
-           select sys_logid,sys_loginame,DATE_FORMAT(sys_logintime,'%y-%m-%d  %h:%m:%s') as sys_logintime,sys_logaddress,sys_logip,sys_czrz from sys_logs
+           select sys_logid,sys_loginame,DATE_FORMAT(sys_logintime,'%y-%m-%d  %H:%m:%S') as sys_logintime,sys_logaddress,sys_logip,sys_czrz from sys_logs
            order by sys_logintime  DESC
            limit ${startIndex},${limit}
       </select>

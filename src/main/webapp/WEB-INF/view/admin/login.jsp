@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0"> 
+    <meta http-equiv="expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	<title>登录界面</title>
 
 	<link href="../resource/css/login.css" rel="stylesheet" type="text/css" />

@@ -58,14 +58,14 @@ layui.use(['element', 'layer', 'util', 'form','carousel','flow'], function () {
                                         '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">' + item.btype_name + '</a></span>' +
                                         '<span class="article-viewinfo"><i class="fa fa-thumbs-o-up"></i>&nbsp;' + item.blog_dz + '</span>' +
                                         '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + item.blog_eyes + '</span>' +
-                                        '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;' + item.blog_dz + '</span></div>' +
+                                        '</div>' +
                                         '</div>';
                                     lis.push('<li>' + blog + '</li>');
                                 }
                             });
                             //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
                             //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
-                            next(lis.join(''), page < count);
+                            next(lis.join(''), page < count/limit);
                         });
                     }, 500);
 
